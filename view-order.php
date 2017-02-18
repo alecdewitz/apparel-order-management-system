@@ -29,8 +29,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/components.css" rel="stylesheet" id="style_components" type="text/css"/>
-    <link href="assets/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="./assets/css/components.css" rel="stylesheet" id="style_components" type="text/css"/>
+    <link href="./assets/css/layout.css" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="favicon.ico"/>
     <style>
         .theme-panel {
@@ -74,7 +74,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 
                                                         </ul>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>

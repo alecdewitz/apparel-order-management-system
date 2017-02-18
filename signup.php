@@ -99,7 +99,7 @@ body {
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">stay_current_portrait</i>
-                        <input required="" aria-required="true" name="phone" id="phone" placeholder="9522223333" type="tel" length="10">
+                        <input required="" aria-required="true" name="phone" id="phone" placeholder="9522223333" type="tel">
                         <label for="phone">Phone</label>
                     </div>
                 </div>

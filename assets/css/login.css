@@ -9,9 +9,8 @@ Login page
     color: #edf4f8 !important; }
 
 .login .logo {
-  margin: 0 auto;
-  margin-top: 100px;
-  padding: 15px;
+    margin: 100px auto 0;
+    padding: 15px;
   text-align: center; }
 
 .login .content {
@@ -43,11 +42,10 @@ Login page
 
 .login .content .login-form,
 .login .content .forget-form {
-  padding: 0px;
-  margin: 0px; }
+  padding: 0;
+  margin: 0; }
 
 .login .content .form-control {
-  border: none;
   background-color: #6ba3c8;
   border: 1px solid #6ba3c8;
   height: 43px;
@@ -78,20 +76,13 @@ Login page
 
 .login .content .form-actions {
   clear: both;
-  border: 0px;
-  padding: 0px 30px 25px 30px;
+  border: 0;
+  padding: 0 30px 25px 30px;
   margin-left: -30px;
   margin-right: -30px; }
 
 .form-actions .forget-password-block {
   padding-top: 7px; }
-
-.login-options {
-  margin-top: 30px;
-  padding-top: 20px;
-  padding-bottom: 50px;
-  border-top: 1px solid #69a0c4;
-  border-bottom: 1px solid #69a0c4; }
 
 .login-options h4 {
   margin-top: 8px;
@@ -101,10 +92,6 @@ Login page
 
 .login .forget-password {
   font-size: 14px; }
-
-.login-options .social-icons {
-  float: right;
-  padding-top: 3px; }
 
 .login-options .social-icons li a {
   border-radius: 15px 15px 15px 15px !important;
@@ -119,11 +106,7 @@ Login page
 .login .content .register-form .form-actions {
   border: 0;
   margin-bottom: 0;
-  padding-bottom: 0px; }
-
-.login .content .form-actions .checkbox {
-  margin-top: 8px;
-  display: inline-block; }
+  padding-bottom: 0; }
 
 .login .content .form-actions .btn {
   margin-top: 1px; }
@@ -194,10 +177,9 @@ Login page
   ***/
   .login .logo {
     margin-top: 30px;
-    padding: 0px; }
+    padding: 0; }
   .login .content {
     width: 245px; }
   .login .content h3 {
     font-size: 22px; }
-  .login .checkbox {
-    font-size: 13px; } }
+}

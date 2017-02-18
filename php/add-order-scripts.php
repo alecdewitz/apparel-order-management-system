@@ -1,15 +1,10 @@
 <?php
-include 'php/connection.php';
+include './php/connection.php';
 
 $error = '';
 $success = '';
-$order;
 
 if (isset($_POST['date_order'])) {
-    //     foreach ( $_POST['order'] as $order ) {
-// echo $order;
-
-//     }
 
         if (empty($_POST['date_order'])) {
             $_SESSION['errors'] = true;

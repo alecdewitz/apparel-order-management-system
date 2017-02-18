@@ -1,6 +1,6 @@
 <?php
-include('php/session.php');
-include('php/add-order-scripts.php');
+include('./php/session.php');
+include('./php/add-order-scripts.php');
 
 ?>
 
@@ -58,7 +58,7 @@ include('php/add-order-scripts.php');
                                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                                         <ul class="theme-colors">
                                                             <li class="theme-color theme-color-default" data-theme="default">
-                                                                <a href="./logout"><span class="theme-color-name"><i class="fa fa-sign-out"></i> Logout</span></a>
+                                                                <a href="./logout.php"><span class="theme-color-name"><i class="fa fa-sign-out"></i> Logout</span></a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -74,7 +74,7 @@ include('php/add-order-scripts.php');
                         <div class="container">
                             <ul class="page-breadcrumb breadcrumb">
                                 <li>
-                                    <a href="./orders">Dashboard</a>
+                                    <a href="./orders.php">Dashboard</a>
                                     <i class="fa fa-circle"></i>
                                 </li>
                                 <li>
@@ -91,7 +91,7 @@ include('php/add-order-scripts.php');
                                                         <i class="fa fa-shopping-cart"></i>New Order
                                                     </div>
                                                     <div class="actions btn-set">
-                                                        <a href="./orders" name="back" class="btn btn-danger">
+                                                        <a href="./orders.php" name="back" class="btn btn-danger">
                                                             <i class="fa fa-angle-left"></i> Back</a>
                                                         <button class="btn btn-success">
                                                             <i class="fa fa-check"></i> Save
@@ -181,7 +181,7 @@ include('php/add-order-scripts.php');
                                                                         </label>
                                                                         <div class="col-md-10">
                                                                             <input type="text" class="form-control" name="cost_per" placeholder="">
-                                                                            <span class="help-block"> (<a target="_blank" href="./calculator">link to calculator</a>) </span>
+                                                                            <span class="help-block"> (<a target="_blank" href="./calculator.php">link to calculator</a>) </span>
                                                                         </div>
                                                                     </div>
 

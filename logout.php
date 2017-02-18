@@ -11,4 +11,3 @@ if(isset($_GET['multiple-sessions'])){
 if(session_destroy()) {
     header("Location: ./?logged_out=true");
 }
-?>

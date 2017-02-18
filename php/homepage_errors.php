@@ -17,4 +17,3 @@ if(isset($_COOKIE['login_required'])) {
     setcookie("login_required", "", time() - 100, "/"); //deletes cookie
 }
 
-?>

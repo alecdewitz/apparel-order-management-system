@@ -7,7 +7,7 @@ if(!isset($_SESSION['logged_user'])){
     header('Location: ./');
 }
 
-require('php/connection.php');
+require('./php/connection.php');
 
 $user_check=$_SESSION['logged_user'];
 $query_ses = "SELECT * FROM accounts WHERE username='$user_check'";
@@ -40,5 +40,3 @@ $interviewer_position =$row['position'];
 // $num_rows_users = $query_users_run->num_rows;
 // $users_sql= mysqli_query($connection, $query_users);
 
-
-?>

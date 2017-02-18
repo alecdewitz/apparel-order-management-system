@@ -40,4 +40,3 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         }
         $connection->close(); // Closing Connection
 }
-?>

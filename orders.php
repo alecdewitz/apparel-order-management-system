@@ -49,11 +49,6 @@ include('php/get-orders-scripts.php');
     .theme-panel {
         min-width: 200px;
     }
-
-    .page-footer {
-        background: #3b434c;
-        color: #a2abb7;
-    }
 </style>
 
 <body class="page-container-bg-solid">
@@ -82,7 +77,7 @@ include('php/get-orders-scripts.php');
                                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                                         <ul class="theme-colors">
                                                             <li class="theme-color theme-color-default" data-theme="default">
-                                                                <a href="./logout"><span class="theme-color-name"><i class="fa fa-sign-out"></i> Logout</span></a>
+                                                                <a href="./logout.php"><span class="theme-color-name"><i class="fa fa-sign-out"></i> Logout</span></a>
                                                             </li>
 
                                                         </ul>
@@ -138,7 +133,7 @@ include('php/get-orders-scripts.php');
                                                 <div class="number"> $<?php echo $total_profit; ?></div>
                                                 <div class="desc"> Estimated Profit</div>
                                             </div>
-                                            <a class="more" href="javascript:;"> View more
+                                            <a class="more" href="#"> View more
                                                 <i class="m-icon-swapright m-icon-white"></i>
                                             </a>
                                         </div>
@@ -165,7 +160,7 @@ include('php/get-orders-scripts.php');
                                                 </div>
                                                 <div class="actions">
                                                     <div class="btn-group">
-                                                        <a class="btn btn-primary btn-sm" href="./add-order"> Add New
+                                                        <a class="btn btn-primary btn-sm" href="./add-order.php"> Add New
                                                         </a>
                                                     </div>
                                                 </div>
@@ -214,11 +209,13 @@ include('php/get-orders-scripts.php');
                                                                     ?>
                                                                     <tr <?php if (isset($_SESSION['order_id_updated'])) {
                                                                         if ($_SESSION['order_id_updated'] == $row['order_id']) {
-                                                                            echo 'class="updated-order"';
+                                                                            ?>
+                                                                            class="updated-order"
+                                                                            <?php
                                                                             unset($_SESSION['order_id_updated']);
                                                                         }
                                                                     } ?>>
-                                                                        <td><a class="" href="./view-order?order_id=<?php echo $row['order_id'] ?>"> <?php echo $row['order_number'] ?></a></td>
+                                                                        <td><a class="" href="./view-order.php?order_id=<?php echo $row['order_id'] ?>"> <?php echo $row['order_number'] ?></a></td>
                                                                         <td> <?php echo $row['date_order'] ?> </td>
                                                                         <?php
                                                                         if (empty($row['submitted_task'])) {
@@ -247,8 +244,8 @@ include('php/get-orders-scripts.php');
                                                                         <td> <?php echo $row['s'] + $row['m'] + $row['l'] + $row['xl'] + $row['xxl'] + $row['xxxl'] ?> </td>
                                                                         <td> <?php echo $row['cost_total'] ?> </td>
                                                                         <td> <?php echo $row['revenue'] ?> </td>
-                                                                        <td><a class="btn btn-xs btn-default" href="./view-order?order_id=<?php echo $row['order_id'] ?>"><i class="fa fa-search"></i> View</a>
-                                                                            <a class="btn btn-xs btn-default" href="./edit-order?order_id=<?php echo $row['order_id'] ?>"><i class="fa fa-edit"></i> Edit</a></td>
+                                                                        <td><a class="btn btn-xs btn-default" href="./view-order.php?order_id=<?php echo $row['order_id'] ?>"><i class="fa fa-search"></i> View</a>
+                                                                            <a class="btn btn-xs btn-default" href="./edit-order.php?order_id=<?php echo $row['order_id'] ?>"><i class="fa fa-edit"></i> Edit</a></td>
                                                                     </tr>
                                                                     <?php
                                                                 }

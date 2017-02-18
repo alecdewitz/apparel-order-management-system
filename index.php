@@ -74,7 +74,7 @@ include('php/homepage_errors.php');
                 </label>
             </div>
             <div class="pull-right forget-password-block">
-                <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+                <a href="#" id="forget-password" class="forget-password">Forgot Password?</a>
             </div>
         </div>
         <div class="create-account">
@@ -84,7 +84,7 @@ include('php/homepage_errors.php');
         </div>
     </form>
 
-    <form class="forget-form" action="index.html" method="post">
+    <form class="forget-form" action="index.php" method="post">
         <div class="form-title">
             <span class="form-title">Forget Password ?</span>
             <span class="form-subtitle">Enter your e-mail to reset it.</span>
@@ -97,7 +97,7 @@ include('php/homepage_errors.php');
         </div>
     </form>
 
-    <form class="register-form" action="index.html" method="post">
+    <form class="register-form" action="index.php" method="post">
         <div class="form-title">
             <span class="form-title">Sign Up</span>
         </div>
@@ -127,8 +127,8 @@ include('php/homepage_errors.php');
         <div class="form-group margin-top-20 margin-bottom-20">
             <label class="mt-checkbox mt-checkbox-outline">
                 <input type="checkbox" name="tnc"/> I agree to the
-                <a href="javascript:;">Terms of Service </a> &
-                <a href="javascript:;">Privacy Policy </a>
+                <a href="#">Terms of Service </a> &
+                <a href="#">Privacy Policy </a>
                 <span></span>
             </label>
             <div id="register_tnc_error"></div>

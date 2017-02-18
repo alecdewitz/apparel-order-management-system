@@ -28,4 +28,3 @@ $num_sales = $stats_result->num_rows;
 
 
 
-?>

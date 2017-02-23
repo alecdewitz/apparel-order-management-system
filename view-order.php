@@ -348,10 +348,5 @@ while ($order = mysqli_fetch_assoc($result)) {
             </div>
         </div>
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
 
-<?php }
-require('./php/footer.php'); ?>
+<?php } include('./php/footer.php'); ?>

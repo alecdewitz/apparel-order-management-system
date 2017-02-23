@@ -185,31 +185,5 @@ include('./php/header.php');
         </div>
     </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="page-wrapper-row">
-    <div class="page-wrapper-bottom">
-        <div class="page-footer">
-            <div class="container"> 2017 &copy; T-Spot
-                <a target="_blank" href="https://alecdewitz.com">Alec Dewitz</a>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-
-<script>
-    //init date-picker
-    $('.date-picker').datepicker({
-        autoclose: true
-    });
-</script>
-</body>
-
-</html>
+<?php include('./php/footer.php'); ?>

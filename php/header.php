@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <title>Order Management | Dashboard</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta content="Order management software for apparel and clothing companies." name="description"/>
     <meta content="Alec Dewitz" name="author"/>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>

@@ -1426,6 +1426,7 @@ Theme Panel
         padding: 4px 0 !important; }
       .scroller {
         overflow: scroll;
+        -webkit-overflow-scrolling: touch;
       }
 
 /***  

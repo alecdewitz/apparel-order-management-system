@@ -37,21 +37,18 @@ include('php/homepage_errors.php');
         <?php if (isset($multiple_sessions)) { ?>
 
             <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button>
                 <span> You have logged in from another computer. <br> You may only be logged in from <b>one</b> location at a time. <br> This session has ended. </span>
             </div>
 
         <?php } else if (isset($invalid)) { ?>
 
             <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button>
                 <span> Username or password is invalid. </span>
             </div>
 
         <?php } else if (isset($login_required)) { ?>
 
             <div class="alert alert-warning">
-                <button class="close" data-close="alert"></button>
                 <span> You must login to see that page. </span>
             </div>
 

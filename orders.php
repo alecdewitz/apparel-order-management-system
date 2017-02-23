@@ -5,51 +5,22 @@ include('./php/header.php');
 ?>
 
 
-    <div class="page-wrapper-row full-height">
-        <div class="page-wrapper-middle">
-            <div class="page-container">
-                <div class="page-content-wrapper">
-                    <div class="page-head">
-                        <div class="container">
-                            <div class="page-title">
-                                <h1>Orders
-                                    <small>dashboard</small>
-                                </h1>
-                            </div>
-                            <div class="page-toolbar">
-                                <div class="btn-group btn-theme-panel">
-                                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-cog" aria-hidden="true"></i>
-                                    </a>
-                                    <div class="dropdown-menu theme-panel pull-right dropdown-custom hold-on-click">
-                                        <div class="row">
-                                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <h3><?php echo $user_check; ?></h3>
-                                                <div class="row">
-                                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                                        <ul class="theme-colors">
-                                                            <li class="theme-color theme-color-default" data-theme="default">
-                                                                <a href="./logout.php"><span class="theme-color-name"><i class="fa fa-sign-out"></i> Logout</span></a>
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="page-content">
                         <div class="container">
                             <ul class="page-breadcrumb breadcrumb">
-                                <li>
-                                    <span>Dashboard</span>
-                                </li>
+                                <ul class="page-breadcrumb breadcrumb">
+                                    <li>
+                                        <span>Order History</span>
+                                        <i class="fa fa-circle"></i>
+                                    </li>
+                                    <li>
+                                        <a href="./orders-regular.php">Regular Orders</a>
+                                        <i class="fa fa-circle"></i>
+                                    </li>
+                                    <li>
+                                        <a href="./orders-individual.php">Individual Orders</a>
+                                    </li>
+                                </ul>
                             </ul>
 
                             <div class="page-content-inner">
@@ -72,7 +43,7 @@ include('./php/header.php');
                                             </div>
                                             <div class="details">
                                                 <div class="number"> $<?php echo $total_costs; ?></div>
-                                                <div class="desc"> Estimated Costs</div>
+                                                <div class="desc"> Estimated Expenses</div>
                                             </div>
                                         </div>
                                     </div>
@@ -108,7 +79,7 @@ include('./php/header.php');
                                             <div class="portlet-title">
                                                 <div class="caption">
                                                     <i class="icon-share font-blue"></i>
-                                                    <span class="caption-subject font-blue bold uppercase">Overview 2017</span>
+                                                    <span class="caption-subject font-blue bold uppercase">Regular Orders</span>
                                                 </div>
                                                 <div class="actions">
                                                     <div class="btn-group">
@@ -144,14 +115,13 @@ include('./php/header.php');
                                                             <table class="table table-striped table-hover table-bordered">
                                                                 <thead>
                                                                 <tr>
-                                                                    <th> Order No.</th>
+                                                                    <th> Order #</th>
                                                                     <th> Date</th>
                                                                     <th> Status</th>
-                                                                    <th> Client</th>
+                                                                    <th> Description</th>
                                                                     <th> Quantity</th>
-                                                                    <th> Cost</th>
-                                                                    <th> Price</th>
-                                                                    <th></th>
+                                                                    <th> Revenue</th>
+                                                                    <th> Actions</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -164,9 +134,8 @@ include('./php/header.php');
                                                                             ?>
                                                                             class="updated-order"
                                                                             <?php
-                                                                            unset($_SESSION['order_id_updated']);
-                                                                        }
-                                                                    } ?>>
+                                                                            unset($_SESSION['order_id_updated']); } } ?>
+                                                                    >
                                                                         <td><a class="" href="./view-order.php?order_id=<?php echo $row['order_id'] ?>"> <?php echo $row['order_number'] ?></a></td>
                                                                         <td> <?php echo $row['date_order'] ?> </td>
                                                                         <?php
@@ -191,10 +160,9 @@ include('./php/header.php');
                                                                             <td class="order-complete"><strong>Complete </strong></td>
                                                                             <?php
                                                                         } ?>
-
                                                                         <td> <?php echo $row['client'] ?> </td>
                                                                         <td> <?php echo $row['s'] + $row['m'] + $row['l'] + $row['xl'] + $row['xxl'] + $row['xxxl'] ?> </td>
-                                                                        <td> <?php echo $row['cost_total'] ?> </td>
+<!--                                                                        <td> --><?php //echo $row['cost_total'] ?><!-- </td>-->
                                                                         <td> <?php echo $row['revenue'] ?> </td>
                                                                         <td><a class="btn btn-xs btn-default" href="./view-order.php?order_id=<?php echo $row['order_id'] ?>"><i class="fa fa-search"></i> View</a>
                                                                             <a class="btn btn-xs btn-default" href="./edit-order.php?order_id=<?php echo $row['order_id'] ?>"><i class="fa fa-edit"></i> Edit</a></td>

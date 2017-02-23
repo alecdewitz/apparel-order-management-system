@@ -20,44 +20,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 
 
-    <div class="page-wrapper-row full-height">
-        <div class="page-wrapper-middle">
-            <div class="page-container">
-                <div class="page-content-wrapper">
-                    <div class="page-head">
-                        <div class="container">
-                            <div class="page-title">
-                                <h1> Orders
-                                    <small>edit</small>
-                                </h1>
-                            </div>
-                            <div class="page-toolbar">
-                                <div class="btn-group btn-theme-panel">
-                                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-cog" aria-hidden="true"></i>
-                                    </a>
-                                    <div class="dropdown-menu theme-panel pull-right dropdown-custom hold-on-click">
-                                        <div class="row">
-                                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <h3><?php echo $user_check; ?></h3>
-                                                <div class="row">
-                                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                                        <ul class="theme-colors">
-                                                            <li class="theme-color theme-color-default" data-theme="default">
-                                                                <a href="./logout.php"><span class="theme-color-name"><i class="fa fa-sign-out"></i> Logout</span></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
                     <div class="page-content">
                         <div class="container">
 

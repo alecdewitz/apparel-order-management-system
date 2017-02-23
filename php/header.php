@@ -166,12 +166,14 @@
                                 <li class="dropdown dropdown-user dropdown-dark">
                                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                         <img alt="" class="img-circle" src="./assets/img/user.png">
-                                        <span class="username ">Nick</span>
+                                        <span class="username "><?php echo $logged_user['fullname']; ?></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-default">
                                         <li>
-                                            <a href="page_user_profile_1.html">
-                                                <i class="icon-user"></i> My Profile </a>
+                                            <a href="#">
+                                                <i class="icon-user"></i>
+                                                <span class=""><?php echo $logged_user['username']; ?></span>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="app_calendar.html">
@@ -191,11 +193,11 @@
                                         </li>
                                         <li class="divider"></li>
                                         <li>
-                                            <a href="page_user_lock_1.html">
-                                                <i class="icon-lock"></i> Lock Screen </a>
+                                            <a href="./lock.php">
+                                                <i class="icon-lock"></i> Lock Session </a>
                                         </li>
                                         <li>
-                                            <a href="page_user_login_1.html">
+                                            <a href="./logout.php">
                                                 <i class="icon-key"></i> Log Out </a>
                                         </li>
                                     </ul>

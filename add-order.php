@@ -5,9 +5,6 @@ include('./php/header.php');
 ?>
 
 
-
-<body class="page-container-bg-solid">
-<div class="page-wrapper">
     <div class="page-wrapper-row full-height">
         <div class="page-wrapper-middle">
             <div class="page-container">

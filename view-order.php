@@ -19,8 +19,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 ?>
 
 
-<body class="page-container-bg-solid">
-<div class="page-wrapper">
     <div class="page-wrapper-row full-height">
         <div class="page-wrapper-middle">
             <div class="page-container">

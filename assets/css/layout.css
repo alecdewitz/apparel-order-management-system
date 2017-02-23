@@ -85,7 +85,12 @@ Page Header
       width: 255px;
       height: 75px; }
       .page-header .page-header-top .page-logo .logo-default {
-        margin: 29.5px 0 0 0; }
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 80%;
+
+      }
     .page-header .page-header-top .top-menu {
       margin: 13px 0 0;
       padding: 0;
@@ -151,7 +156,7 @@ Page Header
             .page-header .page-header-top .top-menu .navbar-nav > li.dropdown > .dropdown-menu:after {
               position: absolute;
               top: -7px;
-              right: 10px;
+              right: 18px;
               display: inline-block !important;
               border-right: 7px solid transparent;
               border-bottom: 7px solid #fff;
@@ -324,7 +329,7 @@ Page Header
             float: left; }
           .page-header .page-header-top .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle > .username {
             float: left;
-            font-size: 400;
+            font-weight: 400;
             font-size: 14px;
             margin-top: 4px;
             margin-right: 2px; }
@@ -385,8 +390,6 @@ Page Header
       margin: 23px 3px 0 13px;
       width: 40px;
       height: 30px;
-      background: url(../img/menu-toggler.png) center center;
-      background-repeat: no-repeat;
       opacity: 0.7 ;
       filter: alpha(opacity=70) ; }
       .page-header .page-header-top .menu-toggler:hover {
@@ -588,7 +591,10 @@ Page Header
         .page-header .page-header-top .top-menu .navbar-nav > li {
           float: left; }
       .page-header .page-header-top .menu-toggler {
-        display: block; }
+        display: block;
+        color: #c1ccd1;
+        font-size: 21px;
+      }
     .page-header .page-header-menu {
       background: #eff3f8;
       padding: 20px 0 0 0;
@@ -1418,6 +1424,9 @@ Theme Panel
         margin-top: -4px; }
       .page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-settings .page-quick-sidebar-settings-list .list-items li select.form-control {
         padding: 4px 0 !important; }
+      .scroller {
+        overflow: scroll;
+      }
 
 /***  
 Page Loading      

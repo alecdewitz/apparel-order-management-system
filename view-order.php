@@ -1,6 +1,7 @@
 <?php
-include('php/session.php');
-include('php/get-orders-scripts.php');
+require('./php/session.php');
+include('./php/header.php');
+include('./php/get-orders-scripts.php');
 
 if ($result->num_rows == 0) {
     $_SESSION['order_not_found'] = true;
@@ -17,31 +18,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 ?>
 
-<!DOCTYPE html>
-
-<head>
-    <meta charset="utf-8"/>
-    <title>Order Management | Dashboard</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <meta content="Order management software for apparel and clothing companies." name="description"/>
-    <meta content="Alec Dewitz" name="author"/>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="./assets/css/components.css" rel="stylesheet" id="style_components" type="text/css"/>
-    <link href="./assets/css/layout.css" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" href="favicon.ico"/>
-    <style>
-        .theme-panel {
-            min-width: 200px;
-        }
-        .check-done {
-            color: green;
-            font-size: 20px;
-        }
-    </style>
-</head>
 
 <body class="page-container-bg-solid">
 <div class="page-wrapper">
@@ -415,30 +391,5 @@ while ($row = mysqli_fetch_assoc($result)) {
             </div>
         </div>
     </div>
-    <div class="page-wrapper-row">
-        <div class="page-wrapper-bottom">
-            <div class="page-footer">
-                <div class="container"> 2016 &copy; T-Spot
-                    <a target="_blank" href="http://alecdewitz.com">Alec Dewitz</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-confirmation/1.0.5/bootstrap-confirmation.min.js" type="text/javascript"></script>
-
-<script>
-    $('[data-toggle=confirmation]').confirmation({
-        btnOkLabel: 'Yes',
-        btnCancelLabel: 'No',
-        placement: 'top'
-    });
-</script>
-
-</body>
-<?php } ?>
-
-</html>
+    <?php } require('./php/footer.php'); ?>

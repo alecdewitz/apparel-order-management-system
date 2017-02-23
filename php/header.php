@@ -216,7 +216,7 @@
                         <!--                                        </span>-->
                         <!--                            </div>-->
                         <!--                        </form>-->
-                        <div class="hor-menu  ">
+                        <div class="hor-menu hor-menu-light">
                             <ul class="nav navbar-nav">
                                 <li class="menu-dropdown classic-menu-dropdown ">
                                     <a href="dashboard.php">
@@ -238,7 +238,7 @@
                                         </li>
                                         <li class=" ">
                                             <a href="orders.php" class="nav-link  ">
-                                                <i class="fa fa-user" aria-hidden="true"></i> Regular Orders </a>
+                                                <i class="fa fa-user" aria-hidden="true"></i> Client Orders </a>
                                         </li>
                                         <li class=" ">
                                             <a href="orders.php" class="nav-link  ">

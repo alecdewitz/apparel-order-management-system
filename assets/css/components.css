@@ -5284,7 +5284,8 @@ Form Layouts
     font-size: 14px; }
   .static-info .value {
     font-size: 14px;
-    font-weight: 600; }
+    font-weight: 600;
+    word-wrap: break-word;}
   .static-info.align-reverse .name,
   .static-info.align-reverse .value {
     text-align: right; }

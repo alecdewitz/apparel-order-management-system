@@ -1,3 +1,7 @@
+</div>
+</div>
+</div>
+</div>
 <div class="page-wrapper-row">
         <div class="page-wrapper-bottom">
             <div class="page-footer">

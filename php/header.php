@@ -66,6 +66,12 @@
             color: green;
             font-size: 20px;
         }
+        div.tab-pane div.table-responsive {
+            -webkit-overflow-scrolling: touch;
+        }
+        a.company-name {
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -83,8 +89,9 @@
                     <div class="container">
                         <!-- BEGIN LOGO -->
                         <div class="page-logo">
-                            <a href="dashboard.php">
-                                <img src="./assets/img/logo.png" alt="logo" class="logo-default">
+                            <a class="company-name" href="dashboard.php">
+<!--                                <img src="./assets/img/logo.png" alt="logo" class="logo-default">-->
+                                <h1><?php echo $settings['company_name']; ?></h1>
                             </a>
                         </div>
                         <a href="#" class="menu-toggler"><i class="fa fa-bars" aria-hidden="true"></i></a>
@@ -166,13 +173,13 @@
                                 <li class="dropdown dropdown-user dropdown-dark">
                                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                         <img alt="" class="img-circle" src="./assets/img/user.png">
-                                        <span class="username "><?php echo $logged_user['fullname']; ?></span>
+                                        <span class="username "><?php echo $user['fullname']; ?></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-default">
                                         <li>
                                             <a href="#">
                                                 <i class="icon-user"></i>
-                                                <span class=""><?php echo $logged_user['username']; ?></span>
+                                                <span class=""><?php echo $user['username']; ?></span>
                                             </a>
                                         </li>
                                         <li>
@@ -244,7 +251,7 @@
                                         </li>
                                         <li class=" ">
                                             <a href="orders.php" class="nav-link  ">
-                                                <i class="fa fa-users" aria-hidden="true"></i> Individual Orders
+                                                <i class="fa fa-users" aria-hidden="true"></i> Retail Orders
                                                 <!--                                                <span class="badge badge-danger">3</span>-->
                                             </a>
                                         </li>
@@ -252,7 +259,7 @@
                                 </li>
 
                                 <li class="menu-dropdown classic-menu-dropdown ">
-                                    <a href="logout.php">
+                                    <a href="./logout.php">
                                         <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
                                     </a>
                                 </li>
@@ -281,7 +288,7 @@
                                     <div class="dropdown-menu theme-panel pull-right dropdown-custom hold-on-click">
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <h3><?php echo $user_check; ?></h3>
+                                                <h3><?php echo $user['username']; ?></h3>
                                                 <div class="row">
                                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                                         <ul class="theme-colors">

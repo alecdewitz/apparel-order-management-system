@@ -17,7 +17,7 @@ include('./php/header.php');
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <a href="./orders-individual.php">Individual Orders</a>
+                        <a href="./orders-retail.php">Retail Orders</a>
                     </li>
                 </ul>
             </ul>
@@ -128,10 +128,10 @@ include('./php/header.php');
                                                 <tbody>
 
                                                 <?php
-                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                while ($client_order = mysqli_fetch_assoc($result)) {
                                                     ?>
                                                     <tr <?php if (isset($_SESSION['order_id_updated'])) {
-                                                        if ($_SESSION['order_id_updated'] == $row['order_id']) {
+                                                        if ($_SESSION['order_id_updated'] == $client_order['order_id']) {
                                                             ?>
                                                             class="updated-order"
                                                             <?php
@@ -139,25 +139,25 @@ include('./php/header.php');
                                                         }
                                                     } ?>
                                                     >
-                                                        <td><a class="" href="./view-order.php?order_id=<?php echo $row['order_id'] ?>"> <?php echo $row['order_number'] ?></a></td>
-                                                        <td> <?php echo $row['date_order'] ?> </td>
-                                                        <td> <a class="" href="./view-order.php?order_id=<?php echo $row['order_id'] ?>"> <?php if (strlen($row['description']) > 20) { echo substr($row['description'],0,20) . "..."; } else echo $row['description']; ?></a></td>
-                                                        <?php if (empty($row['submitted_task'])) { ?>
-                                                            <td class="order-not-sent"><strong>Not Sent </strong><a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $row['order_id'] ?>&task=submitted"><i class="fa fa-check-circle-o"></i> Submitted</a></td>
-                                                        <?php } elseif (empty($row['paid_invoice_task'])) { ?>
-                                                            <td class="order-unpaid-invoice"><strong>Unpaid TCT </strong><a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $row['order_id'] ?>&task=paid"><i class="fa fa-check-circle-o"></i> Paid</a></td>
-                                                        <?php } elseif (empty($row['sent_invoice_task'])) { ?>
-                                                            <td class="order-invoice-customer"><strong>Send Invoice </strong> <a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $row['order_id'] ?>&task=sent"><i class="fa fa-check-circle-o"></i> Sent</a></td>
-                                                        <?php } elseif (empty($row['received_task'])) { ?>
-                                                            <td class="order-unreceived"><strong> Payment </strong> <a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $row['order_id'] ?>&task=received"><i class="fa fa-check-circle-o"></i> Received</a></td>
+                                                        <td><a class="" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"> <?php echo $client_order['order_number'] ?></a></td>
+                                                        <td> <?php echo $client_order['date_order'] ?> </td>
+                                                        <td> <a class="" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"> <?php if (strlen($client_order['description']) > 20) { echo substr($client_order['description'],0,20) . "..."; } else echo $client_order['description']; ?></a></td>
+                                                        <?php if (empty($client_order['submitted_task'])) { ?>
+                                                            <td class="order-not-sent"><strong>Not Sent </strong><a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $client_order['order_id'] ?>&task=submitted"><i class="fa fa-check-circle-o"></i> Submitted</a></td>
+                                                        <?php } elseif (empty($client_order['paid_invoice_task'])) { ?>
+                                                            <td class="order-unpaid-invoice"><strong>Unpaid TCT </strong><a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $client_order['order_id'] ?>&task=paid"><i class="fa fa-check-circle-o"></i> Paid</a></td>
+                                                        <?php } elseif (empty($client_order['sent_invoice_task'])) { ?>
+                                                            <td class="order-invoice-customer"><strong>Send Invoice </strong> <a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $client_order['order_id'] ?>&task=sent"><i class="fa fa-check-circle-o"></i> Sent</a></td>
+                                                        <?php } elseif (empty($client_order['received_task'])) { ?>
+                                                            <td class="order-unreceived"><strong> Payment </strong> <a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $client_order['order_id'] ?>&task=received"><i class="fa fa-check-circle-o"></i> Received</a></td>
                                                         <?php } else { ?>
                                                             <td class="order-complete"><strong>Complete </strong></td>
                                                         <?php } ?>
-                                                        <td> <?php echo $row['s'] + $row['m'] + $row['l'] + $row['xl'] + $row['xxl'] + $row['xxxl'] ?> </td>
-                                                        <!-- <td> --><?php //echo $row['cost_total'] ?><!-- </td>-->
-                                                        <td> $<?php echo $row['revenue'] ?> </td>
-                                                        <td><a class="btn btn-xs btn-default" href="./view-order.php?order_id=<?php echo $row['order_id'] ?>"><i class="fa fa-search"></i> View</a>
-                                                            <a class="btn btn-xs btn-default" href="./edit-order.php?order_id=<?php echo $row['order_id'] ?>"><i class="fa fa-edit"></i> Edit</a></td>
+                                                        <td> <?php echo $client_order['s'] + $client_order['m'] + $client_order['l'] + $client_order['xl'] + $client_order['xxl'] + $client_order['xxxl'] ?> </td>
+                                                        <!-- <td> --><?php //echo $client_order['cost_total'] ?><!-- </td>-->
+                                                        <td> $<?php echo $client_order['revenue'] ?> </td>
+                                                        <td><a class="btn btn-xs btn-default" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"><i class="fa fa-search"></i> View</a>
+                                                            <a class="btn btn-xs btn-default" href="./edit-order.php?order_id=<?php echo $client_order['order_id'] ?>"><i class="fa fa-edit"></i> Edit</a></td>
                                                     </tr>
                                                     <?php
                                                 }
@@ -179,11 +179,11 @@ include('./php/header.php');
                             <div class="portlet-title">
                                 <div class="caption">
                                     <i class="icon-share font-blue"></i>
-                                    <span class="caption-subject font-blue bold uppercase">Individual Orders</span>
+                                    <span class="caption-subject font-blue bold uppercase">Retail Orders</span>
                                 </div>
                                 <div class="actions">
                                     <div class="btn-group">
-                                        <a class="btn btn-primary btn-sm" href="./add-individual-order.php">
+                                        <a class="btn btn-primary btn-sm" href="./add-retail-order.php">
                                             <i class="fa fa-plus" aria-hidden="true"></i>
                                             <span class="hidden-xs"> Add New </span>
                                         </a>
@@ -229,10 +229,10 @@ include('./php/header.php');
                                                 <tbody>
 
                                                 <?php
-                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                while ($retail_order = mysqli_fetch_assoc($result)) {
                                                     ?>
                                                     <tr <?php if (isset($_SESSION['order_id_updated'])) {
-                                                        if ($_SESSION['order_id_updated'] == $row['order_id']) {
+                                                        if ($_SESSION['order_id_updated'] == $retail_order['order_id']) {
                                                             ?>
                                                             class="updated-order"
                                                             <?php
@@ -240,25 +240,25 @@ include('./php/header.php');
                                                         }
                                                     } ?>
                                                     >
-                                                        <td><a class="" href="./view-order.php?order_id=<?php echo $row['order_id'] ?>"> <?php echo $row['order_number'] ?></a></td>
-                                                        <td> <?php echo $row['date_order'] ?> </td>
-                                                        <td> <a class="" href="./view-order.php?order_id=<?php echo $row['order_id'] ?>"> <?php if (strlen($row['description']) > 20) { echo substr($row['description'],0,20) . "..."; } else echo $row['description']; ?></a></td>
-                                                        <?php if (empty($row['submitted_task'])) { ?>
-                                                            <td class="order-not-sent"><strong>Not Sent </strong><a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $row['order_id'] ?>&task=submitted"><i class="fa fa-check-circle-o"></i> Submitted</a></td>
-                                                        <?php } elseif (empty($row['paid_invoice_task'])) { ?>
-                                                            <td class="order-unpaid-invoice"><strong>Unpaid TCT </strong><a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $row['order_id'] ?>&task=paid"><i class="fa fa-check-circle-o"></i> Paid</a></td>
-                                                        <?php } elseif (empty($row['sent_invoice_task'])) { ?>
-                                                            <td class="order-invoice-customer"><strong>Send Invoice </strong> <a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $row['order_id'] ?>&task=sent"><i class="fa fa-check-circle-o"></i> Sent</a></td>
-                                                        <?php } elseif (empty($row['received_task'])) { ?>
-                                                            <td class="order-unreceived"><strong> Payment </strong> <a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $row['order_id'] ?>&task=received"><i class="fa fa-check-circle-o"></i> Received</a></td>
+                                                        <td><a class="" href="./view-order.php?order_id=<?php echo $retail_order['order_id'] ?>"> <?php echo $retail_order['order_number'] ?></a></td>
+                                                        <td> <?php echo $retail_order['date_order'] ?> </td>
+                                                        <td> <a class="" href="./view-order.php?order_id=<?php echo $retail_order['order_id'] ?>"> <?php if (strlen($retail_order['description']) > 20) { echo substr($retail_order['description'],0,20) . "..."; } else echo $retail_order['description']; ?></a></td>
+                                                        <?php if (empty($retail_order['submitted_task'])) { ?>
+                                                            <td class="order-not-sent"><strong>Not Sent </strong><a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $retail_order['order_id'] ?>&task=submitted"><i class="fa fa-check-circle-o"></i> Submitted</a></td>
+                                                        <?php } elseif (empty($retail_order['paid_invoice_task'])) { ?>
+                                                            <td class="order-unpaid-invoice"><strong>Unpaid TCT </strong><a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $retail_order['order_id'] ?>&task=paid"><i class="fa fa-check-circle-o"></i> Paid</a></td>
+                                                        <?php } elseif (empty($retail_order['sent_invoice_task'])) { ?>
+                                                            <td class="order-invoice-customer"><strong>Send Invoice </strong> <a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $retail_order['order_id'] ?>&task=sent"><i class="fa fa-check-circle-o"></i> Sent</a></td>
+                                                        <?php } elseif (empty($retail_order['received_task'])) { ?>
+                                                            <td class="order-unreceived"><strong> Payment </strong> <a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $retail_order['order_id'] ?>&task=received"><i class="fa fa-check-circle-o"></i> Received</a></td>
                                                         <?php } else { ?>
                                                             <td class="order-complete"><strong>Complete </strong></td>
                                                         <?php } ?>
-                                                        <td> <?php echo $row['s'] + $row['m'] + $row['l'] + $row['xl'] + $row['xxl'] + $row['xxxl'] ?> </td>
-                                                        <!-- <td> --><?php //echo $row['cost_total'] ?><!-- </td>-->
-                                                        <td> $<?php echo $row['revenue'] ?> </td>
-                                                        <td><a class="btn btn-xs btn-default" href="./view-order.php?order_id=<?php echo $row['order_id'] ?>"><i class="fa fa-search"></i> View</a>
-                                                            <a class="btn btn-xs btn-default" href="./edit-order.php?order_id=<?php echo $row['order_id'] ?>"><i class="fa fa-edit"></i> Edit</a></td>
+                                                        <td> <?php echo $retail_order['s'] + $retail_order['m'] + $retail_order['l'] + $retail_order['xl'] + $retail_order['xxl'] + $retail_order['xxxl'] ?> </td>
+                                                        <!-- <td> --><?php //echo $retail_order['cost_total'] ?><!-- </td>-->
+                                                        <td> $<?php echo $retail_order['revenue'] ?> </td>
+                                                        <td><a class="btn btn-xs btn-default" href="./view-order.php?order_id=<?php echo $retail_order['order_id'] ?>"><i class="fa fa-search"></i> View</a>
+                                                            <a class="btn btn-xs btn-default" href="./edit-order.php?order_id=<?php echo $retail_order['order_id'] ?>"><i class="fa fa-edit"></i> Edit</a></td>
                                                     </tr>
                                                     <?php
                                                 }

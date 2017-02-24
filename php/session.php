@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-//If not logged in
+//if not logged in
 if(!isset($_SESSION['logged_user'])){
     setcookie("login_required", "true", time() + (10), "/");
     header('Location: ./');
@@ -9,13 +9,26 @@ if(!isset($_SESSION['logged_user'])){
 
 require('./php/connection.php');
 
-$user_check=$_SESSION['logged_user'];
-$query_ses = "SELECT * FROM accounts WHERE username='$user_check'";
-$ses_sql= mysqli_query($connection, $query_ses);
-$logged_user = mysqli_fetch_assoc($ses_sql);
-if ($logged_user['computer_session'] != $_SESSION['computer_session']) {
+//gets logged in user information
+$user_in_session = $_SESSION['logged_user'];
+$account_query_sql = "SELECT * FROM accounts WHERE username='$user_in_session'";
+$account_query = mysqli_query($connection, $account_query_sql);
+$user = mysqli_fetch_assoc($account_query);
+
+//checks if user is logged in from one location only, otherwise logs out
+if ($user['computer_session'] != $_SESSION['computer_session']) {
   header('Location: ./logout?multiple-sessions=true');
 }
+
+//gets settings to output on page
+$settings_query_sql = "SELECT * FROM settings";
+$settings_query = mysqli_query($connection, $settings_query_sql);
+$settings = mysqli_fetch_assoc($settings_query);
+
+
+
+
+
 $connection->close();
 
 //login information

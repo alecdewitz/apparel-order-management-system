@@ -72,6 +72,10 @@
         a.company-name {
             text-decoration: none;
         }
+        .center-button {
+            margin: 0 auto;
+            display: block;
+        }
     </style>
 </head>
 

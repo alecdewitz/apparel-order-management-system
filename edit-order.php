@@ -41,10 +41,15 @@ while ($row = mysqli_fetch_assoc($result)) {
                                         <i class="fa fa-shopping-cart"></i>New Order
                                     </div>
                                     <div class="actions btn-set">
-                                        <a href="./orders.php" name="back" class="btn btn-danger">
-                                            <i class="fa fa-angle-left"></i> Back</a>
+                                        <a href="./orders.php" name="back" class="btn btn-info">
+                                            <i class="fa fa-angle-left"></i> Cancel</a>
+                                        <button class="btn btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                            <span class="hidden-xs">Delete</span>
+                                        </button>
                                         <button class="btn btn-success">
-                                            <i class="fa fa-check"></i> Save
+                                            <i class="fa fa-check"></i>
+                                            <span class="hidden-xs">Save</span>
                                         </button>
 
                                     </div>
@@ -224,7 +229,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                                                         </div>
                                                     </div>
 
-                                                    <button class="btn btn-success">
+                                                    <button class="btn btn-success center-button">
                                                         <i class="fa fa-check"></i> Save
                                                     </button>
                                                 </div>

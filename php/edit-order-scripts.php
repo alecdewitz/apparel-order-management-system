@@ -1,11 +1,26 @@
 <?php
 include('php/connection.php');
 
+if (isset($_GET['order_id']) && $_GET['delete'] == 'true') {
+    $date = date("n/j/Y"); //TODO add time as well
+    $sql = "UPDATE orders SET deleted_date = '$date', deleted = 1 WHERE order_id = " . $_GET['order_id'];
+    if (mysqli_query($connection, $sql)) {
+        $_SESSION['order_id_deleted'] = $_GET['order_id'];
+//        if (isset($_GET['return_to'])) {
+//            header('location: ./view-order?order_id='.$_GET["order_id"].'&order_updated=true');
+//        } else {
+            header('location: ./orders?order_deleted=true');
+//        }
+    } else {
+        echo 'failed';
+    }
+}
+
 if (isset($_GET['task']) && isset($_GET['order_id'])){
   $task = $_GET['task'];
   $date = date("n/j/Y");
 
-  if ($task == 'submitted') {
+    if ($task == 'submitted') {
     $sql = "UPDATE orders SET submitted_task = '$date' WHERE order_id = " . $_GET['order_id'];
   } else if ($task == 'sent') {
     $sql = "UPDATE orders SET sent_invoice_task = '$date' WHERE order_id = " . $_GET['order_id'];

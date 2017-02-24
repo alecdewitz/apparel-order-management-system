@@ -1,6 +1,5 @@
 <?php
 require('./php/session.php');
-include('./php/header.php');
 include('./php/get-orders-scripts.php');
 
 if ($result->num_rows == 0) {
@@ -10,10 +9,11 @@ if ($result->num_rows == 0) {
     header('Location: ./orders?no_order_id=true');
 }
 
-function toDollars($num)
-{
+function toDollars($num){
     return number_format($num, 2, '.', ',');
 }
+
+include('./php/header.php');
 
 while ($order = mysqli_fetch_assoc($result)) {
 
@@ -57,7 +57,7 @@ while ($order = mysqli_fetch_assoc($result)) {
                                             </li>
 
                                             <li>
-                                                <a href="#"> Delete </a>
+                                                <a href="./edit-order.php?order_id=<?php echo $order['order_id'] ?>&delete=true"> Delete </a>
                                             </li>
                                         </ul>
                                     </div>

@@ -78,7 +78,7 @@ include('./php/header.php');
                             <div class="portlet-title">
                                 <div class="caption">
                                     <i class="icon-share font-blue"></i>
-                                    <span class="caption-subject font-blue bold uppercase">Client Orders</span>
+                                    <span class="caption-subject font-blue bold uppercase">Orders History</span>
                                 </div>
                                 <div class="actions">
                                     <div class="btn-group">
@@ -110,14 +110,13 @@ include('./php/header.php');
                                     </div>
                                     <?php
                                 } ?>
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="overview_1">
                                         <div class="table-responsive">
                                             <table class="table table-striped table-hover table-bordered">
                                                 <thead>
                                                 <tr>
                                                     <th> Order #</th>
                                                     <th> Date</th>
+                                                    <th> Type</th>
                                                     <th> Description</th>
                                                     <th> Status</th>
                                                     <th> Quantity</th>
@@ -141,6 +140,7 @@ include('./php/header.php');
                                                     >
                                                         <td><a class="" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"> <?php echo $client_order['order_number'] ?></a></td>
                                                         <td> <?php echo $client_order['date_order'] ?> </td>
+                                                        <td> <?php echo $client_order['order_type'] ?> </td>
                                                         <td> <a class="" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"> <?php if (strlen($client_order['description']) > 20) { echo substr($client_order['description'],0,20) . "..."; } else echo $client_order['description']; ?></a></td>
                                                         <?php if (empty($client_order['submitted_task'])) { ?>
                                                             <td class="order-not-sent"><strong>Not Sent </strong><a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $client_order['order_id'] ?>&task=submitted"><i class="fa fa-check-circle-o"></i> Submitted</a></td>
@@ -165,8 +165,6 @@ include('./php/header.php');
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

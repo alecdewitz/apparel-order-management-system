@@ -81,14 +81,25 @@ include('./php/header.php');
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="col-md-2 control-label">Order Prefix:
+                                                    <label class="col-md-2 control-label">Client Prefix:
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-10">
-                                                        <input type="text" class="form-control" name="order_prefix" placeholder="">
-                                                        <span class="help-block"> Ex: FALL17 will look like FALL17-01 </span>
+                                                        <input type="text" class="form-control" name="retail_prefix" placeholder="CLI">
+                                                        <span class="help-block"> Optional to add prefix to client order </span>
                                                     </div>
                                                 </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">Retail Prefix:
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control" name="retail_prefix" placeholder="RET">
+                                                        <span class="help-block"> Optional to add prefix to client order </span>
+                                                    </div>
+                                                </div>
+
 
                                                 <div class="general-section">
                                                     <h1>Admin</h1>

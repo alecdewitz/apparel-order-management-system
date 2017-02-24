@@ -187,20 +187,8 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="app_calendar.html">
-                                                <i class="icon-calendar"></i> My Calendar </a>
-                                        </li>
-                                        <li>
-                                            <a href="app_inbox.html">
-                                                <i class="icon-envelope-open"></i> My Inbox
-                                                <span class="badge badge-danger"> 3 </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="app_todo_2.html">
-                                                <i class="icon-rocket"></i> My Tasks
-                                                <span class="badge badge-success"> 7 </span>
-                                            </a>
+                                            <a href="./settings.php">
+                                                <i class="fa fa-cog" aria-hidden="true"></i> Settings </a>
                                         </li>
                                         <li class="divider"></li>
                                         <li>

@@ -9,6 +9,7 @@ if (isset($_POST['date_order'])) {
         if (empty($_POST['date_order'])) {
             $_SESSION['errors'] = true;
         } else {
+            $order_type = $_POST['order_type'];
             $order_number = $_POST['order_number'];
             $date_order = $_POST['date_order'];
             $client_name = $_POST['client'];
@@ -36,9 +37,9 @@ if (isset($_POST['date_order'])) {
                 die('Connection failed: '.$connection->connect_error);
             }
 
-            $sql = "INSERT INTO orders (order_id, order_number, date_order, client, email, description, deadline, product,
+            $sql = "INSERT INTO orders (order_id, order_number, order_type, date_order, client, email, description, deadline, product,
             cost_per, s, m, l, xl, xxl, xxxl, cost_total, revenue, submitted_task, paid_invoice_task, sent_invoice_task, received_task)
-                        VALUES (null, '$order_number', '$date_order', '$client_name', '$client_email', '$description', '$deadline',
+                        VALUES (null, '$order_number', '$order_type', '$date_order', '$client_name', '$client_email', '$description', '$deadline',
                            '$product', '$cost_per', '$small', '$medium', '$large', '$xlarge', '$xxlarge', '$xxxlarge', '$cost_total',
                            '$revenue', '$submitted_task', '$paid_invoice_task', '$sent_invoice_task', '$received_task')";
             if (mysqli_query($connection, $sql)) {

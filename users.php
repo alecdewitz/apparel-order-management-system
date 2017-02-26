@@ -41,7 +41,7 @@ include('./php/header.php');
                                                     <table class="table table-striped table-hover table-bordered">
                                                         <thead>
                                                         <tr>
-<!--                                                            <th> ID</th>-->
+                                                            <!--                                                            <th> ID</th>-->
                                                             <th> Type</th>
                                                             <th> Username</th>
                                                             <th> Name</th>
@@ -60,14 +60,14 @@ include('./php/header.php');
                                                                     unset($_SESSION['order_id_updated']);
                                                                 }
                                                             } ?>>
-<!--                                                                <td><a href="users.php?account_id=--><?php //echo $users['account_id'] ?><!--"> --><?php //echo $users['account_id'] ?><!--</a></td>-->
+                                                                <!--                                                                <td><a href="users.php?account_id=--><?php //echo $users['account_id'] ?><!--"> --><?php //echo $users['account_id'] ?><!--</a></td>-->
                                                                 <td> <?php if ($users['account_type'] == 1) echo "Admin"; else echo "User" ?> </td>
                                                                 <td> <?php echo $users['username'] ?> </td>
                                                                 <td> <?php echo $users['fullname'] ?> </td>
                                                                 <td> <?php echo $users['last_login'] ?> </td>
                                                                 <td><a class="btn btn-xs btn-default" href="view-order.php?order_id=<?php echo $users['account_id'] ?>"><i class="fa fa-search"></i></a>
                                                                     <a class="btn btn-xs btn-default" href="edit-order.php?order_id=<?php echo $users['account_id'] ?>"><i class="fa fa-edit"></i></a>
-                                                                    <?php if ($users['account_type'] != 1) { ?><a class="btn btn-xs btn-default" data-id="<?php echo $users['account_id'] ?>" data-target="#delete-user" data-toggle="modal"><i class="fa fa-trash"></i></a></td><?php } ?>
+                                                                    <?php if ($users['account_type'] != 1) { ?><a class="btn btn-xs btn-default" data-account-id="<?php echo $users['account_id'] ?>" data-account-username="<?php echo $users['username'] ?>" data-target="#delete-user" data-toggle="modal"><i class="fa fa-trash"></i></a></td><?php } ?>
                                                             </tr>
                                                             <?php
                                                         }
@@ -94,43 +94,52 @@ include('./php/header.php');
 <script>
 
 
-    $(document).on("click", "#add-user-confirm", function () {
-        $.post("", {
-            action: "createuser",
-            username: $('#username').val(),
-            password: $('#password').val(),
-            fullname: $('#fullname').val(),
-            email: $('#email').val(),
-            type: $('#type').find(":selected").text()
+    $(function() {
 
-        }).done(function (data) {
-            if (data.success) {
-                $('#add-user').modal('hide');
-                location.reload();//getUsersList();
-            } else {
-                alert('Error. Fix fields.');
-            }
+        $('#add-user').on("click", "#add-user-confirm", function () {
+            $.post("", {
+                action: "createuser",
+                username: $('#username').val(),
+                password: $('#password').val(),
+                fullname: $('#fullname').val(),
+                email: $('#email').val(),
+                type: $('#type').find(":selected").text()
+
+            }).done(function (data) {
+                if (data.success) {
+                    $('#add-user').modal('hide');
+                    location.reload();//getUsersList();
+                } else {
+                    alert('Error. Fix fields.');
+                }
+            });
         });
-    });
 
-    $(document).on('show.bs.modal','#delete-user', function () {
-        alert('hi');
-    });
 
-    $(document).on("click", "#delete-user-confirm", function () {
-        alert($(e.relatedTarget).data('id'));
-        $.post("", {
-            action: "deleteuser",
-            account_id: $(e.relatedTarget).data('id')
-
-        }).done(function (data) {
-            if (data.success) {
-                $('#delete-user').modal('hide');
-                location.reload();//getUsersList();
-            } else {
-                alert('Error. Fix fields');
-            }
+        $('a[data-toggle=modal]').on('click', function (e) {
+            var account_id = $(this).data('account-id');
+            var account_username = $(this).data('account-username');
+            $('#delete_account_id').val(account_id);
+            $('#delete_username').val(account_username);
+            $('#delete_username').text(account_username);
         });
+
+        $('#delete-user').on("click", "#delete-user-confirm", function () {
+            $.post("", {
+                action: "deleteuser",
+                account_id: $('#delete_account_id').val(),
+                account_username: $('#delete_username').val()
+
+            }).done(function (data) {
+                if (data.success) {
+                    $('#delete-user').modal('hide');
+                    location.reload();//getUsersList();
+                } else {
+                    alert('Error.');
+                }
+            });
+        });
+
     });
 
 </script>
@@ -182,14 +191,16 @@ include('./php/header.php');
 <div id="delete-user" class="modal fade" tabindex="-1" data-focus-on="input:first">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-        <h1 class="modal-title">Delete User: </h1>
+        <h1 class="modal-title">Delete User: <span id="delete_username" /></h1>
     </div>
     <div class="modal-body">
-
+        <p>You are removing this user from <?php echo $settings['company_name'] ?>. This cannot be reversed. All associated data with user will still be preserved and can be viewed.</p>
+        <input type="hidden" id="delete_account_id" />
+        <input type="hidden" id="delete_username" />
     </div>
     <div class="modal-footer">
-        <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
-        <button type="button" id="add-user-confirm" class="btn green">Add User</button>
+        <button type="button" data-dismiss="modal" class="btn btn-outline dark">Cancel</button>
+        <button type="button" id="delete-user-confirm" class="btn btn-danger">Yes, Delete User</button>
     </div>
 </div>
 

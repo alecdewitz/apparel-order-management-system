@@ -12,6 +12,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal-bs3patch.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css" rel="stylesheet" type="text/css"/>
+
+
     <link href="./assets/css/components.css" rel="stylesheet" id="style_components" type="text/css"/>
     <link href="./assets/css/plugins.css" rel="stylesheet" type="text/css"/>
     <link href="./assets/css/layout.css" rel="stylesheet" type="text/css"/>
@@ -187,13 +191,13 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="admin/users.php">
+                                            <a href="users.php">
                                                 <i class="fa fa-users"></i>
                                                 <span>Users</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="admin/settings.php">
+                                            <a href="settings.php">
                                                 <i class="fa fa-cog" aria-hidden="true"></i> Settings </a>
                                         </li>
                                         <li class="divider"></li>

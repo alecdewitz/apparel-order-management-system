@@ -1,7 +1,7 @@
 <?php
-require('./php/session.php');
-include('./php/users-scripts.php');
-include('./php/header.php');
+require('../php/session.php');
+include('../php/users-scripts.php');
+include('../php/header.php');
 ?>
 
 
@@ -17,10 +17,10 @@ include('./php/header.php');
                                     <i class="fa fa-users" aria-hidden="true"></i>Users
                                 </div>
                                 <div class="actions btn-set">
-                                    <a href="./orders.php" name="back" class="btn btn-danger">
-                                        <i class="fa fa-angle-left"></i> Back</a>
-                                    <button class="btn btn-success">
-                                        <i class="fa fa-check"></i> Save
+<!--                                    <a href="./orders.php" name="back" class="btn btn-danger">-->
+<!--                                        <i class="fa fa-angle-left"></i> Back</a>-->
+                                    <button class="btn btn-primary">
+                                        <i class="fa fa-plus"></i> Add
                                     </button>
 
                                 </div>
@@ -52,23 +52,15 @@ include('./php/header.php');
                                                         <?php
                                                         while ($users = mysqli_fetch_assoc($result)) {
                                                             ?>
-                                                            <tr <?php if (isset($_SESSION['order_id_updated'])) {
-                                                                if ($_SESSION['order_id_updated'] == $users['order_id']) {
-                                                                    ?>
-                                                                    class="updated-order"
-                                                                    <?php
-                                                                    unset($_SESSION['order_id_updated']);
-                                                                }
-                                                            } ?>
-                                                            >
-                                                                <td><a href="./users.php?account_id=<?php echo $users['account_id'] ?>"> <?php echo $users['account_id'] ?></a></td>
+                                                            <tr class="clickable-row " data-href="#" <?php if (isset($_SESSION['order_id_updated'])) { if ($_SESSION['order_id_updated'] == $users['order_id']) { echo "updated-order"; unset($_SESSION['order_id_updated']);}} ?>>
+                                                                <td><a href="users.php?account_id=<?php echo $users['account_id'] ?>"> <?php echo $users['account_id'] ?></a></td>
                                                                 <td> <?php if ($users['account_type'] == 1) echo "Admin"; else echo "User" ?> </td>
                                                                 <td> <?php echo $users['username'] ?> </td>
                                                                 <td> <?php echo $users['fullname'] ?> </td>
                                                                 <td> <?php echo $users['last_login'] ?> </td>
-                                                                <td><a class="btn btn-xs btn-default" href="./view-order.php?order_id=<?php echo $users['account_id'] ?>"><i class="fa fa-search"></i></a>
-                                                                    <a class="btn btn-xs btn-default" href="./edit-order.php?order_id=<?php echo $users['account_id'] ?>"><i class="fa fa-edit"></i></a>
-                                                                    <a class="btn btn-xs btn-default" href="./edit-order.php?order_id=<?php echo $users['account_id'] ?>"><i class="fa fa-trash"></i></a></td>
+                                                                <td><a class="btn btn-xs btn-default" href="view-order.php?order_id=<?php echo $users['account_id'] ?>"><i class="fa fa-search"></i></a>
+                                                                    <a class="btn btn-xs btn-default" href="edit-order.php?order_id=<?php echo $users['account_id'] ?>"><i class="fa fa-edit"></i></a>
+                                                                    <a class="btn btn-xs btn-default" href="edit-order.php?order_id=<?php echo $users['account_id'] ?>"><i class="fa fa-trash"></i></a></td>
                                                             </tr>
                                                             <?php
                                                         }

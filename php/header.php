@@ -183,11 +183,17 @@
                                         <li>
                                             <a href="#">
                                                 <i class="icon-user"></i>
-                                                <span class=""><?php echo $user['username']; ?></span>
+                                                <span><?php echo $user['username']; ?></span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="./settings.php">
+                                            <a href="admin/users.php">
+                                                <i class="fa fa-users"></i>
+                                                <span>Users</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="admin/settings.php">
                                                 <i class="fa fa-cog" aria-hidden="true"></i> Settings </a>
                                         </li>
                                         <li class="divider"></li>

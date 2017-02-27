@@ -65,9 +65,9 @@ include('./php/header.php');
                                                                 <td> <?php echo $users['username'] ?> </td>
                                                                 <td> <?php echo $users['fullname'] ?> </td>
                                                                 <td> <?php echo $users['last_login'] ?> </td>
-                                                                <td><a class="btn btn-xs btn-default" href="view-order.php?order_id=<?php echo $users['account_id'] ?>"><i class="fa fa-search"></i></a>
-                                                                    <a class="btn btn-xs btn-default" href="edit-order.php?order_id=<?php echo $users['account_id'] ?>"><i class="fa fa-edit"></i></a>
-                                                                    <?php if ($users['account_type'] != 1) { ?><a class="btn btn-xs btn-default" data-account-id="<?php echo $users['account_id'] ?>" data-account-username="<?php echo $users['username'] ?>" data-target="#delete-user" data-toggle="modal"><i class="fa fa-trash"></i></a></td><?php } ?>
+                                                                <td><a class="btn btn-xs btn-default" href="<?php echo $users['account_id'] ?>"><i class="fa fa-search"></i></a>
+                                                                    <a class="btn btn-xs btn-default" data-account-id="<?php echo $users['account_id'] ?>" data-account-username="<?php echo $users['username'] ?>" data-target="#edit-user" data-type="edit" data-toggle="modal"><i class="fa fa-edit"></i></a>
+                                                                    <?php if ($users['account_type'] != 1) { ?><a class="btn btn-xs btn-default" data-account-id="<?php echo $users['account_id'] ?>" data-account-username="<?php echo $users['username'] ?>" data-target="#delete-user" data-type="edit" data-toggle="modal"><i class="fa fa-trash"></i></a></td><?php } ?>
                                                             </tr>
                                                             <?php
                                                         }
@@ -104,7 +104,6 @@ include('./php/header.php');
                 fullname: $('#fullname').val(),
                 email: $('#email').val(),
                 type: $('#type').find(":selected").text()
-
             }).done(function (data) {
                 if (data.success) {
                     $('#add-user').modal('hide');
@@ -116,19 +115,58 @@ include('./php/header.php');
         });
 
 
-        $('a[data-toggle=modal]').on('click', function (e) {
+        $('a[data-type=edit]').on('click', function (e) {
             var account_id = $(this).data('account-id');
             var account_username = $(this).data('account-username');
-            $('#delete_account_id').val(account_id);
-            $('#delete_username').val(account_username);
-            $('#delete_username').text(account_username);
+            $('#edit_account_id').val(account_id);
+            $('#edit_username_input').val(account_username);
+
+            //disable until grabbed information
+            $('.form-control').attr("disabled", true);
+
+            $.post("", {
+                action: "getuser",
+                account_id: $(this).data('account-id')
+            }).done(function (data) {
+                if (data.success) {
+//                    $('#edit-user').modal('show');
+                    $('.edit_username').text(data.username);
+                    $('#fullname_edit').val(data.name);
+                    $('#email_edit').val(data.email);
+                    $('#type_edit').val(data.type);
+
+                    //undisable after grabbed information
+                    $('.form-control').attr("disabled", false);
+                } else {
+                    alert('Error. Fix fields.');
+                }
+            });
         });
+
+
+        $('#edit-user').on("click", "#edit-user-confirm", function () {
+            $.post("", {
+                action: "edituser",
+                account_id: $('#edit_account_id').val(),
+                account_fullname: $('#fullname_edit').val(),
+                account_email: $('#email_edit').val(),
+                account_type: $('#type_edit').val()
+            }).done(function (data) {
+                if (data.success) {
+                    $('#edit-user').modal('hide');
+                    location.reload();//getUsersList();
+                } else {
+                    alert('Error.');
+                }
+            });
+        });
+
 
         $('#delete-user').on("click", "#delete-user-confirm", function () {
             $.post("", {
                 action: "deleteuser",
-                account_id: $('#delete_account_id').val(),
-                account_username: $('#delete_username').val()
+                account_id: $('#edit_account_id').val(),
+                account_username: $('#edit_username_input').val()
 
             }).done(function (data) {
                 if (data.success) {
@@ -143,65 +181,4 @@ include('./php/header.php');
     });
 
 </script>
-
-
-<!-- Add User Modal -->
-
-<div id="add-user" class="modal fade" tabindex="-1" data-focus-on="input:first">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-        <h1 class="modal-title">Create User</h1>
-    </div>
-    <div class="modal-body">
-        <form role="form">
-            <input style="display:none" type="text" name="username"/>
-            <input style="display:none" type="password" name="password"/>
-            <div class="form-group">
-                <label for="username" autocomplete="false">Username</label>
-                <input type="text" class="form-control" id="username"/>
-            </div>
-            <div class="form-group">
-                <label for="password" autocomplete="new-password">Password</label>
-                <input type="password" class="form-control" id="password"/>
-            </div>
-            <div class="form-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" class="form-control" id="fullname"/>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email"/>
-            </div>
-            <div class="form-group">
-                <label for="name">Type</label>
-                <select class="form-control" id="type">
-                    <option disabled>--Select option</option>
-                    <option value="admin">Admin</option>
-                    <option value="user" selected>User</option>
-                </select>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
-        <button type="button" id="add-user-confirm" class="btn green">Add User</button>
-    </div>
-</div>
-
-<div id="delete-user" class="modal fade" tabindex="-1" data-focus-on="input:first">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-        <h1 class="modal-title">Delete User: <span id="delete_username" /></h1>
-    </div>
-    <div class="modal-body">
-        <p>You are removing this user from <?php echo $settings['company_name'] ?>. This cannot be reversed. All associated data with user will still be preserved and can be viewed.</p>
-        <input type="hidden" id="delete_account_id" />
-        <input type="hidden" id="delete_username" />
-    </div>
-    <div class="modal-footer">
-        <button type="button" data-dismiss="modal" class="btn btn-outline dark">Cancel</button>
-        <button type="button" id="delete-user-confirm" class="btn btn-danger">Yes, Delete User</button>
-    </div>
-</div>
-
-<!-- END Add User Modal -->
+<?php include('modals/users.php') ?>

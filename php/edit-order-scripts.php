@@ -1,7 +1,7 @@
 <?php
 include('php/connection.php');
 
-if (isset($_GET['order_id']) && $_GET['delete'] == 'true') {
+if (isset($_GET['order_id']) && isset($_GET['delete']) && $_GET['delete'] == 'true') {
     $date = date("n/j/Y"); //TODO add time as well
     $sql = "UPDATE orders SET deleted_date = '$date', deleted = 1 WHERE order_id = " . $_GET['order_id'];
     if (mysqli_query($connection, $sql)) {

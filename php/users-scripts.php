@@ -82,15 +82,18 @@ if ($user['account_type'] == 1) { //verifies user is admin
 
 
         // Edit user script
-        else if ($_POST['action'] == "deleteuser") {
-            if (empty($_POST['account_id']) || empty($_POST['account_username'])) {
+        else if ($_POST['action'] == "edituser") {
+            if (empty($_POST['account_id']) || empty($_POST['account_fullname']) || empty($_POST['account_email']) || !isset($_POST['account_type'])) {
                 $error = "Information is not filled out completely";
                 $success = false;
             } else {
-                $date = date("m-d-Y g:i:s A");
-                $sql = "UPDATE accounts SET deleted = 1, date_deleted = '$date' WHERE account_id = " . $_POST['account_id'] . " AND username = '" . $_POST['account_username'] . "'";
+                $fullname = $_POST['account_fullname'];
+                $email = $_POST['account_email'];
+                $type = $_POST['account_type'];
+
+                $sql = "UPDATE accounts SET fullname = '$fullname', email = '$email', account_type = '$type' WHERE account_id = " . $_POST['account_id'] ;
                 if (mysqli_query($connection, $sql)) {
-                    $_SESSION['deleted_account'] = true; // change to account username to show alert?
+                    $_SESSION['edit_account'] = true; // change to account username to show alert?
 
                     // $_SESSION['created_account_email'] = true;
                     $success = true;
@@ -128,7 +131,11 @@ if ($user['account_type'] == 1) { //verifies user is admin
 
 
         header('Content-Type: application/json');
-        $arr = array('success' => $success, 'action' => $_POST['action'], 'email' => $user['email'], 'name' => $user['fullname'], 'username' => $user['username'], 'type' => $user['account_type']);
+        if ($error) {
+            $arr = array('success' => false, 'error' => $error);
+        }else {
+            $arr = array('success' => $success, 'action' => $_POST['action'], 'email' => $user['email'], 'name' => $user['fullname'], 'username' => $user['username'], 'type' => $user['account_type']);
+        }
         //todo add failed form inputs, output to form
         echo json_encode($arr);
         exit();

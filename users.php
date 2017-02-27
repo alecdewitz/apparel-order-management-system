@@ -131,12 +131,14 @@ include('./php/header.php');
                 if (data.success) {
 //                    $('#edit-user').modal('show');
                     $('.edit_username').text(data.username);
+                    $('#username_edit').val(data.username);
                     $('#fullname_edit').val(data.name);
                     $('#email_edit').val(data.email);
                     $('#type_edit').val(data.type);
 
                     //undisable after grabbed information
                     $('.form-control').attr("disabled", false);
+                    $('#username_edit').attr("disabled", true);
                 } else {
                     alert('Error. Fix fields.');
                 }

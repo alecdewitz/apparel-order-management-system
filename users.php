@@ -65,7 +65,7 @@ include('./php/header.php');
                                                                 <td> <?php echo $users['username'] ?> </td>
                                                                 <td> <?php echo $users['fullname'] ?> </td>
                                                                 <td> <?php echo $users['last_login'] ?> </td>
-                                                                <td><a class="btn btn-xs btn-default" href="<?php echo $users['account_id'] ?>"><i class="fa fa-search"></i></a>
+                                                                <td><a class="btn btn-xs btn-default" href="user.php?account_id=<?php echo $users['account_id'] ?>"><i class="fa fa-search"></i></a>
                                                                     <a class="btn btn-xs btn-default" data-account-id="<?php echo $users['account_id'] ?>" data-account-username="<?php echo $users['username'] ?>" data-target="#edit-user" data-type="edit" data-toggle="modal"><i class="fa fa-edit"></i></a>
                                                                     <?php if ($users['account_type'] != 1) { ?><a class="btn btn-xs btn-default" data-account-id="<?php echo $users['account_id'] ?>" data-account-username="<?php echo $users['username'] ?>" data-target="#delete-user" data-type="edit" data-toggle="modal"><i class="fa fa-trash"></i></a></td><?php } ?>
                                                             </tr>
@@ -99,7 +99,7 @@ include('./php/header.php');
         $('#add-user').on("click", "#add-user-confirm", function () {
             $.post("", {
                 action: "createuser",
-                username: $('#username').val(),
+                username: $('#user_name').val(),
                 password: $('#password').val(),
                 fullname: $('#fullname').val(),
                 email: $('#email').val(),
@@ -183,4 +183,5 @@ include('./php/header.php');
     });
 
 </script>
+
 <?php include('modals/users.php') ?>

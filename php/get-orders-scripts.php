@@ -3,7 +3,9 @@ include 'php/connection.php';
 
 $query = "SELECT * FROM orders WHERE deleted != 1 ";
 $stats_query = "SELECT cost_total, revenue FROM orders WHERE deleted != 1";
-$client = "client";
+
+$type_client = 1;
+$type_retail = 2;
 
 
 if (isset($_GET['order_id']) && (strpos($_SERVER['PHP_SELF'], 'view-order.php') || strpos($_SERVER['PHP_SELF'], 'edit-order.php'))) {
@@ -11,7 +13,9 @@ if (isset($_GET['order_id']) && (strpos($_SERVER['PHP_SELF'], 'view-order.php') 
   $query = $query. " AND order_id = $order_id AND deleted != 1";
 
 } else if (strpos($_SERVER['PHP_SELF'], 'orders.php')) {
-    $query = $query . " AND order_type = '".$client."'";
+//    $query = $query . " AND order_type = '".$client."'";
+} else if (strpos($_SERVER['PHP_SELF'], 'orders-retail.php')) {
+    $query = $query . " AND order_type = '".$type_retail."'";
 }
 
 $result = mysqli_query($connection, $query);

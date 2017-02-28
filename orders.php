@@ -9,7 +9,7 @@ include('./php/header.php');
             <ul class="page-breadcrumb breadcrumb">
                 <ul class="page-breadcrumb breadcrumb">
                     <li>
-                        <span>Order History</span>
+                        <span>All Orders</span>
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
@@ -78,7 +78,7 @@ include('./php/header.php');
                             <div class="portlet-title">
                                 <div class="caption">
                                     <i class="icon-share font-blue"></i>
-                                    <span class="caption-subject font-blue bold uppercase">Orders History</span>
+                                    <span class="caption-subject font-blue bold uppercase">Order History</span>
                                 </div>
                                 <div class="actions">
                                     <div class="btn-group">
@@ -140,7 +140,7 @@ include('./php/header.php');
                                                     >
                                                         <td><a class="" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"> <?php echo $client_order['order_number'] ?></a></td>
                                                         <td> <?php echo $client_order['date_order'] ?> </td>
-                                                        <td> <?php echo $client_order['order_type'] ?> </td>
+                                                        <td> <?php if ($client_order['order_type'] == 1) { echo "Client"; } else { echo "Retail"; }?> </td>
                                                         <td> <a class="" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"> <?php if (strlen($client_order['description']) > 20) { echo substr($client_order['description'],0,20) . "..."; } else echo $client_order['description']; ?></a></td>
                                                         <?php if (empty($client_order['submitted_task'])) { ?>
                                                             <td class="order-not-sent"><strong>Not Sent </strong><a data-toggle="confirmation" class="btn btn-xs btn-default" data-href="./edit-order?order_id=<?php echo $client_order['order_id'] ?>&task=submitted"><i class="fa fa-check-circle-o"></i> Submitted</a></td>
@@ -156,8 +156,8 @@ include('./php/header.php');
                                                         <td> <?php echo $client_order['s'] + $client_order['m'] + $client_order['l'] + $client_order['xl'] + $client_order['xxl'] + $client_order['xxxl'] ?> </td>
                                                         <!-- <td> --><?php //echo $client_order['cost_total'] ?><!-- </td>-->
                                                         <td> $<?php echo $client_order['revenue'] ?> </td>
-                                                        <td><a class="btn btn-xs btn-default" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"><i class="fa fa-search"></i> View</a>
-                                                            <a class="btn btn-xs btn-default" href="./edit-order.php?order_id=<?php echo $client_order['order_id'] ?>"><i class="fa fa-edit"></i> Edit</a></td>
+                                                        <td><a class="btn btn-xs btn-default" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"><i class="fa fa-search"></i> <span class="hidden-xs">View</span></a>
+                                                            <a class="btn btn-xs btn-default" href="./edit-order.php?order_id=<?php echo $client_order['order_id'] ?>"><i class="fa fa-edit"></i> <span class="hidden-xs">Edit</span></a></td>
                                                     </tr>
                                                     <?php
                                                 }

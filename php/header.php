@@ -190,17 +190,26 @@
                                                 <span><?php echo $user['username']; ?></span>
                                             </a>
                                         </li>
+
+
+
+                                        <?php if ($user['account_type'] == 1) { ?>
                                         <li>
                                             <a href="users.php">
                                                 <i class="fa fa-users"></i>
                                                 <span>Users</span>
                                             </a>
                                         </li>
+
+
                                         <li>
                                             <a href="settings.php">
                                                 <i class="fa fa-cog" aria-hidden="true"></i> Settings </a>
                                         </li>
                                         <li class="divider"></li>
+                                        <?php } ?>
+
+
                                         <li>
                                             <a href="./lock.php">
                                                 <i class="icon-lock"></i> Lock Session </a>
@@ -248,11 +257,11 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="orders.php" class="nav-link  ">
+                                            <a href="orders-client.php" class="nav-link  ">
                                                 <i class="fa fa-user" aria-hidden="true"></i> Client Orders </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="orders.php" class="nav-link  ">
+                                            <a href="orders-retail.php" class="nav-link  ">
                                                 <i class="fa fa-users" aria-hidden="true"></i> Retail Orders
                                                 <!--                                                <span class="badge badge-danger">3</span>-->
                                             </a>

@@ -49,8 +49,8 @@ include('./php/header.php');
                                                         <div class="col-sm-7">
                                                             <select required name="order_type" class="form-control">
                                                                 <option>--Select</option>
-                                                                <option value="client" <?php if ($_GET['type'] == "client") echo "selected"; ?>>Client Order</option>
-                                                                <option value="retail" <?php if ($_GET['type'] == "retail") echo "selected"; ?>>Retail Order</option>
+                                                                <option value="1" <?php if ($_GET['type'] == "client") echo "selected"; ?>>Client Order</option>
+                                                                <option value="2" <?php if ($_GET['type'] == "retail") echo "selected"; ?>>Retail Order</option>
                                                             </select>
                                                         </div>
                                                     </div>

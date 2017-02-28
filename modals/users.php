@@ -10,8 +10,8 @@
             <input style="display:none" type="text" name="username"/>
             <input style="display:none" type="password" name="password"/>
             <div class="form-group">
-                <label for="username" autocomplete="false">Username</label>
-                <input type="text" class="form-control" id="username"/>
+                <label for="user_name" autocomplete="false">Username</label>
+                <input type="text" class="form-control" id="user_name"/>
             </div>
             <div class="form-group">
                 <label for="password" autocomplete="new-password">Password</label>
@@ -37,7 +37,7 @@
     </div>
     <div class="modal-footer">
         <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
-        <button type="button" id="add-user-confirm" class="btn green">Add User</button>
+        <button type="button" id="add-user-confirm" class="btn green-jungle">Add User</button>
     </div>
 </div>
 <!-- END Add User Modal -->
@@ -52,7 +52,7 @@
     <div class="modal-body">
         <form role="form">
             <div class="form-group">
-                <label for="username" autocomplete="false">Username</label>
+                <label autocomplete="false">Username</label>
                 <input type="text" class="form-control" id="username_edit" disabled/>
                 <span class="help-block"> You cannot change usernames once they are created. </span>
 
@@ -78,7 +78,7 @@
     </div>
     <div class="modal-footer">
         <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
-        <button type="button" id="edit-user-confirm" class="btn green">Save</button>
+        <button type="button" id="edit-user-confirm" class="btn green-jungle">Save</button>
     </div>
 </div>
 <!-- END Edit User Modal -->

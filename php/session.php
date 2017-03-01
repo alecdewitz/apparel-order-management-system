@@ -25,11 +25,23 @@ $settings_query_sql = "SELECT * FROM settings";
 $settings_query = mysqli_query($connection, $settings_query_sql);
 $settings = mysqli_fetch_assoc($settings_query);
 
-
-
-
-
 $connection->close();
+
+
+//functions
+function isAdmin($user) {
+    if ($user['account_type'] == 1) {
+        return true;
+    }
+    return false;
+}
+//end functions
+
+
+
+
+
+
 
 //login information
 

@@ -1,9 +1,56 @@
 <?php
 require('./php/session.php');
-//include('./php/settings-scripts.php');
+include('./php/settings-scripts.php');
 include('./php/header.php');
 ?>
+<style>
+    .progresslist {
+        background-color: #FFF;
+        padding: 0 20px 20px;
+        margin-top: 30px;
+    }
 
+    .progresslist h1 {
+        margin: 0;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    .form-control {
+        border-radius: 0;
+    }
+
+    li.ui-state-default {
+        background: #f5f5f5;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        height: 50px;
+        padding: 12px;
+        font-size: 18px;
+    }
+
+    li.ui-state-default i:hover {
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    li.ui-state-default:last-child {
+        border-bottom: none;
+    }
+
+    .progress-footer {
+        background-color: #F4FCE8;
+        margin: 20px -20px -10px -20px;
+        padding: 10px 20px;
+    }
+
+    #done-items li:last-child {
+        border-bottom: none;
+    }
+
+    #checkAll {
+        margin-top: 10px;
+    }</style>
 
 <div class="page-content">
     <div class="container">
@@ -52,13 +99,13 @@ include('./php/header.php');
                                                     </div>
                                                 </div>
 
-<!--                                                <div class="form-group">-->
-<!--                                                    <label class="col-md-2 control-label">Logo: </label>-->
-<!--                                                    <div class="col-md-10">-->
-<!--                                                        <input type="text" value="S17-" class="form-control" name="order_number" placeholder="">-->
-<!--                                                        <span class="help-block"> Ex: S17-01 </span>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
+                                                <!--                                                <div class="form-group">-->
+                                                <!--                                                    <label class="col-md-2 control-label">Logo: </label>-->
+                                                <!--                                                    <div class="col-md-10">-->
+                                                <!--                                                        <input type="text" value="S17-" class="form-control" name="order_number" placeholder="">-->
+                                                <!--                                                        <span class="help-block"> Ex: S17-01 </span>-->
+                                                <!--                                                    </div>-->
+                                                <!--                                                </div>-->
 
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">Calendar Year:
@@ -68,7 +115,7 @@ include('./php/header.php');
                                                         <div class="input-group input-large date-picker input-daterange" data-date="1/1" data-date-format="MM d">
                                                             <input type="text" class="form-control" value="January 1" name="calendar_start">
                                                         </div>
-<!--                                                        --><?php //echo date('F j'); ?>
+                                                        <!--                                                        --><?php //echo date('F j'); ?>
                                                         <span class="help-block"> year start </span>
 
                                                     </div>
@@ -101,85 +148,6 @@ include('./php/header.php');
                                                 </div>
 
 
-                                                <div class="general-section">
-                                                    <h1>Admin</h1>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Username:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-md-10">
-                                                        <input type="text" class="form-control" name="username" placeholder="admin">
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Email:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-md-10">
-                                                        <input type="text" class="form-control" name="email" placeholder="admin@company.com">
-                                                        <span class="help-block"> used for notifications </span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Name:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-md-10">
-                                                        <input type="text" class="form-control" name="name" placeholder="">
-                                                    </div>
-                                                </div>
-
-
-
-
-                                                <div class="general-section">
-                                                    <h1>New Password</h1>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Old Password:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-md-10">
-                                                        <input type="password" class="form-control" name="old_password" placeholder="">
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Password:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-md-10">
-                                                        <input type="password" class="form-control" name="new_password" placeholder="">
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Retype Password:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-md-10">
-                                                        <input type="password" class="form-control" name="retype_password" placeholder="">
-                                                    </div>
-                                                </div>
-
-
-
-                                                <div class="tasks-section">
-                                                    <h1>Order Progress</h1>
-                                                </div>
-
-
-
-
-
-
-
-
 
                                                 <button class="btn btn-success">
                                                     <i class="fa fa-check"></i> Save
@@ -197,4 +165,7 @@ include('./php/header.php');
     </div>
 </div>
 
+
 <?php include('./php/footer.php'); ?>
+
+

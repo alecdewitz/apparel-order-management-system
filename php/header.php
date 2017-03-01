@@ -203,8 +203,8 @@
 
 
                                         <li>
-                                            <a href="settings.php">
-                                                <i class="fa fa-cog" aria-hidden="true"></i> Settings </a>
+                                            <a href="settings-password.php">
+                                                <i class="fa fa-cog" aria-hidden="true"></i> Change Password </a>
                                         </li>
                                         <li class="divider"></li>
                                         <?php } ?>
@@ -268,6 +268,33 @@
                                         </li>
                                     </ul>
                                 </li>
+
+
+                                <li class="menu-dropdown classic-menu-dropdown">
+                                    <a href="javascript:;">
+                                        <i class="fa fa-cog" aria-hidden="true"></i> Settings
+                                        <span class="arrow"></span>
+                                    </a>
+                                    <ul class="dropdown-menu pull-left">
+                                        <li class=" ">
+                                            <a href="settings-general.php" class="nav-link  ">
+                                                <i class="fa fa-bar-chart" aria-hidden="true"></i> General
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="settings-password.php" class="nav-link  ">
+                                                <i class="fa fa-user" aria-hidden="true"></i> Change Password </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="settings-progress.php" class="nav-link  ">
+                                                <i class="fa fa-users" aria-hidden="true"></i> Edit Status
+                                                <!--                                                <span class="badge badge-danger">3</span>-->
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
 
                                 <li class="menu-dropdown classic-menu-dropdown ">
                                     <a href="./logout.php">

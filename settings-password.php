@@ -55,6 +55,21 @@ include('./php/header.php');
 <div class="page-content">
     <div class="container">
         <div class="page-content-inner">
+            <ul class="page-breadcrumb breadcrumb">
+                <ul class="page-breadcrumb breadcrumb">
+                    <li>
+                        <a href="./settings-general.php">General</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>Change Password</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <a href="./settings-progress.php">Order Progress</a>
+                    </li>
+                </ul>
+            </ul>
             <div class="row">
                 <div class="col-md-12">
                     <form class="form-horizontal form-row-seperated" method="post" action="">

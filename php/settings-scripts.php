@@ -2,7 +2,27 @@
 include './php/connection.php';
 
 
-echo isAdmin($user);
+//echo isAdmin($user);
+
+
+    if (strpos($_SERVER['PHP_SELF'], 'settings-progress.php')) {
+        $sql = "SELECT * FROM settings_progress WHERE deleted != 1 ";
+
+        if ($result = mysqli_query($connection, $sql)) {
+            echo true;
+        } else {
+            echo $connection->error;
+        }
+        $connection->close();
+
+    }
+
+
+
+
+
+
+
 
 
     if (isset($_GET['action'])) {
@@ -27,6 +47,7 @@ echo isAdmin($user);
             echo $connection->error;
         }
         $connection->close();
+
 
     }
 

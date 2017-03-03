@@ -79,8 +79,6 @@ include('./php/header.php');
                                             <div class="form-body">
 
 
-
-
                                                 <div class="tasks-section">
                                                     <h1>Order Progress</h1>
                                                 </div>
@@ -91,14 +89,18 @@ include('./php/header.php');
 
                                                             <hr>
                                                             <ul id="sortable" class="list-unstyled">
-                                                                <li class="ui-state-default">
-                                                                    <i class="fa fa-bars"></i> List item
-                                                                    <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button>
-                                                                </li>
-                                                                <li class="ui-state-default">
-                                                                    <i class="fa fa-bars"></i> List item
-                                                                    <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button>
-                                                                </li>
+
+                                                                <?php
+                                                                $i = 0;
+                                                                while ($order_progress = mysqli_fetch_assoc($result)) { ?>
+
+                                                                    <li data-id="<?php echo $order_progress['progress_id']; ?>" data-order="<?php echo $order_progress['progress_order']; ?>" class="ui-state-default">
+                                                                        <i class="fa fa-bars"></i> <?php echo $order_progress['progress_name']; ?>
+                                                                        <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button>
+                                                                    </li>
+                                                                    <?php
+                                                                }
+                                                                ?>
                                                             </ul>
                                                             <div class="progress-footer">
                                                                 <strong><span class="count-progress"></span></strong> Tasks
@@ -106,8 +108,6 @@ include('./php/header.php');
                                                         </div>
                                                     </div>
                                                 </div>
-
-
 
 
                                                 <button class="btn btn-success">

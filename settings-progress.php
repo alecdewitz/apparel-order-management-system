@@ -62,6 +62,10 @@ include('./php/header.php');
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
+                        <a href="./settings-users.php">Users</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
                         <a href="./settings-password.php">Change Password</a>
                         <i class="fa fa-circle"></i>
                     </li>
@@ -79,7 +83,7 @@ include('./php/header.php');
                                     <i class="fa fa-cog" aria-hidden="true"></i>Settings
                                 </div>
                                 <div class="actions btn-set">
-                                    <a href="orders.php" name="back" class="btn btn-danger">
+                                    <a href="orders.php?type=all" name="back" class="btn btn-danger">
                                         <i class="fa fa-angle-left"></i> Back</a>
                                     <button class="btn btn-success">
                                         <i class="fa fa-check"></i> Save
@@ -110,8 +114,8 @@ include('./php/header.php');
                                                                 while ($order_progress = mysqli_fetch_assoc($result)) { ?>
 
                                                                     <li data-id="<?php echo $order_progress['progress_id']; ?>" data-order="<?php echo $order_progress['progress_order']; ?>" class="ui-state-default">
-                                                                        <i class="fa fa-bars"></i> <?php echo $order_progress['progress_name']; ?>
-                                                                        <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button>
+                                                                         <?php echo $order_progress['progress_order'] . ". "; echo $order_progress['progress_name']; ?>
+<!--                                                                        <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button>-->
                                                                     </li>
                                                                     <?php
                                                                 }

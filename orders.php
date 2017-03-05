@@ -1,6 +1,6 @@
 <?php
 require('./php/session.php');
-include('./php/get-orders-scripts.php');
+include('./php/orders-scripts.php');
 include('./php/header.php');
 ?>
 
@@ -161,7 +161,7 @@ include('./php/header.php');
                                                 <?php } ?>
                                                 <td> <?php echo $client_order['s'] + $client_order['m'] + $client_order['l'] + $client_order['xl'] + $client_order['xxl'] + $client_order['xxxl'] ?> </td>
                                                 <!-- <td> --><?php //echo $client_order['cost_total'] ?><!-- </td>-->
-                                                <td> $<?php echo $client_order['revenue'] ?> </td>
+                                                <td> <?php echo toDollars($client_order['revenue']) ?> </td>
                                                 <td><a class="btn btn-xs btn-default" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"><i class="fa fa-search"></i> <span class="hidden-xs">View</span></a>
                                                     <a class="btn btn-xs btn-default" href="./edit-order.php?order_id=<?php echo $client_order['order_id'] ?>"><i class="fa fa-edit"></i> <span class="hidden-xs">Edit</span></a></td>
                                             </tr>

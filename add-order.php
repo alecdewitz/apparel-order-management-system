@@ -26,7 +26,7 @@ include('./php/header.php');
                                         <i class="fa fa-shopping-cart"></i>New Order
                                     </div>
                                     <div class="actions btn-set">
-                                        <a href="./orders.php" name="back" class="btn btn-danger">
+                                        <a href="./orders.php?type=all" name="back" class="btn btn-danger">
                                             <i class="fa fa-angle-left"></i> Back</a>
                                         <button class="btn btn-success">
                                             <i class="fa fa-check"></i> Save

@@ -1,6 +1,6 @@
 <?php
 require('./php/session.php');
-include('./php/get-orders-scripts.php');
+include('./php/orders-scripts.php');
 include('./php/header.php');
 ?>
 

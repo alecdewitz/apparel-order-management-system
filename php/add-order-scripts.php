@@ -45,7 +45,7 @@ if (isset($_POST['date_order'])) {
             if (mysqli_query($connection, $sql)) {
                   $_SESSION['created_order'] = true;
                   // mysqli_close($connection);
-                header('location: orders.php');
+                header('location: orders.php?type=all');
             } else {
                 echo 'failed';
             }

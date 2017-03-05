@@ -1,6 +1,6 @@
 <?php
 require('./php/session.php');
-include('./php/get-orders-scripts.php');
+include('./php/orders-scripts.php');
 
 if ($result->num_rows == 0) {
     $_SESSION['order_not_found'] = true;
@@ -9,9 +9,7 @@ if ($result->num_rows == 0) {
     header('Location: ./orders?no_order_id=true');
 }
 
-function toDollars($num){
-    return number_format($num, 2, '.', ',');
-}
+
 
 include('./php/header.php');
 
@@ -23,7 +21,7 @@ while ($order = mysqli_fetch_assoc($result)) {
         <div class="container">
             <ul class="page-breadcrumb breadcrumb">
                 <li>
-                    <a href="./orders.php">Order History</a>
+                    <a href="./orders.php?type=all">Order History</a>
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>

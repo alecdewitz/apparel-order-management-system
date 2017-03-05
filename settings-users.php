@@ -10,6 +10,25 @@ include('./php/header.php');
 <div class="page-content">
     <div class="container">
         <div class="page-content-inner">
+            <ul class="page-breadcrumb breadcrumb">
+                <ul class="page-breadcrumb breadcrumb">
+                    <li>
+                        <a href="./settings-general.php">General</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>Users</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <a href="./settings-password.php">Change Password</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <a href="./settings-progress.php">Order Progress</a>
+                    </li>
+                </ul>
+            </ul>
             <div class="row">
                 <div class="col-md-12">
                     <form class="form-horizontal form-row-seperated" method="post" action="">
@@ -19,7 +38,7 @@ include('./php/header.php');
                                     <i class="fa fa-users" aria-hidden="true"></i>Users
                                 </div>
                                 <div class="actions btn-set">
-                                    <!--                                    <a href="./orders.php" name="back" class="btn btn-danger">-->
+                                    <!--                                    <a href="./orders.php?type=all" name="back" class="btn btn-danger">-->
                                     <!--                                        <i class="fa fa-angle-left"></i> Back</a>-->
                                     <a data-target="#add-user" data-toggle="modal" class="btn btn-primary">
                                         <i class="fa fa-plus"></i> Add User

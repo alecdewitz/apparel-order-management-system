@@ -1,6 +1,6 @@
 <?php
 require('./php/session.php');
-include('./php/get-orders-scripts.php');
+include('./php/orders-scripts.php');
 include('./php/header.php');
 ?>
 
@@ -9,7 +9,7 @@ include('./php/header.php');
             <ul class="page-breadcrumb breadcrumb">
                 <ul class="page-breadcrumb breadcrumb">
                     <li>
-                        <a href="./orders.php">All Orders</a>
+                        <a href="./orders.php?type=all">All Orders</a>
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>

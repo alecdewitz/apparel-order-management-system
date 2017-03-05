@@ -19,7 +19,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<!--<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>-->
 
 <script>
     $('[data-toggle=confirmation]').confirmation({
@@ -96,9 +96,6 @@
 
 
 <script>
-    $("#sortable").sortable();
-    $("#sortable").disableSelection();
-
     countProgress();
 
     //create progress
@@ -129,7 +126,7 @@
 
     //create task
     function createProgress(text){
-        var markup = '<li class="ui-state-default"> <i class="fa fa-bars"></i> '+text+' <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button> </li>';
+        var markup = '<li class="ui-state-default"> '+text+' <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button> </li>';
         $('#sortable').append(markup);
         $('.add-progress').val('');
     }

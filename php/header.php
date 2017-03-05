@@ -195,7 +195,7 @@
 
                                         <?php if ($user['account_type'] == 1) { ?>
                                         <li>
-                                            <a href="users.php">
+                                            <a href="settings-users.php">
                                                 <i class="fa fa-users"></i>
                                                 <span>Users</span>
                                             </a>
@@ -252,7 +252,7 @@
                                     </a>
                                     <ul class="dropdown-menu pull-left">
                                         <li class=" ">
-                                            <a href="orders.php" class="nav-link  ">
+                                            <a href="orders.php?type=all" class="nav-link  ">
                                                 <i class="fa fa-bar-chart" aria-hidden="true"></i> All Orders
                                             </a>
                                         </li>
@@ -280,6 +280,10 @@
                                             <a href="settings-general.php" class="nav-link  ">
                                                 <i class="fa fa-bar-chart" aria-hidden="true"></i> General
                                             </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="settings-users.php" class="nav-link  ">
+                                                <i class="fa fa-user" aria-hidden="true"></i> Users </a>
                                         </li>
                                         <li class=" ">
                                             <a href="settings-password.php" class="nav-link  ">

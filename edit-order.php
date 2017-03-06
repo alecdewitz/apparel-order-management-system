@@ -126,59 +126,61 @@ while ($row = mysqli_fetch_assoc($result)) {
                                                         </div>
                                                     </div>
 
-                                                    <div class="general-section">
-                                                        <h1>Pricing</h1>
+                                                    <div class="products-section">
+                                                        <h1>Products</h1>
                                                     </div>
 
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 control-label">Cost per item:
-                                                            <span class="required"> * </span>
-                                                        </label>
-                                                        <div class="col-md-7">
-                                                            <input type="text" <?php if (!empty($row['cost_per'])) echo 'value="' . $row['cost_per'] . '"' ?> class="form-control" name="cost_per" placeholder="">
-                                                            <span class="help-block"> (<a target="_blank" href="./calculator.php">link to calculator</a>) </span>
+                                                    <div class="product">
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 control-label">Cost per item:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-7">
+                                                                <input type="text" <?php if (!empty($row['cost_per'])) echo 'value="' . $row['cost_per'] . '"' ?> class="form-control" name="cost_per" placeholder="">
+                                                                <span class="help-block"> (<a target="_blank" href="./calculator.php">link to calculator</a>) </span>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 control-label">Sizes:
-                                                            <span class="required"> * </span>
-                                                        </label>
-                                                        <div class="col-md-7">
-                                                            <label class="col-md-3 control-label">Small:
-                                                                <input type="number" <?php if (!empty($row['s'])) echo 'value="' . $row['s'] . '"' ?> class="form-control" name="s" placeholder="">
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 control-label">Sizes:
+                                                                <span class="required"> * </span>
                                                             </label>
-                                                            <label class="col-md-3 control-label">Medium:
-                                                                <input type="number" <?php if (!empty($row['m'])) echo 'value="' . $row['m'] . '"' ?> class="form-control" name="m" placeholder="">
-                                                            </label>
-                                                            <label class="col-md-3 control-label">Large:
-                                                                <input type="number" <?php if (!empty($row['l'])) echo 'value="' . $row['l'] . '"' ?> class="form-control" name="l" placeholder="">
-                                                            </label>
-                                                            <label class="col-md-3 control-label">X Large:
-                                                                <input type="number" <?php if (!empty($row['xl'])) echo 'value="' . $row['xl'] . '"' ?> class="form-control" name="xl" placeholder="">
-                                                            </label>
-                                                            <label class="col-md-3 control-label">XX Large (+$1.50):
-                                                                <input type="number" <?php if (!empty($row['xxl'])) echo 'value="' . $row['xxl'] . '"' ?> class="form-control" name="xxl" placeholder="">
-                                                            </label>
-                                                            <label class="col-md-3 control-label">XXX Large (+$3):
-                                                                <input type="number" <?php if (!empty($row['xxxl'])) echo 'value="' . $row['xxxl'] . '"' ?> class="form-control" name="xxxl" placeholder="">
-                                                            </label>
+                                                            <div class="col-md-7">
+                                                                <label class="col-md-3 control-label">Small:
+                                                                    <input type="number" <?php if (!empty($row['s'])) echo 'value="' . $row['s'] . '"' ?> class="form-control" name="s" placeholder="">
+                                                                </label>
+                                                                <label class="col-md-3 control-label">Medium:
+                                                                    <input type="number" <?php if (!empty($row['m'])) echo 'value="' . $row['m'] . '"' ?> class="form-control" name="m" placeholder="">
+                                                                </label>
+                                                                <label class="col-md-3 control-label">Large:
+                                                                    <input type="number" <?php if (!empty($row['l'])) echo 'value="' . $row['l'] . '"' ?> class="form-control" name="l" placeholder="">
+                                                                </label>
+                                                                <label class="col-md-3 control-label">X Large:
+                                                                    <input type="number" <?php if (!empty($row['xl'])) echo 'value="' . $row['xl'] . '"' ?> class="form-control" name="xl" placeholder="">
+                                                                </label>
+                                                                <label class="col-md-3 control-label">XX Large (+$1.50):
+                                                                    <input type="number" <?php if (!empty($row['xxl'])) echo 'value="' . $row['xxl'] . '"' ?> class="form-control" name="xxl" placeholder="">
+                                                                </label>
+                                                                <label class="col-md-3 control-label">XXX Large (+$3):
+                                                                    <input type="number" <?php if (!empty($row['xxxl'])) echo 'value="' . $row['xxxl'] . '"' ?> class="form-control" name="xxxl" placeholder="">
+                                                                </label>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 control-label">Cost to make:
-                                                            <span class="required"> * </span>
-                                                        </label>
-                                                        <div class="col-md-7">
-                                                            <input type="number" <?php if (!empty($row['cost_total'])) echo 'value="' . $row['cost_total'] . '"' ?> class="form-control" name="cost_total" placeholder=""></div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 control-label">Estimated revenue:
-                                                            <span class="required"> * </span>
-                                                        </label>
-                                                        <div class="col-md-7">
-                                                            <input type="number" <?php if (!empty($row['revenue'])) echo 'value="' . $row['revenue'] . '"' ?> class="form-control" name="revenue" placeholder=""></div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 control-label">Cost to make:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-7">
+                                                                <input type="number" <?php if (!empty($row['cost_total'])) echo 'value="' . $row['cost_total'] . '"' ?> class="form-control" name="cost_total" placeholder=""></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 control-label">Estimated revenue:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-7">
+                                                                <input type="number" <?php if (!empty($row['revenue'])) echo 'value="' . $row['revenue'] . '"' ?> class="form-control" name="revenue" placeholder=""></div>
+                                                        </div>
                                                     </div>
 
                                                     <div class="tasks-section">
@@ -246,4 +248,5 @@ while ($row = mysqli_fetch_assoc($result)) {
         </div>
     </div>
 
-<?php } include('./php/footer.php'); ?>
+<?php }
+include('./php/footer.php'); ?>

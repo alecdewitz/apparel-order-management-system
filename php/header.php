@@ -22,7 +22,7 @@
     <link href="./assets/css/default.css" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="favicon.ico"/>
     <style>
-        .general-section, .tasks-section {
+        .general-section, .products-section, .tasks-section {
             margin: 30px;
             text-align: center;
         }

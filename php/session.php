@@ -39,6 +39,7 @@ function isAdmin($user) {
 function toDollars($num){
     return "$" . number_format($num, 2, '.', ',');
 }
+
 //end functions
 
 

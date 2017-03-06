@@ -25,7 +25,6 @@ if (isset($_GET['action'])) {
         }
 //    $progress_name = $_POST['progress_name'];
     $progress_name = 'hey';
-    $date = date("n/j/Y"); //TODO add time as well
 
     $sql = "INSERT INTO settings_progress (progress_id, progress_order, progress_name, date_added)
               VALUES (null, (SELECT MAX('progress_order')), '$progress_name', '$date')";

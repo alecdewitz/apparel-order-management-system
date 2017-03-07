@@ -35,6 +35,7 @@ if (strpos($_SERVER['PHP_SELF'], 'orders.php') && isset($_GET['type'])) {
 if ((strpos($_SERVER['PHP_SELF'], 'view-order.php') || strpos($_SERVER['PHP_SELF'], 'edit-order.php')) && isset($_GET['order_id'])) {
     $order_id = $_GET['order_id'];
     $query = $query . " AND order_id = $order_id AND deleted != 1";
+
 }
 
 
@@ -45,6 +46,21 @@ $result = mysqli_query($connection, $query);
 $stats_result = mysqli_query($connection, $query);
 //closes connection
 $connection->close();
+
+
+
+// Scripts
+
+function getTotalPrice($quantity, $pricePer) {
+
+}
+
+
+
+//
+
+
+
 
 $total_costs = 0;
 $total_revenue = 0;

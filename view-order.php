@@ -10,7 +10,6 @@ if ($result->num_rows == 0) {
 }
 
 
-
 include('./php/header.php');
 
 while ($order = mysqli_fetch_assoc($result)) {
@@ -243,70 +242,105 @@ while ($order = mysqli_fetch_assoc($result)) {
                                                                 </thead>
 
                                                                 <?php
-                                                                $small = preg_replace("/[^0-9.]/", "", $order['cost_per']) * preg_replace("/[^0-9.]/", "", $order['s']);
-                                                                $medium = preg_replace("/[^0-9.]/", "", $order['cost_per']) * preg_replace("/[^0-9.]/", "", $order['m']);
-                                                                $large = preg_replace("/[^0-9.]/", "", $order['cost_per']) * preg_replace("/[^0-9.]/", "", $order['l']);
-                                                                $xlarge = preg_replace("/[^0-9.]/", "", $order['cost_per']) * preg_replace("/[^0-9.]/", "", $order['xl']);
-                                                                $xxlarge = (preg_replace("/[^0-9.]/", "", $order['cost_per']) + 1.50) * preg_replace("/[^0-9.]/", "", $order['xxl']);
-                                                                $xxxlarge = (preg_replace("/[^0-9.]/", "", $order['cost_per']) + 3) * preg_replace("/[^0-9.]/", "", $order['xxxl']);
+                                                                $products = json_decode($order['products'], true);
+                                                                $order_revenue = 0;
+                                                                $order_expense = 0;
 
-                                                                $revenue_total = $small + $medium + $large + $xlarge + $xxlarge + $xxxlarge;
+                                                                foreach ($products as $product) {
 
-                                                                if (!empty($order['cost_total_real'])) $cost_total_real = preg_replace("/[^0-9.]/", "", $order['cost_total_real']);
-                                                                $cost_total = preg_replace("/[^0-9.]/", "", $order['cost_total']);
+                                                                    $product_name = $product["name"];
+                                                                    $small = $product["small"];
+                                                                    $medium = $product["medium"];
+                                                                    $large = $product["large"];
+                                                                    $xlarge = $product["xlarge"];
+                                                                    $xxlarge = $product["xxlarge"];
+                                                                    $xxxlarge = $product["xxxlarge"];
+                                                                    $onesize = $product["onesize"];
+                                                                    $revenue = $product["revenue"];
+                                                                    $expense = $product["expense"];
+                                                                    $revenue = $revenue - ($xxlarge * 1.50) + ($xxxlarge * 3.00);
+                                                                    $quantity_total = $small + $medium + $large + $xlarge + $xxlarge + $xxxlarge;
+                                                                    $price_each = $revenue / $quantity_total;
+
+                                                                    //todo later on
+                                                                    if ($revenue == 0) {
+                                                                        $price_each = 0;
+                                                                    }
+
+                                                                    //calculates total order revenue and expense
+                                                                    $order_revenue = $order_revenue + $revenue;
+                                                                    $order_expense = $order_expense + $expense;
 
 
-                                                                ?>
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <a target="_blank" href="http://www.4logoapparel.com/cgi-bin/hw/hwb/chw-display-PLstyle.w?sr=<?php echo $order['product']; ?>&currentColor=&hwCN=149149152156156157156&hwCNCD=149149152156156157156&hwST=1"> <?php echo $order['product']; ?> Small - White </a>
-                                                                    </td>
-                                                                    <td> $<?php echo toDollars(preg_replace("/[^0-9.]/", "", $order['cost_per'])) ?> </td>
-                                                                    <td> <?php echo $order['s']; ?> </td>
-                                                                    <td> $<?php echo toDollars($small) ?> </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <a target="_blank" href="http://www.4logoapparel.com/cgi-bin/hw/hwb/chw-display-PLstyle.w?sr=<?php echo $order['product']; ?>&currentColor=&hwCN=149149152156156157156&hwCNCD=149149152156156157156&hwST=1"> <?php echo $order['product']; ?> Medium - White </a>
-                                                                    </td>
-                                                                    <td> $<?php echo toDollars(preg_replace("/[^0-9.]/", "", $order['cost_per'])); ?> </td>
-                                                                    <td> <?php echo $order['m']; ?> </td>
-                                                                    <td> $<?php echo toDollars($medium) ?> </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <a target="_blank" href="http://www.4logoapparel.com/cgi-bin/hw/hwb/chw-display-PLstyle.w?sr=<?php echo $order['product']; ?>&currentColor=&hwCN=149149152156156157156&hwCNCD=149149152156156157156&hwST=1"> <?php echo $order['product']; ?> Large - White </a>
-                                                                    </td>
-                                                                    <td> $<?php echo toDollars(preg_replace("/[^0-9.]/", "", $order['cost_per'])); ?> </td>
-                                                                    <td> <?php echo $order['l']; ?> </td>
-                                                                    <td> $<?php echo toDollars($large) ?> </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <a target="_blank" href="http://www.4logoapparel.com/cgi-bin/hw/hwb/chw-display-PLstyle.w?sr=<?php echo $order['product']; ?>&currentColor=&hwCN=149149152156156157156&hwCNCD=149149152156156157156&hwST=1"> <?php echo $order['product']; ?> X-Large - White </a>
-                                                                    </td>
-                                                                    <td> $<?php echo toDollars(preg_replace("/[^0-9.]/", "", $order['cost_per'])); ?> </td>
-                                                                    <td> <?php echo $order['xl']; ?> </td>
-                                                                    <td> $<?php echo toDollars($xlarge) ?> </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <a target="_blank" href="http://www.4logoapparel.com/cgi-bin/hw/hwb/chw-display-PLstyle.w?sr=<?php echo $order['product']; ?>&currentColor=&hwCN=149149152156156157156&hwCNCD=149149152156156157156&hwST=1"> <?php echo $order['product']; ?> XX-Large - White </a>
-                                                                    </td>
-                                                                    <td> $<?php echo toDollars(preg_replace("/[^0-9.]/", "", $order['cost_per']) + 1.50); ?> </td>
-                                                                    <td> <?php echo $order['xxl']; ?> </td>
-                                                                    <td> $<?php echo toDollars($xxlarge) ?> </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <a target="_blank" href="http://www.4logoapparel.com/cgi-bin/hw/hwb/chw-display-PLstyle.w?sr=<?php echo $order['product']; ?>&currentColor=&hwCN=149149152156156157156&hwCNCD=149149152156156157156&hwST=1"> <?php echo $order['product']; ?> XXX-Large - White </a>
-                                                                    </td>
-                                                                    <td> $<?php echo toDollars(preg_replace("/[^0-9.]/", "", $order['cost_per']) + 3); ?> </td>
-                                                                    <td> <?php echo $order['xxxl']; ?> </td>
-                                                                    <td> $<?php echo toDollars($xxxlarge) ?> </td>
-                                                                </tr>
-                                                                </tbody>
+
+
+                                                                    ?>
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td><b><?php echo $product_name; ?></b></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+
+
+                                                                    <?php if ($onesize == 0) { ?>
+
+                                                                        <tr>
+                                                                            <td class="product-sizes-tr">Small</td>
+                                                                            <td> <?php echo toDollars($price_each); ?> </td>
+                                                                            <td> <?php echo $small; ?> </td>
+                                                                            <td> <?php echo toDollars($price_each * $small) ?> </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="product-sizes-tr">Medium</td>
+                                                                            <td> <?php echo toDollars($price_each); ?> </td>
+                                                                            <td> <?php echo $medium; ?> </td>
+                                                                            <td> <?php echo toDollars($price_each * $medium) ?> </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="product-sizes-tr">Large</td>
+                                                                            <td> <?php echo toDollars($price_each); ?> </td>
+                                                                            <td> <?php echo $large; ?> </td>
+                                                                            <td> <?php echo toDollars($price_each * $large) ?> </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="product-sizes-tr">X-Large</td>
+                                                                            <td> <?php echo toDollars($price_each); ?> </td>
+                                                                            <td> <?php echo $xlarge; ?> </td>
+                                                                            <td> <?php echo toDollars($price_each * $xlarge) ?> </td>
+                                                                        </tr>
+
+                                                                        <?php if ($xxlarge > 0 || $xxxlarge > 0) { ?>
+                                                                            <tr>
+                                                                                <td class="product-sizes-tr">XX-Large</td>
+                                                                                <td> <?php echo toDollars($price_each + 1.50); ?> </td>
+                                                                                <td> <?php echo $xxlarge; ?> </td>
+                                                                                <td> <?php echo toDollars(($price_each + 1.50) * $xxlarge) ?> </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="product-sizes-tr">XXX-Large</td>
+                                                                                <td> <?php echo toDollars($price_each + 3.00); ?> </td>
+                                                                                <td> <?php echo $xxxlarge; ?> </td>
+                                                                                <td> <?php echo toDollars(($price_each + 3.00) * $xxxlarge) ?> </td>
+                                                                            </tr>
+                                                                        <?php } ?>
+
+                                                                    <?php } else if ($onesize > 0) { ?>
+                                                                        <tr>
+                                                                            <td class="product-sizes-tr">One Size</td>
+                                                                            <td> $<?php echo toDollars(preg_replace("/[^0-9.]/", "", $order['cost_per']) + 3); ?> </td>
+                                                                            <td> <?php echo $onesize; ?> </td>
+                                                                            <td> $<?php echo toDollars($onesize) ?> </td>
+                                                                        </tr>
+                                                                    <?php } ?>
+
+
+                                                                    </tbody>
+
+                                                                <?php } ?>
+
+
                                                             </table>
                                                         </div>
                                                     </div>
@@ -319,20 +353,16 @@ while ($order = mysqli_fetch_assoc($result)) {
                                                 <div class="well">
                                                     <div class="row static-info align-reverse">
                                                         <div class="col-md-8 name"> Total:</div>
-                                                        <div class="col-md-3 value"> $<?php echo toDollars($revenue_total) ?> </div>
+                                                        <div class="col-md-3 value"> <?php echo toDollars($order_revenue); ?> </div>
                                                     </div>
                                                     <div class="row static-info align-reverse">
                                                         <div class="col-md-8 name"> Expenses:</div>
-                                                        <div class="col-md-3 value"> $<?php if (!empty($order['cost_total_real'])) {
-                                                                echo toDollars($cost_total_real);
-                                                            } else {
-                                                                echo toDollars($cost_total);
-                                                            } ?>
+                                                        <div class="col-md-3 value"> <?php echo toDollars($order_expense); ?>
                                                         </div>
                                                     </div>
                                                     <div class="row static-info align-reverse">
                                                         <div class="col-md-8 name"> Profit:</div>
-                                                        <div class="col-md-3 value"> $<?php echo toDollars($revenue_total - $cost_total); ?> </div>
+                                                        <div class="col-md-3 value"> <?php echo toDollars($order_revenue - $order_expense); ?> </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -347,4 +377,12 @@ while ($order = mysqli_fetch_assoc($result)) {
         </div>
     </div>
 
-<?php } include('./php/footer.php'); ?>
+    <style>
+        .table-bordered tbody tr td.product-sizes-tr {
+            padding-left: 30px;
+        }
+    </style>
+
+<?php }
+include('./php/footer.php'); ?>
+

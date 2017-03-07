@@ -39,7 +39,7 @@ if (isset($_POST['date_order'])) {
                     $expense = (float)$product['expense'];
 
                     $values[] = array(
-                        'product' => $product_name,
+                        'name' => $product_name,
                         'small' => $small,
                         'medium' => $medium,
                         'large' => $large,

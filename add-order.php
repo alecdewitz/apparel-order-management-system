@@ -59,7 +59,6 @@ include('./php/header.php');
                                                     <label class="col-sm-3 control-label">Order Number:
                                                         <span class="required"> * </span>
                                                     </label>
-
                                                     <div class="col-sm-7">
                                                         <div class="input-group">
                                                             <span class="input-group-addon">S17-</span>
@@ -256,9 +255,9 @@ include('./php/header.php');
             '<input min="0" type="number" class="form-control" name="product['+ numberProduct +'][xxxl]" placeholder=""> </label> <label class="col-md-3 control-label">One Size (Hats): ' +
             '<input min="0" type="number" class="form-control" name="product['+ numberProduct +'][onesize]" placeholder=""> </label> </div> </div> <div class="form-group"> ' +
             '<label class="col-sm-3 control-label">Revenue (Sales): <span class="required"> * </span> </label> <div class="col-sm-7"> <div class="input-group"> ' +
-            '<span class="input-group-addon">$</span> <input min="0" required type="number" class="form-control" name="product['+ numberProduct +'][revenue]" placeholder=""> </div> </div> </div> ' +
+            '<span class="input-group-addon">$</span> <input min="0" step="0.01" required type="number" class="form-control" name="product['+ numberProduct +'][revenue]" placeholder=""> </div> </div> </div> ' +
             '<div class="form-group"> <label class="col-sm-3 control-label">Cost (Expense): <span class="required"> * </span> </label> <div class="col-sm-7"> <div class="input-group"> ' +
-            '<span class="input-group-addon">$</span> <input min="0" required type="number" class="form-control" name="product['+ numberProduct +'][expense]" placeholder=""> </div> </div> </div> </div>';
+            '<span class="input-group-addon">$</span> <input min="0" step="0.01" required type="number" class="form-control" name="product['+ numberProduct +'][expense]" placeholder=""> </div> </div> </div> </div>';
 
         $('div.products-added').append(markup);
     }

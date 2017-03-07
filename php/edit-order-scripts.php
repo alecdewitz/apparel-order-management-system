@@ -49,7 +49,7 @@ if (isset($_POST['date_order'])) {
     if (empty($_POST['date_order'])) {
         $_SESSION['errors'] = true;
     } else {
-        $order_number = $_POST['order_number'];
+        $order_number = $settings['order_prefix'] . "-" . $_POST['order_number'];
         $date_order = $_POST['date_order'];
         $client_name = $_POST['client'];
         $client_email = $_POST['email'];

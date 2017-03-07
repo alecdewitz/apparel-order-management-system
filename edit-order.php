@@ -80,8 +80,9 @@ while ($order = mysqli_fetch_assoc($result)) {
                                                         </label>
                                                         <div class="col-sm-7">
                                                             <div class="input-group">
-                                                                <span class="input-group-addon">S17-</span>
-                                                                <input min="0" <?php if (!empty($order['order_number'])) echo 'value="' . $order['order_number'] . '"' ?> required type="number" class="form-control" name="order_number" placeholder="">
+                                                                <span class="input-group-addon"><?php echo $settings['order_prefix']; ?>-</span>
+                                                                <!-- todo: fix substring to match order number -->
+                                                                <input min="0" <?php if (!empty($order['order_number'])) echo 'value="' . substr($order['order_number'],6) . '"' ?> required type="number" class="form-control" name="order_number" placeholder="">
                                                             </div>
 
                                                             <span class="help-block"> Ex: S17-01 </span>

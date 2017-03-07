@@ -30,10 +30,7 @@ $connection->close();
 
 //functions
 function isAdmin($user) {
-    if ($user['account_type'] == 1) {
-        return true;
-    }
-    return false;
+    return $user['account_type'] == 1;
 }
 
 function toDollars($num){

@@ -242,9 +242,8 @@ while ($order = mysqli_fetch_assoc($result)) {
                                                             $onesize = $product["onesize"];
                                                             $revenue = $product["revenue"];
                                                             $expense = $product["expense"];
-                                                            $revenue = $revenue - ($xxlarge * 1.50) + ($xxxlarge * 3.00);
                                                             $quantity_total = $small + $medium + $large + $xlarge + $xxlarge + $xxxlarge;
-                                                            $price_each = $revenue / $quantity_total;
+                                                            $price_each = ($revenue - ($xxlarge * 1.50) + ($xxxlarge * 3.00)) / $quantity_total;
 
                                                             //todo later on
                                                             if ($revenue == 0) {

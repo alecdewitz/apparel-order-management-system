@@ -37,6 +37,10 @@ function toDollars($num){
     return "$" . number_format($num, 2, '.', ',');
 }
 
+function getUserID($user) {
+    return $user['account_id'];
+}
+
 //end functions
 
 

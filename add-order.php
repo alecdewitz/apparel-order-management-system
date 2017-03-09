@@ -61,7 +61,7 @@ include('./php/header.php');
                                                     </label>
                                                     <div class="col-sm-7">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon">S17-</span>
+                                                            <span class="input-group-addon"><?php echo $settings['order_prefix']; ?>-</span>
                                                             <input min="0" required type="number" class="form-control" name="order_number" placeholder="">
                                                         </div>
 

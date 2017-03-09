@@ -17,6 +17,6 @@ if(session_destroy()) {
     if (mysqli_query($connection, $sql)) {
         header("Location: ./?logged_out=true");
     } else {
-        echo 'fail';
+        echo $connection->error;
     }
 }

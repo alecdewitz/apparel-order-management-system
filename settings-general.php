@@ -2,6 +2,7 @@
 require('./php/session.php');
 include('./php/settings-scripts.php');
 include('./php/header.php');
+
 ?>
 <style>
     .progresslist {
@@ -106,7 +107,7 @@ include('./php/header.php');
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-10">
-                                                        <input type="text" class="form-control" name="company_name" placeholder="Ordery">
+                                                        <input type="text" value="<?php echo $settings['company_name'] ?>" class="form-control" name="company_name" placeholder="Ordery">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -114,7 +115,7 @@ include('./php/header.php');
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-10">
-                                                        <input type="text" class="form-control" name="company_slogan" placeholder="">
+                                                        <input type="text" class="form-control" value="<?php echo $settings['company_slogan'] ?>" name="company_slogan" placeholder="">
                                                     </div>
                                                 </div>
 
@@ -131,38 +132,28 @@ include('./php/header.php');
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-5">
-                                                        <div class="input-group input-large date-picker input-daterange" data-date="1/1" data-date-format="MM d">
-                                                            <input type="text" class="form-control" value="January 1" name="calendar_start">
+                                                        <div class="input-group input-large date-picker input-daterange" data-date="1/1" data-date-format="m/d">
+                                                            <input type="text" value="<?php echo $settings['year_start'] ?>" class="form-control" name="calendar_start">
                                                         </div>
                                                         <!--                                                        --><?php //echo date('F j'); ?>
                                                         <span class="help-block"> year start </span>
 
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <div class="input-group input-large date-picker input-daterange" data-date="1/1" data-date-format="MM d">
-                                                            <input type="text" class="form-control" value="December 31" name="calendar_end">
+                                                        <div class="input-group input-large date-picker input-daterange" data-date="1/1" data-date-format="m/d">
+                                                            <input type="text" class="form-control" value="<?php echo $settings['year_end'] ?>" name="calendar_end">
                                                         </div>
                                                         <span class="help-block"> year end </span>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="col-md-2 control-label">Client Prefix:
+                                                    <label class="col-md-2 control-label">Order Prefix:
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-10">
-                                                        <input type="text" class="form-control" name="retail_prefix" placeholder="CLI">
-                                                        <span class="help-block"> Optional to add prefix to client order </span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Retail Prefix:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-md-10">
-                                                        <input type="text" class="form-control" name="retail_prefix" placeholder="RET">
-                                                        <span class="help-block"> Optional to add prefix to client order </span>
+                                                        <input type="text" class="form-control" value="<?php echo $settings['order_prefix'] ?>" name="order_prefix" placeholder="CLI">
+                                                        <span class="help-block"> Optional to add prefix to order </span>
                                                     </div>
                                                 </div>
 

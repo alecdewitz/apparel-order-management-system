@@ -80,7 +80,7 @@ include('./php/header.php');
                                                                 }
                                                             } ?>>
                                                                 <!--                                                                <td><a href="users.php?account_id=--><?php //echo $users['account_id'] ?><!--"> --><?php //echo $users['account_id'] ?><!--</a></td>-->
-                                                                <td> <?php if ($users['account_type'] == 1) echo "Admin"; else echo "User" ?> </td>
+                                                                <td> <?php if ($users['account_type'] == 1) echo "Admin"; else if ($users['account_type'] == 2) echo "User"; else echo "Disabled" ?> </td>
                                                                 <td> <?php echo $users['username'] ?> </td>
                                                                 <td> <?php echo $users['fullname'] ?> </td>
                                                                 <td> <?php echo $users['last_login'] ?> </td>

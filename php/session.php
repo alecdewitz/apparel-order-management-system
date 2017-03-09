@@ -40,7 +40,6 @@ function toDollars($num){
 function getUserID($user) {
     return $user['account_id'];
 }
-
 //end functions
 
 

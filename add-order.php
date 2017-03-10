@@ -204,6 +204,7 @@ include('./php/header.php');
         background-color: #f1f1f1;
         padding: 10px;
         margin-bottom: 20px;
+        text-align: center;
     }
     .product-list {
         margin-bottom: 10px;

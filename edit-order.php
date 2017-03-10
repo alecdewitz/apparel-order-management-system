@@ -249,6 +249,7 @@ include('./php/footer.php'); ?>
         background-color: #f1f1f1;
         padding: 10px;
         margin-bottom: 20px;
+        text-align: center;
     }
 
     .product-list {
@@ -273,6 +274,8 @@ include('./php/footer.php'); ?>
         e.preventDefault();
         createProduct();
     });
+
+    addProductHelp.hide();
 
     //delete done task from "already done"
     $('.products-added').on('click', '.remove-item', function (e) {

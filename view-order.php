@@ -53,7 +53,7 @@ while ($order = mysqli_fetch_assoc($result)) {
                                             </li>
 
                                             <li>
-                                                <a href="./edit-order.php?order_id=<?php echo $order['order_id'] ?>&delete=true"> Delete </a>
+                                                <a class="delete-order-modal" data-target="#delete-order" data-toggle="modal" data-href="./edit-order.php?order_id=<?php echo $order['order_id'] ?>&delete=true"> Delete </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -372,6 +372,18 @@ while ($order = mysqli_fetch_assoc($result)) {
         }
     </style>
 
+
+
 <?php }
-include('./php/footer.php'); ?>
+include('./php/footer.php');
+include('modals/orders.php'); ?>
+
+<script>
+        $('li').on("click", ".delete-order-modal", function (e) {
+            var url = $(e.currentTarget).data('href');
+            $('a#delete-order-confirm').attr('href', url);
+
+        });
+
+</script>
 

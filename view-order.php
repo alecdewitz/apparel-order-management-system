@@ -35,18 +35,22 @@ while ($order = mysqli_fetch_assoc($result)) {
                                 <div class="caption">
                                     <i class="icon-settings font-dark"></i>
                                     <span class="caption-subject font-dark sbold uppercase"> Order <?php echo $order['order_number'] ?>
-                                        <span class="hidden-xs">| <?php echo $order['date_order'] ?> </span>
-                                                            </span>
+                                        <span class="hidden-xs">| <?php echo $order['date_order'] ?> </span></span>
                                 </div>
                                 <div class="actions">
-                                    <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                    </div>
                                     <div class="btn-group">
+                                        <?php /* Retail orders, show add button */ if ($order['order_type'] == "2") { ?>
+                                        <a class="btn blue btn-outline btn-circle" style="margin-right: 10px" href="">
+                                            <i class="fa fa-plus"></i>
+                                            <span class="hidden-xs"> Add Individual Order </span>
+                                        </a>
+                                        <?php } ?>
                                         <a class="btn red btn-outline btn-circle" href="#" data-toggle="dropdown">
                                             <i class="fa fa-pencil"></i>
                                             <span class="hidden-xs"> Options </span>
                                             <i class="fa fa-angle-down"></i>
                                         </a>
+
                                         <ul class="dropdown-menu pull-right">
                                             <li>
                                                 <a href="./edit-order.php?order_id=<?php echo $order['order_id'] ?>"> Edit </a>

@@ -275,7 +275,10 @@ include('./php/footer.php'); ?>
         createProduct();
     });
 
-    addProductHelp.hide();
+    if ($(".product-list").length != 0) {
+        numberProduct = $(".product-list").length;
+        addProductHelp.hide();
+    }
 
     //delete done task from "already done"
     $('.products-added').on('click', '.remove-item', function (e) {

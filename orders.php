@@ -1,7 +1,7 @@
 <?php
-require('./php/session.php');
-include('./php/orders-scripts.php');
-include('./php/header.php');
+//require_once('./php/session.php');
+include_once('./php/orders-scripts.php');
+include_once('./php/header.php');
 ?>
 
     <div class="page-content">

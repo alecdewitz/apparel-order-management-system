@@ -1,13 +1,12 @@
 <?php
 session_start();
+date_default_timezone_set('America/Chicago');
 
 //if not logged in
 if(!isset($_SESSION['logged_user'])){
     setcookie("login_required", "true", time() + (10), "/");
     header('Location: ./');
 }
-
-require('./php/connection.php');
 
 //gets logged in user information
 $user_in_session = $_SESSION['logged_user'];
@@ -25,7 +24,7 @@ $settings_query_sql = "SELECT * FROM settings";
 $settings_query = mysqli_query($connection, $settings_query_sql);
 $settings = mysqli_fetch_assoc($settings_query);
 
-$connection->close();
+//$connection->close();
 
 
 //functions

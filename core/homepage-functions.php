@@ -1,5 +1,6 @@
 <?php
-if(isset($_SESSION['logged_user'])){
+
+if (isset($_SESSION['logged_user'])){
     header("location: ./orders");
 }
 

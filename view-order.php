@@ -40,9 +40,9 @@ while ($order = mysqli_fetch_assoc($result)) {
                                 <div class="actions">
                                     <div class="btn-group">
                                         <?php /* Retail orders, show add button */ if ($order['order_type'] == "2") { ?>
-                                        <a class="btn blue btn-outline btn-circle" style="margin-right: 10px" href="">
+                                        <a class="btn blue btn-outline btn-circle" style="margin-right: 10px" href="add-transaction.php?order_id=<?php echo $order['order_id']; ?>">
                                             <i class="fa fa-plus"></i>
-                                            <span class="hidden-xs"> Add Individual Order </span>
+                                            <span class="hidden-xs"> Add Transaction </span>
                                         </a>
                                         <?php } ?>
                                         <a class="btn red btn-outline btn-circle" href="#" data-toggle="dropdown">

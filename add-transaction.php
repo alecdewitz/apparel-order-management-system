@@ -1,6 +1,6 @@
 <?php
 require('./php/session.php');
-include('./php/add-order-scripts.php');
+include('./php/add-transaction-scripts.php');
 include('./php/header.php');
 ?>
 
@@ -13,7 +13,7 @@ include('./php/header.php');
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Add Order</span>
+                <span>Add Transaction</span>
             </li>
         </ul>
         <div class="page-content-inner">
@@ -23,13 +23,13 @@ include('./php/header.php');
                         <div class="portlet">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fa fa-shopping-cart"></i>New Order
+                                    <i class="fa fa-shopping-cart"></i>New Transaction
                                 </div>
                                 <div class="actions btn-set">
                                     <a href="./orders.php?type=all" name="back" class="btn btn-danger">
-                                        <i class="fa fa-angle-left"></i> Back</a>
+                                        <i class="fa fa-angle-left"></i> <span class="hidden-xs"> Back </span></a>
                                     <button class="btn btn-success">
-                                        <i class="fa fa-check"></i> Save
+                                        <i class="fa fa-check"></i> <span class="hidden-xs"> Save </span>
                                     </button>
 
                                 </div>
@@ -44,34 +44,40 @@ include('./php/header.php');
                                                     <h1>General</h1>
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Order Type:</label>
-                                                    <div class="col-sm-7">
-                                                        <select required name="order_type" class="form-control">
-                                                            <option value="1" <?php if ($_GET['type'] == "client") echo "selected"; ?> >Client Order</option>
-                                                            <option value="2" <?php if ($_GET['type'] == "retail") echo "selected"; ?> >Retail Order</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                <!--                                                <div class="form-group">-->
+                                                <!--                                                    <label class="col-sm-3 control-label">Order Type:</label>-->
+                                                <!--                                                    <div class="col-sm-7">-->
+                                                <!--                                                        <select required name="order_type" class="form-control">-->
+                                                <!--                                                            <option value="1" --><?php //if ($_GET['type'] == "client") echo "selected"; ?><!-- >Client Order</option>-->
+                                                <!--                                                            <option value="2" --><?php //if ($_GET['type'] == "retail") echo "selected"; ?><!-- >Retail Order</option>-->
+                                                <!--                                                        </select>-->
+                                                <!--                                                    </div>-->
+                                                <!--                                                </div>-->
 
 
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label">Order Number:
-                                                        <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-sm-7">
                                                         <div class="input-group">
                                                             <span class="input-group-addon"><?php echo $settings['order_prefix']; ?>-</span>
-                                                            <input pattern="[0-9]*" min="0" required type="number" class="form-control" name="order_number" placeholder="">
+                                                            <input disabled pattern="[0-9]*" min="0" <?php if (!empty($order['order_number'])) echo 'value="' . substr($order['order_number'], strlen($settings['order_prefix']) + 1) . '"' ?> required type="number" class="form-control" name="order_number" placeholder="">
                                                         </div>
 
-                                                        <span class="help-block"> Ex: S17-01 </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Description:
+                                                    </label>
+                                                    <div class="col-sm-7">
+                                                        <input disabled pattern="[0-9]*" min="0" <?php if (!empty($order['order_description'])) echo 'value="' . $order['order_description'] . '"' ?> required type="number" class="form-control" name="order_number" placeholder="">
                                                     </div>
                                                 </div>
 
 
                                                 <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Date:
+                                                    <label class="col-sm-3 control-label">Transaction Date:
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-sm-7">
@@ -82,37 +88,38 @@ include('./php/header.php');
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Client Name:
+                                                    <label class="col-sm-3 control-label">Name:
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-sm-7">
-                                                        <input type="text" class="form-control" name="client"></div>
+                                                        <input type="text" class="form-control" name="client" placeholder=""></div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Client Email:
-                                                        <span class="required"> * </span>
+                                                    <label class="col-sm-3 control-label">Email:
                                                     </label>
                                                     <div class="col-sm-7">
-                                                        <input type="text" class="form-control" name="email"></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Description:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-sm-7">
-                                                        <input type="text" class="form-control" name="description">
-                                                    </div>
+                                                        <input type="text" class="form-control" name="email" placeholder=""></div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Deadline:
+                                                    <label class="col-sm-3 control-label">Location:
                                                     </label>
                                                     <div class="col-sm-7">
-                                                        <div class="date-picker input-daterange" data-date="10/11/2012" data-date-format="DD, M d, yyyy">
-                                                            <input type="text" class="form-control" name="deadline"></div>
-
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon input-sm">
+                                                                <select name="pre_location">
+<!--                                                                     Get preset locations-->
+                                                                    <option>--Select--</option>
+                                                                    <option value="sju">SJU PO Box: </option>
+                                                                    <option value="csb">CSB PO Box: </option>
+                                                                    <option value="house">House: </option>
+                                                                </select>
+                                                            </span>
+                                                            <input type="text" class="form-control input" name="location">
+                                                        </div>
                                                     </div>
                                                 </div>
+
                                                 <!--                                                <div class="form-group">-->
                                                 <!--                                                    <label class="col-sm-3 control-label">Product:-->
                                                 <!--                                                        <span class="required"> * </span>-->
@@ -141,7 +148,7 @@ include('./php/header.php');
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Submitted Order to TCT:
+                                                    <label class="col-sm-3 control-label">Paid For Products:
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-sm-7">
@@ -150,6 +157,7 @@ include('./php/header.php');
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!--                                                Add partial payment-->
 
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label">Paid TCT Invoice:
@@ -158,27 +166,6 @@ include('./php/header.php');
                                                     <div class="col-sm-7">
                                                         <div class="date-picker input-daterange" data-date="10/11/2012" data-date-format="m/d/yyyy">
                                                             <input type="text" class="form-control" name="paid_invoice_task">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Sent Invoice to Client:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-sm-7">
-                                                        <div class="date-picker input-daterange" data-date="10/11/2012" data-date-format="m/d/yyyy">
-                                                            <input type="text" class="form-control" name="sent_invoice_task">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Received Payment:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-sm-7">
-                                                        <div class="date-picker input-daterange" data-date="10/11/2012" data-date-format="m/d/yyyy">
-                                                            <input type="text" class="form-control" name="received_task">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -206,14 +193,17 @@ include('./php/header.php');
         margin-bottom: 20px;
         text-align: center;
     }
+
     .product-list {
         margin-bottom: 10px;
         padding: 20px 0 10px 0;
         border-bottom: 2px solid #ddd;
     }
+
     .product-list:last-child {
         border: none;
     }
+
     .delete-product-btn {
 
     }
@@ -246,19 +236,19 @@ include('./php/header.php');
         numberProduct++;
         addProductHelp.hide();
         var markup = '<div class="product-list"><button class="remove-item btn red btn-outline pull-right delete-product-btn"><span class="glyphicon glyphicon-remove"></span></button> <div class="form-group"> <label class="col-sm-3 control-label">Product ' + numberProduct + ': <span class="required"> * </span> </label> ' +
-            '<div class="col-sm-7"> <input type="text" class="form-control" name="product['+ numberProduct +'][name]" placeholder=""> </div> </div> ' +
+            '<div class="col-sm-7"> <input type="text" class="form-control" name="product[' + numberProduct + '][name]" placeholder=""> </div> </div> ' +
             '<div class="form-group"> <label class="col-sm-3 control-label">Sizes: <span class="required"> * </span> </label> ' +
-            '<div class="col-sm-7"> <label class="col-md-3 control-label">Small: <input min="0" type="number" class="form-control" name="product['+ numberProduct +'][s]" placeholder=""> </label> ' +
-            '<label class="col-md-3 control-label">Medium: <input min="0" type="number" class="form-control" name="product['+ numberProduct +'][m]" placeholder=""> </label> <label class="col-md-3 control-label">Large: ' +
-            '<input min="0" type="number" class="form-control" name="product['+ numberProduct +'][l]" placeholder=""> </label> <label class="col-md-3 control-label">X Large: ' +
-            '<input min="0" type="number" class="form-control" name="product['+ numberProduct +'][xl]" placeholder=""> </label> <label class="col-md-3 control-label">XX Large (+$1.50): ' +
-            '<input min="0" type="number" class="form-control" name="product['+ numberProduct +'][xxl]" placeholder=""> </label> <label class="col-md-3 control-label">XXX Large (+$3): ' +
-            '<input min="0" type="number" class="form-control" name="product['+ numberProduct +'][xxxl]" placeholder=""> </label> <label class="col-md-3 control-label">One Size (Hats): ' +
-            '<input min="0" type="number" class="form-control" name="product['+ numberProduct +'][onesize]" placeholder=""> </label> </div> </div> <div class="form-group"> ' +
+            '<div class="col-sm-7"> <label class="col-md-3 control-label">Small: <input min="0" type="number" class="form-control" name="product[' + numberProduct + '][s]" placeholder=""> </label> ' +
+            '<label class="col-md-3 control-label">Medium: <input min="0" type="number" class="form-control" name="product[' + numberProduct + '][m]" placeholder=""> </label> <label class="col-md-3 control-label">Large: ' +
+            '<input min="0" type="number" class="form-control" name="product[' + numberProduct + '][l]" placeholder=""> </label> <label class="col-md-3 control-label">X Large: ' +
+            '<input min="0" type="number" class="form-control" name="product[' + numberProduct + '][xl]" placeholder=""> </label> <label class="col-md-3 control-label">XX Large (+$1.50): ' +
+            '<input min="0" type="number" class="form-control" name="product[' + numberProduct + '][xxl]" placeholder=""> </label> <label class="col-md-3 control-label">XXX Large (+$3): ' +
+            '<input min="0" type="number" class="form-control" name="product[' + numberProduct + '][xxxl]" placeholder=""> </label> <label class="col-md-3 control-label">One Size (Hats): ' +
+            '<input min="0" type="number" class="form-control" name="product[' + numberProduct + '][onesize]" placeholder=""> </label> </div> </div> <div class="form-group"> ' +
             '<label class="col-sm-3 control-label">Revenue (Sales): <span class="required"> * </span> </label> <div class="col-sm-7"> <div class="input-group"> ' +
-            '<span class="input-group-addon">$</span> <input min="0" step="0.01" required type="number" class="form-control" name="product['+ numberProduct +'][revenue]" placeholder=""> </div> </div> </div> ' +
+            '<span class="input-group-addon">$</span> <input min="0" step="0.01" required type="number" class="form-control" name="product[' + numberProduct + '][revenue]" placeholder=""> </div> </div> </div> ' +
             '<div class="form-group"> <label class="col-sm-3 control-label">Cost (Expense): <span class="required"> * </span> </label> <div class="col-sm-7"> <div class="input-group"> ' +
-            '<span class="input-group-addon">$</span> <input min="0" step="0.01" required type="number" class="form-control" name="product['+ numberProduct +'][expense]" placeholder=""> </div> </div> </div> </div>';
+            '<span class="input-group-addon">$</span> <input min="0" step="0.01" required type="number" class="form-control" name="product[' + numberProduct + '][expense]" placeholder=""> </div> </div> </div> </div>';
 
         $('div.products-added').append(markup);
     }

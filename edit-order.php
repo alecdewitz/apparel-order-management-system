@@ -146,6 +146,7 @@ while ($order = mysqli_fetch_assoc($result)) {
                                                             ?>
 
                                                             <div class="product-list">
+                                                                <input type="hidden" name="product[<?php echo $i ?>][product_id]" value="<?php echo $product['product_id']; ?>">
                                                                 <button class="remove-item btn red btn-outline pull-right delete-product-btn"><span class="glyphicon glyphicon-remove"></span></button>
                                                                 <div class="form-group"><label class="col-sm-3 control-label">Product <?php echo $i ?>: <span class="required"> * </span> </label>
                                                                     <div class="col-sm-7"><input type="text" class="form-control" value="<?php echo $product['name']; ?>" name="product[<?php echo $i ?>][name]" placeholder=""></div>
@@ -181,7 +182,7 @@ while ($order = mysqli_fetch_assoc($result)) {
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Submitted Order to TCT:
+                                                        <label class="col-sm-3 control-label">Submitted Order to Supplier:
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-sm-7">

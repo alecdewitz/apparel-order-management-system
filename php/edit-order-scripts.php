@@ -73,6 +73,8 @@ if (isset($_POST['date_order'])) {
                 $onesize = (int)$product['onesize'];
                 $revenue = (float)$product['revenue'];
                 $expense = (float)$product['expense'];
+                $product_id = $product['product_id'];
+                if (!$product_id) $product_id = uniqid();
 
                 $values[] = array(
                     'name' => $product_name,
@@ -85,7 +87,8 @@ if (isset($_POST['date_order'])) {
                     'onesize' => $onesize,
                     'revenue' => $revenue,
                     'expense' => $expense,
-                    'date_added' => $date
+                    'date_added' => $date,
+                    'product_id' => $product_id
                 );
 
 

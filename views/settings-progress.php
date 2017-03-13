@@ -62,15 +62,15 @@ include('./php/header.php');
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <a href="./settings-users.php">Users</a>
+                        <a href="settings-users.php">Users</a>
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <span>Change Password</span>
+                        <a href="./settings-password.php">Change Password</a>
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <a href="./settings-progress.php">Order Progress</a>
+                        <span>Order Progress</span>
                     </li>
                 </ul>
             </ul>
@@ -83,7 +83,7 @@ include('./php/header.php');
                                     <i class="fa fa-cog" aria-hidden="true"></i>Settings
                                 </div>
                                 <div class="actions btn-set">
-                                    <a href="orders.php?type=all" name="back" class="btn btn-danger">
+                                    <a href="../orders.php" name="back" class="btn btn-danger">
                                         <i class="fa fa-angle-left"></i> Back</a>
                                     <button class="btn btn-success">
                                         <i class="fa fa-check"></i> Save
@@ -98,37 +98,35 @@ include('./php/header.php');
                                             <div class="form-body">
 
 
-                                                <div class="general-section">
-                                                    <h1>New Password</h1>
+                                                <div class="tasks-section">
+                                                    <h1>Order Progress</h1>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-md-8 col-md-offset-2">
+                                                        <div class="progresslist not-done">
+                                                            <input type="text" class="form-control add-progress" placeholder="Add Task">
 
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Old Password:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-md-10">
-                                                        <input type="password" class="form-control" name="old_password" placeholder="">
+                                                            <hr>
+                                                            <ul id="sortable" class="list-unstyled">
+
+                                                                <?php
+                                                                $i = 0;
+                                                                while ($order_progress = mysqli_fetch_assoc($result)) { ?>
+
+                                                                    <li data-id="<?php echo $order_progress['progress_id']; ?>" data-order="<?php echo $order_progress['progress_order']; ?>" class="ui-state-default">
+                                                                         <?php echo $order_progress['progress_order'] . ". "; echo $order_progress['progress_name']; ?>
+<!--                                                                        <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button>-->
+                                                                    </li>
+                                                                    <?php
+                                                                }
+                                                                ?>
+                                                            </ul>
+                                                            <div class="progress-footer">
+                                                                <strong><span class="count-progress"></span></strong> Tasks
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Password:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-md-10">
-                                                        <input type="password" class="form-control" name="new_password" placeholder="">
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Retype Password:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-md-10">
-                                                        <input type="password" class="form-control" name="retype_password" placeholder="">
-                                                    </div>
-                                                </div>
-
 
 
                                                 <button class="btn btn-success">

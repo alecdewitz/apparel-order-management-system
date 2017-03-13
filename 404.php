@@ -1,3 +1,3 @@
 <?php
 
-echo "404 Error";
+echo "<br><br>404 Error";

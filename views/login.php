@@ -1,8 +1,3 @@
-<?php
-require_once('core/homepage-functions.php');
-?>
-
-
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8"/>
@@ -16,15 +11,15 @@ require_once('core/homepage-functions.php');
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo $base_dir; ?>/assets/css/components.css" rel="stylesheet" id="style_components" type="text/css"/>
     <link href="<?php echo $base_dir; ?>/assets/css/plugins.css" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="../favicon.ico"/>
 </head>
 
 <body class="login">
 <div class="logo">
-    <a href="./"><img src="<?php echo $base_dir; ?>/assets/img/logo.png" style="height: 70px;max-width:70%" alt=""/></a>
+    <a href="../"><img src="<?php echo $base_dir; ?>/assets/img/logo.png" style="height: 70px;max-width:70%" alt=""/></a>
 </div>
 <div class="content">
-    <form class="login-form" action="<?php echo $base_dir; ?>/login-scripts.php" method="post">
+    <form class="login-form" action="<?php echo $base_dir; ?>/login" method="post">
         <div class="form-title">
             <span class="form-title">Welcome.</span>
             <span class="form-subtitle">Please login.</span>
@@ -75,7 +70,7 @@ require_once('core/homepage-functions.php');
         </div>
     </form>
 
-    <form class="forget-form" action="<?php echo $base_dir; ?>/forgot-password.php" method="post">
+    <form class="forget-form" action="<?php echo $base_dir; ?>/login/forgot-password" method="post">
         <div class="form-title">
             <span class="form-title">Forget Password ?</span>
             <span class="form-subtitle">Enter your e-mail to reset it.</span>

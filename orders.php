@@ -5,6 +5,8 @@ include_once('./php/header.php');
 
     <div class="page-content">
         <div class="container">
+
+            
             <ul class="page-breadcrumb breadcrumb">
                 <ul class="page-breadcrumb breadcrumb">
                     <li>
@@ -12,11 +14,11 @@ include_once('./php/header.php');
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <a href="./orders-client.php">Client Orders</a>
+                        <a href="<?php echo $base_dir; ?>/orders/client">Client Orders</a>
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <a href="./orders-retail.php">Retail Orders</a>
+                        <a href="<?php echo $base_dir; ?>/orders/retail">Retail Orders</a>
                     </li>
                 </ul>
             </ul>

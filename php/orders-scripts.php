@@ -1,29 +1,28 @@
 <?php
-include 'core/connection.php';
+
 
 //todo verify user is authorized to see orders
 
-
+include('core/connection.php');
 $query = "SELECT * FROM orders WHERE deleted != 1 ";
 $type_client = 1;
 $type_retail = 2;
 
 //Orders page scripts
-if (strpos($_SERVER['PHP_SELF'], 'orders.php') && isset($_GET['type'])) {
 
-    if ($_GET['type'] == "all") {
+
+    if ($getOrderType == "all") {
         $stats_query = "SELECT cost_total, revenue FROM orders WHERE deleted != 1";
 
-    } else if ($_GET['type'] == "client") {
+    } else if ($getOrderType == "client") {
         $query = $query . " AND order_type = '".$type_client."'";
 
-    } else if ($_GET['type'] == "retail") {
+    } else if ($getOrderType == "retail") {
         $query = $query . " AND order_type = '".$type_retail."'";
 
     }
 
 
-}
 //End orders page scripts
 
 

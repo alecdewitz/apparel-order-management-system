@@ -1,6 +1,6 @@
 <?php
 session_start();
-//require_once('errors.php');
+date_default_timezone_set('America/Chicago');
 
 
 ////////////////
@@ -19,8 +19,10 @@ $params = explode("/", $request);
 ////////////////
 //Testing purposes
 ////////////////
-#COMMENT if pages aren't changing headers
-print_r($params);
+#comment if pages aren't changing headers
+//print_r($params);
+//shows all errors
+//require_once('errors.php');
 
 
 
@@ -34,6 +36,8 @@ $dashboard = "dashboard";
 $orders = "orders";
 $transactions = "transactions";
 $settings = "settings";
+$accounts = "accounts";
+
 
 #keeps users from requesting any file they want
 $primary_pages = array(
@@ -42,8 +46,16 @@ $primary_pages = array(
     $dashboard,
     $orders,
     $transactions,
-    $settings
+    $settings,
+    $accounts
 );
+
+
+
+//connection to database
+require('core/connection.php');
+
+
 
 
 
@@ -55,25 +67,33 @@ if (in_array($params[0], $primary_pages)) {
 
     #Login page
     if ($params[0] == $login) {
-        include_once($login . '.php');
+
+        //if POST, then include
+        include_once('scripts/login-scripts.php');
+
+
+        require_once('functions/login-functions.php');
+        include_once('views/login.php');
         exit();
     }
-    
+
+    //Require session for logged in users
+    require_once('php/session.php');
+
+
     #Logout page
     if ($params[0] == $logout) {
-        include_once($logout . '.php');
+        include_once('scripts/logout-scripts.php');
         exit();
     }
 
 
-    #Require session for logged in users
-    require_once('core/connection.php');
-    require_once('php/session.php');
+
 
 
     #Dashboard page
     if ($params[0] == $dashboard) {
-        include_once($dashboard . '.php');
+        include_once('dashboard.php');
         exit();
     }
 
@@ -91,8 +111,6 @@ if (in_array($params[0], $primary_pages)) {
         $retail
     );
 
-
-    #Orders page
     if ($params[0] == $orders) {
         //checks if in order_history array
         if (isset($params[1]) && in_array($params[1], $orders_history)) {
@@ -105,18 +123,19 @@ if (in_array($params[0], $primary_pages)) {
             header("location: " . $base_dir . "/orders/all");
         }
 
-
         exit();
     }
+
 
 
 } else if (!$params[0]) {
 
     if (isset($_SESSION['logged_user'])) {
+        //should change to dashboard when ready
         header("location: " . $base_dir . "/orders/all");
     }
 
-    include_once($login . '.php');
+    include_once('views/login.php');
 
 
 } else {

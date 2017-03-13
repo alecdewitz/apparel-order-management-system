@@ -1,9 +1,13 @@
 <?php
-session_start(); // Starting Session
-date_default_timezone_set('America/Chicago');
 
 
-require_once('core/connection.php');
+//if user is logged in already, send to DASHBOARD TODO
+if (isset($_SESSION['logged_user'])) {
+    //should change to dashboard when ready
+    header("location: " . $base_dir . "/orders/all");
+}
+
+
 
 $error = ''; // Variable To Store Error Message
 if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -40,5 +44,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         setcookie("invalid", "true", time() + (10), "/");
         header("location: ./");
     }
-    $connection->close(); // Closing Connection
 }
+
+
+//$connection->close(); // Closing Connection when necessary (http://php.net/manual/en/function.mysql-close.php)

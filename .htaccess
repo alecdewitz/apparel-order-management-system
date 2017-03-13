@@ -2,6 +2,17 @@
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
+<Files *.php>
+    Order Deny,Allow
+    Deny from all
+    Allow from 127.0.0.1
+</Files>
+
+<Files index.php>
+    Order Allow,Deny
+    Allow from all
+</Files>
+
 Options +FollowSymLinks
 RewriteEngine On
 
@@ -10,3 +21,5 @@ RewriteCond %{SCRIPT_FILENAME} !-f
 
 RewriteRule ^.*$ ./index.php
 
+ErrorDocument 404 hey
+ErrorDocument 403 /order-management-apparel/

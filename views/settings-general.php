@@ -63,15 +63,15 @@ include('./php/header.php');
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <a href="./settings-users.php">Users</a>
+                        <a href="settings-users.php">Users</a>
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <a href="./settings-password.php">Change Password</a>
+                        <a href="settings-password.php">Change Password</a>
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <a href="./settings-progress.php">Order Progress</a>
+                        <a href="settings-progress.php">Order Progress</a>
                     </li>
                 </ul>
             </ul>
@@ -84,7 +84,7 @@ include('./php/header.php');
                                     <i class="fa fa-cog" aria-hidden="true"></i>Settings
                                 </div>
                                 <div class="actions btn-set">
-                                    <a href="orders.php?type=all" name="back" class="btn btn-danger">
+                                    <a href="../orders.php" name="back" class="btn btn-danger">
                                         <i class="fa fa-angle-left"></i> Back</a>
                                     <button class="btn btn-success">
                                         <i class="fa fa-check"></i> Save

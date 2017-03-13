@@ -17,7 +17,9 @@ $user = mysqli_fetch_assoc($account_query);
 
 //checks if user is logged in from one location only, otherwise logs out
 if ($user['computer_session'] != $_SESSION['computer_session']) {
-  header('Location: ./logout/multiple-sessions');
+    $params[0] = "logout";
+    $params[1] = "multiple-sessions";
+
 }
 
 //gets settings to output on page

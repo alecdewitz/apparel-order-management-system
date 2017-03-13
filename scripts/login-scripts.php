@@ -1,6 +1,6 @@
 <?php
 
-$err_msg = ''; // Variable To Store Error Message
+
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -33,7 +33,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     } else {
         //goes to login, shows invalid password error msg
-        $_SESSION['error'] = "invalid";
+        $_SESSION['err'] = "invalid";
         header("location: " . $_SERVER['REQUEST_URI']);
         exit;
     }

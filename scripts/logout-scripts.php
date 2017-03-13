@@ -1,9 +1,11 @@
 <?php
 
-if(isset($_GET['multiple-sessions'])){
-  setcookie("multiple_sessions", "true", time() + (10), "/"); //holds true for 10 seconds
+if($params[1] == "multiple-sessions"){
   if(session_destroy()) {
-      header("Location: " . $directory . "login");         //?multiple_sessions=true&logged_out=true");
+      session_start();
+      $_SESSION['err'] = "multiple_sessions";
+      header("Location: " . $base_dir . "/login");         //?multiple_sessions=true&logged_out=true");
+      exit();
   }
 }
 
@@ -15,7 +17,8 @@ if(session_destroy()) {
 //    clears computer_session after logout
     $sql = "UPDATE accounts SET computer_session = '' WHERE account_id = '" . $account_id . "'";
     if (mysqli_query($connection, $sql)) {
-        header("Location: " . $directory . "login");        //?logged_out=true");
+        header("Location: " . $base_dir . "/login");        //?logged_out=true");
+        exit;
     } else {
         echo $connection->error;
     }

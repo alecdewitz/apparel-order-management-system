@@ -56,9 +56,6 @@ $primary_pages = array(
 require('core/connection.php');
 
 
-
-
-
 ////////////////
 //URL forwarding
 ////////////////
@@ -74,7 +71,7 @@ if (in_array($params[0], $primary_pages)) {
             header("location: " . $base_dir . "/orders/all");
         }
 
-//        echo $_SESSION['error'];
+
 
         //only includes if user is submitting login details
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -93,6 +90,10 @@ if (in_array($params[0], $primary_pages)) {
 
     #Logout page
     if ($params[0] == $logout) {
+        if ($params[1] == "multiple-sessions"){
+
+        }
+
         include_once('scripts/logout-scripts.php');
         exit();
     }

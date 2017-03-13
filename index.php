@@ -216,6 +216,7 @@ if (in_array($params[0], $primary_pages)) {
                 include_once('scripts/settings/users-get-scripts.php');
                 exit;
             }
+            include_once('functions/users-functions.php');
             include_once('scripts/settings-users-scripts.php');
             include_once('core/header.php');
             include_once('views/settings-users.php');

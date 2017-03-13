@@ -6,7 +6,9 @@ if (empty($_POST['account_id']) || empty($_POST['account_username'])) {
     $success = false;
 } else {
     $date = date("m-d-Y g:i:s A");
-    $sql = "UPDATE accounts SET deleted = 1, date_deleted = '$date' WHERE account_id = " . $_POST['account_id'] . " AND username = '" . $_POST['account_username'] . "'";
+    $account_id = $_POST['account_id'];
+    $username = $_POST['account_username'];
+    $sql = "UPDATE accounts SET deleted = 1, date_deleted = '$date' WHERE account_id = '$account_id' AND username = '$username'";
     if (mysqli_query($connection, $sql)) {
         $_SESSION['deleted_account'] = true; // change to account username to show alert?
 

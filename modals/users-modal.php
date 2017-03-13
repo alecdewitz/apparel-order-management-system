@@ -26,9 +26,10 @@
                 <input type="email" class="form-control" id="email"/>
             </div>
             <div class="form-group">
-                <label for="name">Type</label>
+                <label for="type">Type</label>
                 <select class="form-control" id="type">
                     <option disabled>--Select option</option>
+                    <option value="0">Disabled</option>
                     <option value="1">Admin</option>
                     <option value="2" selected>User</option>
                 </select>

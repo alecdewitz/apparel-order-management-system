@@ -46,6 +46,8 @@
                                                 <h1>User List</h1>
                                             </div>
 
+                                            <?php getUsersAlert(); ?>
+
                                             <div class="table-responsive">
                                                 <table class="table table-striped table-hover table-bordered">
                                                     <thead>

@@ -1,6 +1,6 @@
 <?php
 
-
+//add user script
 if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['fullname']) || empty($_POST['email']) || empty($_POST['type'])) {
     $error = "Information is not filled out completely";
     $success = false;
@@ -25,9 +25,10 @@ if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['full
     $password = $connection->real_escape_string($password);
     $hash = password_hash($password, PASSWORD_DEFAULT);
     $date = $date = date("m-d-Y g:i:s A");
+    $account_id = uniqid();
 
     $sql = "INSERT INTO accounts (account_id, account_type, username, password, email, fullname, account_date_created)
-                        VALUES (null, '$type', '$username', '$hash', '$email', '$fullname', '$date')";
+                        VALUES ('$account_id', '$type', '$username', '$hash', '$email', '$fullname', '$date')";
     if (mysqli_query($connection, $sql)) {
         $_SESSION['created_account'] = true;
         //mysqli_close($connection);
@@ -43,7 +44,8 @@ header('Content-Type: application/json');
 if ($error) {
     $arr = array('success' => false, 'error' => $error);
 } else {
-    $arr = array('success' => $success, 'action' => $_POST['action'], 'email' => $user['email'], 'name' => $user['fullname'], 'username' => $user['username'], 'type' => $user['account_type']);
+    $arr = array('success' => $success, 'email' => $user['email'], 'name' => $user['fullname'],
+        'username' => $user['username'], 'type' => $user['account_type'], 'err' => $connection->error);
 }
 //todo add failed form inputs, output to form
 echo json_encode($arr);

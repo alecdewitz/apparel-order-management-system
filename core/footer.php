@@ -161,13 +161,14 @@
                 password: $('#password').val(),
                 fullname: $('#fullname').val(),
                 email: $('#email').val(),
-                type: $('#type').find(":selected").text()
-            }).done(function (data) {
+                type: $("#type option:selected").val()
+        }).done(function (data) {
                 if (data.success) {
                     $('#add-user').modal('hide');
                     location.reload();//getUsersList();
                 } else {
-                    alert('Error. Fix fields.');
+                    alert('Errors are shown in console log');
+                    console.log(data);
                 }
             });
         });
@@ -197,7 +198,8 @@
                     $('.form-control').attr("disabled", false);
                     $('#username_edit').attr("disabled", true);
                 } else {
-                    alert('Error. Fix fields.');
+                    alert('Errors are shown in console log');
+                    console.log(data);
                 }
             });
         });
@@ -214,7 +216,8 @@
                     $('#edit-user').modal('hide');
                     location.reload();//getUsersList();
                 } else {
-                    alert('Error.');
+                    alert('Errors are shown in console log');
+                    console.log(data);
                 }
             });
         });
@@ -229,7 +232,8 @@
                     $('#delete-user').modal('hide');
                     location.reload();//getUsersList();
                 } else {
-                    alert('Error.');
+                    alert('Errors are shown in console log');
+                    console.log(data);
                 }
             });
         });

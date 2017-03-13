@@ -10,7 +10,8 @@ if (isset($_POST['company_name']) && isset($_POST['company_slogan']) && isset($_
     $order_prefix = $_POST['order_prefix'];
 
     $sql = "UPDATE settings SET company_name = '$company_name', company_slogan = '$company_slogan', year_start = '$calendar_start', 
-          year_end = '$calendar_end', order_prefix = '$order_prefix' WHERE admin_userid = " . getUserID($user);
+          year_end = '$calendar_end', order_prefix = '$order_prefix' WHERE admin_userid = '" . getUserIDNumber($user) . "'";
+
 
     if (mysqli_query($connection, $sql)) {
 //            echo $connection->error;

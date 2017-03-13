@@ -1,5 +1,5 @@
 <?php
-include './php/connection.php';
+include './core/connection.php';
 
 $error = '';
 $success = '';

@@ -1,6 +1,6 @@
 <?php
 require('./php/session.php');
-require('./php/connection.php');
+require('./core/connection.php');
 include('./php/add-user-scripts.php');
 include('./php/users-scripts.php');
 include('./php/header.php');

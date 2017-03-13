@@ -1,5 +1,5 @@
 <?php
-include './php/connection.php';
+include './core/connection.php';
 
 
 //echo isAdmin($user);

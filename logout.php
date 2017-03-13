@@ -1,12 +1,12 @@
 <?php
 //require_once('./php/session.php');
-//require_once('./php/connection.php');
-
+//require_once('./core/connection.php');
+session_start();
 
 if(isset($_GET['multiple-sessions'])){
   setcookie("multiple_sessions", "true", time() + (10), "/"); //holds true for 10 seconds
   if(session_destroy()) {
-      header("Location: ".dirname($_SERVER['REQUEST_URI'])."/login");         //?multiple_sessions=true&logged_out=true");
+      header("Location: " . $directory . "login");         //?multiple_sessions=true&logged_out=true");
   }
 }
 
@@ -17,8 +17,9 @@ if(session_destroy()) {
     //clears computer_session after logout
 //    $sql = "UPDATE accounts SET computer_session = '' WHERE account_id = " . $account_id;
 //    if (mysqli_query($connection, $sql)) {
-        header("Location: ".dirname($_SERVER['REQUEST_URI'])."/login");        //?logged_out=true");
+        header("Location: " . $directory . "login");        //?logged_out=true");
 //    } else {
 //        echo $connection->error;
 //    }
 }
+echo "";

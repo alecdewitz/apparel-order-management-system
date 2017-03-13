@@ -1,7 +1,9 @@
 <?php
 session_start(); // Starting Session
 date_default_timezone_set('America/Chicago');
-include('php/connection.php');
+
+
+require_once('core/connection.php');
 
 $error = ''; // Variable To Store Error Message
 if (isset($_POST['username']) && isset($_POST['password'])) {

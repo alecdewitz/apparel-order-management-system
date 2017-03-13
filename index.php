@@ -1,14 +1,16 @@
 <?php
 require_once('core/core-functions.php');
-require_once('php/connection.php');
+require_once('core/connection.php');
 //require_once('errors.php');
 
+#removes extra slashes
+$base_dir = preg_replace('/(\/+)/', '/', $_SERVER['REQUEST_URI']);
+
 #remove the directory path we don't want
-$request = str_replace("/order-management-apparel/", "", $_SERVER['REQUEST_URI']);
+$request = str_replace("/order-management-apparel/", "", $base_dir);
 
 #split the path by '/'
 $params = explode("/", $request);
-
 
 
 #page locations
@@ -30,18 +32,22 @@ $primary_pages = array(
     $settings
 );
 
+
+#COMMENT if pages aren't changing headers
 //print_r($params);
 
 
 ##Gets web directory for different servers
-$directory = currentdir($_SERVER["REQUEST_URI"]);
+//$directory = currentdir($_SERVER["REQUEST_URI"]);
 
 
+#makes sure page accessing is within primary pages array
 if (in_array($params[0], $primary_pages)) {
 
 
     #Login page
     if ($params[0] == $login) {
+
         include_once($login . '.php');
         exit();
     }
@@ -70,15 +76,12 @@ if (in_array($params[0], $primary_pages)) {
 
 
 } else if (!$params[0]) {
-//    if (isset($_SESSION['logged_user'])){
-//        header("location: ./orders");
-//    }
+
 
     include_once($login . '.php');
 
 
 } else {
 //    print_r($params);
-        include("404.php");
+    include("404.php");
 }
-

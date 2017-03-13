@@ -1,5 +1,5 @@
 <?php
-include('php/connection.php');
+include('core/connection.php');
 
 if (isset($_GET['order_id']) && isset($_GET['delete']) && $_GET['delete'] == 'true') {
     $date = date("n/j/Y"); //TODO add time as well

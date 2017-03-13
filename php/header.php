@@ -16,10 +16,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css" rel="stylesheet" type="text/css"/>
 
 
-    <link href="./assets/css/components.css" rel="stylesheet" id="style_components" type="text/css"/>
-    <link href="./assets/css/plugins.css" rel="stylesheet" type="text/css"/>
-    <link href="./assets/css/layout.css" rel="stylesheet" type="text/css"/>
-    <link href="./assets/css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $base_dir; ?>/assets/css/components.css" rel="stylesheet" id="style_components" type="text/css"/>
+    <link href="<?php echo $base_dir; ?>/assets/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $base_dir; ?>/assets/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $base_dir; ?>/assets/css/default.css" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="favicon.ico"/>
     <style>
         .general-section, .products-section, .tasks-section {
@@ -180,7 +180,7 @@
 
                                 <li class="dropdown dropdown-user dropdown-dark">
                                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                        <img alt="" class="img-circle" src="./assets/img/user.png">
+                                        <img alt="" class="img-circle" src="<?php echo $base_dir; ?>/assets/img/user.png">
                                         <span class="username "><?php echo $user['fullname']; ?></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-default">

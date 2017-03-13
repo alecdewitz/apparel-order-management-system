@@ -1,9 +1,5 @@
 <?php
 
-if (isset($_SESSION['logged_user'])){
-    header("location: ./orders");
-}
-
 //Cookies to add errors to screen
 if(isset($_COOKIE['invalid'])) {
     $invalid = true;

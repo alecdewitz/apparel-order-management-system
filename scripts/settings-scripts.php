@@ -10,7 +10,7 @@ if (strpos($_SERVER['PHP_SELF'], 'settings-progress.php')) {
     if (!($result = mysqli_query($connection, $sql))) {
         echo $connection->error;
     }
-    $connection->close();
+//    $connection->close();
 }
 
 
@@ -37,7 +37,7 @@ if (isset($_GET['action'])) {
     } else {
         echo $connection->error;
     }
-    $connection->close();
+//    $connection->close();
 
 
 }

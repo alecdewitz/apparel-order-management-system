@@ -22,7 +22,7 @@ $params = explode("/", $request);
 #comment if pages aren't changing headers
 //print_r($params);
 //shows all errors
-require_once('errors.php');
+//require_once('errors.php');
 
 
 ////////////////
@@ -199,10 +199,27 @@ if (in_array($params[0], $primary_pages)) {
             include_once('core/header.php');
             include_once('views/settings-general.php');
             include_once('core/footer.php');
-        } else if ($params[1] == "accounts") {
-            include_once('scripts/settings-account-scripts.php');
+        } else if ($params[1] == "users") {
+            if ($params[2] == "create") {
+                include_once('scripts/settings/users-create-scripts.php');
+                exit;
+            }
+            if ($params[2] == "edit") {
+                include_once('scripts/settings/users-edit-scripts.php');
+                exit;
+            }
+            if ($params[2] == "delete") {
+                include_once('scripts/settings/users-delete-scripts.php');
+                exit;
+            }
+            if ($params[2] == "get") {
+                include_once('scripts/settings/users-get-scripts.php');
+                exit;
+            }
+            include_once('scripts/settings-users-scripts.php');
             include_once('core/header.php');
-            include_once('views/settings-general.php');
+            include_once('views/settings-users.php');
+            include_once('modals/users-modal.php');
             include_once('core/footer.php');
         }
 

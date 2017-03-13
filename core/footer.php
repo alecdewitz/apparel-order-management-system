@@ -150,5 +150,93 @@
 
 </script>
 
+
+<!--For users page-->
+<script>
+    $(function() {
+
+        $('#add-user').on("click", "#add-user-confirm", function () {
+            $.post("<?php echo $base_dir; ?>/settings/users/create", {
+                username: $('#user_name').val(),
+                password: $('#password').val(),
+                fullname: $('#fullname').val(),
+                email: $('#email').val(),
+                type: $('#type').find(":selected").text()
+            }).done(function (data) {
+                if (data.success) {
+                    $('#add-user').modal('hide');
+                    location.reload();//getUsersList();
+                } else {
+                    alert('Error. Fix fields.');
+                }
+            });
+        });
+
+
+        $('a[data-type=edit]').on('click', function (e) {
+            var account_id = $(this).data('account-id');
+            var account_username = $(this).data('account-username');
+            $('#edit_account_id').val(account_id);
+            $('#edit_username_input').val(account_username);
+
+            //disable until grabbed information
+            $('.form-control').attr("disabled", true);
+
+            $.post("<?php echo $base_dir; ?>/settings/users/get", {
+                account_id: $(this).data('account-id')
+            }).done(function (data) {
+                if (data.success) {
+//                    $('#edit-user').modal('show');
+                    $('.edit_username').text(data.username);
+                    $('#username_edit').val(data.username);
+                    $('#fullname_edit').val(data.name);
+                    $('#email_edit').val(data.email);
+                    $('#type_edit').val(data.type);
+
+                    //undisable after grabbed information
+                    $('.form-control').attr("disabled", false);
+                    $('#username_edit').attr("disabled", true);
+                } else {
+                    alert('Error. Fix fields.');
+                }
+            });
+        });
+
+
+        $('#edit-user').on("click", "#edit-user-confirm", function () {
+            $.post("<?php echo $base_dir; ?>/settings/users/edit", {
+                account_id: $('#edit_account_id').val(),
+                account_fullname: $('#fullname_edit').val(),
+                account_email: $('#email_edit').val(),
+                account_type: $('#type_edit').val()
+            }).done(function (data) {
+                if (data.success) {
+                    $('#edit-user').modal('hide');
+                    location.reload();//getUsersList();
+                } else {
+                    alert('Error.');
+                }
+            });
+        });
+
+
+        $('#delete-user').on("click", "#delete-user-confirm", function () {
+            $.post("<?php echo $base_dir; ?>/settings/users/delete", {
+                account_id: $('#edit_account_id').val(),
+                account_username: $('#edit_username_input').val()
+            }).done(function (data) {
+                if (data.success) {
+                    $('#delete-user').modal('hide');
+                    location.reload();//getUsersList();
+                } else {
+                    alert('Error.');
+                }
+            });
+        });
+
+    });
+
+</script>
+
 </body>
 </html>

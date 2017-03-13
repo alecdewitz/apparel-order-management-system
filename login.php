@@ -15,14 +15,14 @@ require_once('core/homepage-functions.php');
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="<?php echo $base_dir; ?>/assets/css/components.css" rel="stylesheet" id="style_components" type="text/css"/>
-    <link href="<?php echo $base_dir; ?>/assets/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo dirname($base_dir); ?>/assets/css/components.css" rel="stylesheet" id="style_components" type="text/css"/>
+    <link href="<?php echo dirname($base_dir); ?>/assets/css/plugins.css" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="favicon.ico"/>
 </head>
 
 <body class="login">
 <div class="logo">
-    <a href="./"><img src="<?php echo $base_dir; ?>/assets/img/logo.png" style="height: 70px;max-width:70%" alt=""/></a>
+    <a href="./"><img src="<?php echo dirname($base_dir); ?>/assets/img/logo.png" style="height: 70px;max-width:70%" alt=""/></a>
 </div>
 <div class="content">
     <form class="login-form" action="login-scripts.php" method="post">
@@ -145,7 +145,7 @@ require_once('core/homepage-functions.php');
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-confirmation/1.0.5/bootstrap-confirmation.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/additional-methods.min.js" type="text/javascript"></script>
-<script src="<?php echo $base_dir; ?>/assets/js/login.js" type="text/javascript"></script>
+<script src="<?php echo dirname($base_dir); ?>/assets/js/login.js" type="text/javascript"></script>
 
 
 </body>

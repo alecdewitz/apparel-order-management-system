@@ -20,7 +20,7 @@ $dashboard = "dashboard";
 $orders = "orders";
 $transactions = "transactions";
 $settings = "settings";
-#
+
 
 #keeps users from requesting any file they want
 $primary_pages = array(
@@ -31,6 +31,8 @@ $primary_pages = array(
     $transactions,
     $settings
 );
+
+echo dirname($base_dir);
 
 
 #COMMENT if pages aren't changing headers

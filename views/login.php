@@ -28,25 +28,8 @@
             <button class="close" data-close="alert"></button>
             <span> Please enter your username and password. </span>
         </div>
-        <?php if (isset($multiple_sessions)) { ?>
 
-            <div class="alert alert-danger">
-                <span> You have logged in from another computer. <br> You may only be logged in from <b>one</b> location at a time. <br> This session has ended. </span>
-            </div>
-
-        <?php } else if (isset($invalid)) { ?>
-
-            <div class="alert alert-danger">
-                <span> Username or password is invalid. </span>
-            </div>
-
-        <?php } else if (isset($login_required)) { ?>
-
-            <div class="alert alert-warning">
-                <span> You must login to see that page. </span>
-            </div>
-
-        <?php } ?>
+        <?php echo $err_msg; ?>
 
         <div class="form-group">
             <label class="control-label visible-ie8 visible-ie9">Username</label>

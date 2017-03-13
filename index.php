@@ -74,13 +74,16 @@ if (in_array($params[0], $primary_pages)) {
             header("location: " . $base_dir . "/orders/all");
         }
 
+//        echo $_SESSION['error'];
 
         //only includes if user is submitting login details
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            include_once('scripts/login-scripts.php');
+            require_once('scripts/login-scripts.php');
         }
+
         require_once('functions/login-functions.php');
-        include_once('views/login.php');
+        require_once('views/login.php');
+
         exit();
     }
 
@@ -142,7 +145,9 @@ if (in_array($params[0], $primary_pages)) {
         header("location: " . $base_dir . "/orders/all");
     }
 
-    include_once('views/login.php');
+    require_once('functions/login-functions.php');
+    require_once('views/login.php');
+
 
 
 } else {

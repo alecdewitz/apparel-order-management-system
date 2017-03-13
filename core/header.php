@@ -20,7 +20,7 @@
     <link href="<?php echo $base_dir; ?>/assets/css/plugins.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo $base_dir; ?>/assets/css/layout.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo $base_dir; ?>/assets/css/default.css" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="../index.php"/>
     <style>
         .general-section, .products-section, .tasks-section {
             margin: 30px;
@@ -114,7 +114,7 @@
                                         <li class="external">
                                             <h3>You have
                                                 <strong>12 pending</strong> tasks</h3>
-                                            <a href="app_todo.html">view all</a>
+                                            <a href="../index.php">view all</a>
                                         </li>
                                         <li>
                                             <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
@@ -152,7 +152,7 @@
                                         <li class="external">
                                             <h3>You have
                                                 <strong>12 pending</strong> tasks</h3>
-                                            <a href="app_todo_2.html">view all</a>
+                                            <a href="../index.php">view all</a>
                                         </li>
                                         <li>
                                             <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
@@ -211,11 +211,11 @@
 
 
                                         <li>
-                                            <a href="<?php echo $base_dir; ?>/lock">
+                                            <a href="<?php echo $base_dir; ?>../index.php">
                                                 <i class="icon-lock"></i> Lock Session </a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo $base_dir; ?>/logout">
+                                            <a href="<?php echo $base_dir; ?>../index.php">
                                                 <i class="icon-key"></i> Log Out </a>
                                         </li>
                                     </ul>
@@ -239,7 +239,7 @@
                         <div class="hor-menu hor-menu-light">
                             <ul class="nav navbar-nav">
                                 <li class="menu-dropdown classic-menu-dropdown ">
-                                    <a href="<?php echo $base_dir; ?>/dashboard">
+                                    <a href="<?php echo $base_dir; ?>../index.php">
                                         <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard
                                     </a>
                                 </li>
@@ -301,7 +301,7 @@
 
 
                                 <li class="menu-dropdown classic-menu-dropdown ">
-                                    <a href="<?php echo $base_dir; ?>/logout">
+                                    <a href="<?php echo $base_dir; ?>../index.php">
                                         <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
                                     </a>
                                 </li>
@@ -335,7 +335,7 @@
                                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                                         <ul class="theme-colors">
                                                             <li class="theme-color theme-color-default" data-theme="default">
-                                                                <a href="<?php echo $base_dir; ?>/logout"><span class="theme-color-name"><i class="fa fa-sign-out"></i> Logout</span></a>
+                                                                <a href="<?php echo $base_dir; ?>../index.php"><span class="theme-color-name"><i class="fa fa-sign-out"></i> Logout</span></a>
                                                             </li>
 
                                                         </ul>

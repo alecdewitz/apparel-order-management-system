@@ -1,8 +1,4 @@
 <?php
-include './core/connection.php';
-
-$error = '';
-$success = '';
 
 if (isset($_POST['date_order'])) {
 
@@ -84,6 +80,6 @@ if (isset($_POST['date_order'])) {
             } else {
                 echo 'failed';
             }
-            $connection->close();
+//            $connection->close();
         }
 }

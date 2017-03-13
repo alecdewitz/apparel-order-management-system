@@ -54,6 +54,7 @@ $primary_pages = array(
 
 //connection to database
 require('core/connection.php');
+require_once('functions/backend-functions.php');
 
 
 ////////////////
@@ -70,8 +71,6 @@ if (in_array($params[0], $primary_pages)) {
             //should change to dashboard when ready
             header("location: " . $base_dir . "/orders/all");
         }
-
-
 
         //only includes if user is submitting login details
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -90,10 +89,6 @@ if (in_array($params[0], $primary_pages)) {
 
     #Logout page
     if ($params[0] == $logout) {
-        if ($params[1] == "multiple-sessions"){
-
-        }
-
         include_once('scripts/logout-scripts.php');
         exit();
     }
@@ -115,6 +110,9 @@ if (in_array($params[0], $primary_pages)) {
     $all = 'all';
     $client = 'client';
     $retail = 'retail';
+    $add = 'add';
+        $edit = 'edit';
+            $delete = 'delete';
 
     $orders_history = array(
         $all,
@@ -122,13 +120,33 @@ if (in_array($params[0], $primary_pages)) {
         $retail
     );
 
+    $orders_functions = array(
+        $add,
+        $edit,
+        $delete
+    );
+
     if ($params[0] == $orders) {
         //checks if in order_history array
-        if (isset($params[1]) && in_array($params[1], $orders_history)) {
+        if (in_array($params[1], $orders_history)) {
 
             //gets order type (client, retail, all) from given parameters
             $getOrderType = $params[1];
-            include_once($orders . '.php');
+            include_once('scripts/orders-scripts.php');
+            include_once('core/header.php');
+            include_once('orders.php');
+            include_once('core/footer.php');
+
+        } else if (in_array($params[1], $orders_functions)) {
+            if ($params[1] == "$add") {
+                if (isPOST()) {
+                    include_once('scripts/add-order-scripts.php');
+                }
+                include_once('core/header.php');
+                include_once('views/add-order.php');
+                include_once('core/footer.php');
+                exit;
+            }
 
         } else {
             header("location: " . $base_dir . "/orders/all");

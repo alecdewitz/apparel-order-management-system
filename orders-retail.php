@@ -34,7 +34,7 @@ include('./php/header.php');
                                 </div>
                                 <div class="actions">
                                     <div class="btn-group">
-                                        <a class="btn btn-primary btn-sm" href="./add-order.php?type=retail">
+                                        <a class="btn btn-primary btn-sm" href="views/add-order.php?type=retail">
                                             <i class="fa fa-plus" aria-hidden="true"></i>
                                             <span class="hidden-xs"> Add New </span>
                                         </a>

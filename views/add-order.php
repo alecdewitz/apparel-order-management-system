@@ -1,15 +1,8 @@
-<?php
-require('./php/session.php');
-include('./php/add-order-scripts.php');
-include('./php/header.php');
-?>
-
-
 <div class="page-content">
     <div class="container">
         <ul class="page-breadcrumb breadcrumb">
             <li>
-                <a href="./orders.php">Dashboard</a>
+                <a href="<?php echo $base_dir; ?>/dashboard">Dashboard</a>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
@@ -26,7 +19,7 @@ include('./php/header.php');
                                     <i class="fa fa-shopping-cart"></i>New Order
                                 </div>
                                 <div class="actions btn-set">
-                                    <a href="./orders.php?type=all" name="back" class="btn btn-danger">
+                                    <a href="<?php echo $base_dir; ?>/orders" name="back" class="btn btn-danger">
                                         <i class="fa fa-angle-left"></i> Back</a>
                                     <button class="btn btn-success">
                                         <i class="fa fa-check"></i> Save

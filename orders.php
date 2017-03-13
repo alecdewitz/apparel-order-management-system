@@ -1,5 +1,4 @@
 <?php
-//require_once('./php/session.php');
 include_once('./php/orders-scripts.php');
 include_once('./php/header.php');
 ?>

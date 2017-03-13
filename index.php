@@ -16,6 +16,13 @@ $request = str_replace($base_dir . "/", "", $url);
 $params = explode("/", $request);
 
 
+////////////////
+//Testing purposes
+////////////////
+#COMMENT if pages aren't changing headers
+print_r($params);
+
+
 
 
 ////////////////
@@ -40,44 +47,18 @@ $primary_pages = array(
 
 
 
-
-////////////////
-//orders page actions
-////////////////
-$all = 'all';
-$client = 'client';
-$retail = 'retail';
-
-$orders_page_actions = array(
-    $all,
-    $client,
-    $retail
-);
-
-
-
-////////////////
-//Testing purposes
-////////////////
-#COMMENT if pages aren't changing headers
-//print_r($params);
-
-
-
-
-
 ////////////////
 //URL forwarding
 ////////////////
 #makes sure page accessing is within primary pages array
 if (in_array($params[0], $primary_pages)) {
 
-
     #Login page
     if ($params[0] == $login) {
         include_once($login . '.php');
         exit();
     }
+    
     #Logout page
     if ($params[0] == $logout) {
         include_once($logout . '.php');
@@ -96,26 +77,46 @@ if (in_array($params[0], $primary_pages)) {
         exit();
     }
 
+
+    ////////////////
+    //orders history get actions
+    ////////////////
+    $all = 'all';
+    $client = 'client';
+    $retail = 'retail';
+
+    $orders_history = array(
+        $all,
+        $client,
+        $retail
+    );
+
+
     #Orders page
     if ($params[0] == $orders) {
-        if (isset($params[1])) {
-            echo true;
+        //checks if in order_history array
+        if (isset($params[1]) && in_array($params[1], $orders_history)) {
+
+            //gets order type (client, retail, all) from given parameters
+            $getOrderType = $params[1];
+            include_once($orders . '.php');
+
+        } else {
+            header("location: " . $base_dir . "/orders/all");
         }
 
-        include_once($orders . '.php');
+
         exit();
     }
 
 
 } else if (!$params[0]) {
 
-    if (isset($_SESSION['logged_user'])){
-        header("location: ./orders/all");
+    if (isset($_SESSION['logged_user'])) {
+        header("location: " . $base_dir . "/orders/all");
     }
 
     include_once($login . '.php');
-
-
 
 
 } else {

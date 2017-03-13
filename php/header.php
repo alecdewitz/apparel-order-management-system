@@ -97,7 +97,7 @@
                     <div class="container">
                         <!-- BEGIN LOGO -->
                         <div class="page-logo">
-                            <a class="company-name" href="dashboard.php">
+                            <a class="company-name" href="<?php echo $base_dir; ?>/dashboard">
 <!--                                <img src="./assets/img/logo.png" alt="logo" class="logo-default">-->
                                 <h1><?php echo $settings['company_name']; ?></h1>
                             </a>
@@ -195,7 +195,7 @@
 
                                         <?php if ($user['account_type'] == 1) { ?>
                                         <li>
-                                            <a href="settings-users.php">
+                                            <a href="<?php echo $base_dir; ?>/settings/users">
                                                 <i class="fa fa-users"></i>
                                                 <span>Users</span>
                                             </a>
@@ -203,7 +203,7 @@
 
 
                                         <li>
-                                            <a href="settings-password.php">
+                                            <a href="<?php echo $base_dir; ?>/settings/password">
                                                 <i class="fa fa-cog" aria-hidden="true"></i> Change Password </a>
                                         </li>
                                         <li class="divider"></li>
@@ -211,11 +211,11 @@
 
 
                                         <li>
-                                            <a href="./lock.php">
+                                            <a href="<?php echo $base_dir; ?>/lock">
                                                 <i class="icon-lock"></i> Lock Session </a>
                                         </li>
                                         <li>
-                                            <a href="./logout.php">
+                                            <a href="<?php echo $base_dir; ?>/logout">
                                                 <i class="icon-key"></i> Log Out </a>
                                         </li>
                                     </ul>
@@ -239,7 +239,7 @@
                         <div class="hor-menu hor-menu-light">
                             <ul class="nav navbar-nav">
                                 <li class="menu-dropdown classic-menu-dropdown ">
-                                    <a href="dashboard.php">
+                                    <a href="<?php echo $base_dir; ?>/dashboard">
                                         <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard
                                     </a>
                                 </li>
@@ -252,16 +252,16 @@
                                     </a>
                                     <ul class="dropdown-menu pull-left">
                                         <li class=" ">
-                                            <a href="orders.php?type=all" class="nav-link  ">
+                                            <a href="<?php echo $base_dir; ?>/orders/all" class="nav-link  ">
                                                 <i class="fa fa-bar-chart" aria-hidden="true"></i> All Orders
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="orders-client.php" class="nav-link  ">
+                                            <a href="<?php echo $base_dir; ?>/orders/client" class="nav-link  ">
                                                 <i class="fa fa-user" aria-hidden="true"></i> Client Orders </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="orders-retail.php" class="nav-link  ">
+                                            <a href="<?php echo $base_dir; ?>/orders/retail" class="nav-link  ">
                                                 <i class="fa fa-users" aria-hidden="true"></i> Retail Orders
                                                 <!--                                                <span class="badge badge-danger">3</span>-->
                                             </a>
@@ -277,20 +277,20 @@
                                     </a>
                                     <ul class="dropdown-menu pull-left">
                                         <li class=" ">
-                                            <a href="settings-general.php" class="nav-link  ">
+                                            <a href="<?php echo $base_dir; ?>/settings/general" class="nav-link">
                                                 <i class="fa fa-bar-chart" aria-hidden="true"></i> General
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="settings-users.php" class="nav-link  ">
+                                            <a href="<?php echo $base_dir; ?>/settings/users" class="nav-link">
                                                 <i class="fa fa-user" aria-hidden="true"></i> Users </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="settings-password.php" class="nav-link  ">
+                                            <a href="<?php echo $base_dir; ?>/settings/password" class="nav-link">
                                                 <i class="fa fa-user" aria-hidden="true"></i> Change Password </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="settings-progress.php" class="nav-link  ">
+                                            <a href="<?php echo $base_dir; ?>/settings/advanced" class="nav-link">
                                                 <i class="fa fa-users" aria-hidden="true"></i> Edit Status
                                                 <!--                                                <span class="badge badge-danger">3</span>-->
                                             </a>
@@ -301,7 +301,7 @@
 
 
                                 <li class="menu-dropdown classic-menu-dropdown ">
-                                    <a href="./logout.php">
+                                    <a href="<?php echo $base_dir; ?>/logout">
                                         <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
                                     </a>
                                 </li>
@@ -335,7 +335,7 @@
                                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                                         <ul class="theme-colors">
                                                             <li class="theme-color theme-color-default" data-theme="default">
-                                                                <a href="./logout.php"><span class="theme-color-name"><i class="fa fa-sign-out"></i> Logout</span></a>
+                                                                <a href="<?php echo $base_dir; ?>/logout"><span class="theme-color-name"><i class="fa fa-sign-out"></i> Logout</span></a>
                                                             </li>
 
                                                         </ul>

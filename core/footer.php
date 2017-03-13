@@ -21,6 +21,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js" type="text/javascript"></script>
 <!--<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>-->
 
+
 <script>
     $('[data-toggle=confirmation]').confirmation({
         btnOkLabel: 'Yes',
@@ -86,7 +87,7 @@
 
     });
 
-    $(".clickable-row").click(function() {
+    $(".clickable-row").click(function () {
         window.location = $(this).data("href");
     });
 
@@ -94,47 +95,58 @@
 </script>
 
 
-
+<!--progress settings page-->
 <script>
     countProgress();
 
     //create progress
-    $('.add-progress').on('keypress',function (e) {
+    $('.add-progress').on('keypress', function (e) {
         if (e.which == 13) {
             e.preventDefault();
-            if($(this).val() != ''){
+            if ($(this).val() != '') {
                 var progress = $(this).val();
                 createProgress(progress);
                 countProgress();
-            }else{
+            } else {
                 // some validation
             }
         }
     });
 
     //delete done task from "already done"
-    $('.progresslist').on('click','.remove-item',function(){
+    $('.progresslist').on('click', '.remove-item', function () {
         removeItem(this);
         countProgress();
     });
 
     // count tasks
-    function countProgress(){
+    function countProgress() {
         var count = $("#sortable li").length;
         $('.count-progress').html(count);
     }
 
     //create task
-    function createProgress(text){
-        var markup = '<li class="ui-state-default"> '+text+' <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button> </li>';
+    function createProgress(text) {
+        var markup = '<li class="ui-state-default"> ' + text + ' <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button> </li>';
         $('#sortable').append(markup);
         $('.add-progress').val('');
     }
 
     //remove done task from list
-    function removeItem(element){
+    function removeItem(element) {
         $(element).parent().remove();
     }
+
+</script>
+
+
+<!--For view order page-->
+<script>
+    $('li').on("click", ".delete-order-modal", function (e) {
+        var url = $(e.currentTarget).data('href');
+        $('a#delete-order-confirm').attr('href', url);
+
+    });
 
 </script>
 

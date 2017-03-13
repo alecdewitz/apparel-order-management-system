@@ -41,7 +41,7 @@ while ($order = mysqli_fetch_assoc($result)) {
 
                                         <ul class="dropdown-menu pull-right">
                                             <li>
-                                                <a href="../edit-order.php?order_id=<?php echo $order['order_id'] ?>"> Edit </a>
+                                                <a href="edit-order.php?order_id=<?php echo $order['order_id'] ?>"> Edit </a>
                                             </li>
 
                                             <li>
@@ -367,15 +367,7 @@ while ($order = mysqli_fetch_assoc($result)) {
 
 
 <?php }
-//include('./php/footer.php');
-include('modals/orders.php'); ?>
+ ?>
 
-<script>
-        $('li').on("click", ".delete-order-modal", function (e) {
-            var url = $(e.currentTarget).data('href');
-            $('a#delete-order-confirm').attr('href', url);
 
-        });
-
-</script>
 

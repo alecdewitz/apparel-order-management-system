@@ -28,18 +28,3 @@ $settings_query = mysqli_query($connection, $settings_query_sql);
 $settings = mysqli_fetch_assoc($settings_query);
 
 //$connection->close();
-
-
-//functions
-function isAdmin($user) {
-    return $user['account_type'] == 1;
-}
-
-function toDollars($num){
-    return "$" . number_format($num, 2, '.', ',');
-}
-
-function getUserID($user) {
-    return $user['account_id'];
-}
-//end functions

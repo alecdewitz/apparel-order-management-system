@@ -135,7 +135,7 @@ if (in_array($params[0], $primary_pages)) {
 
         } else if (in_array($params[1], $orders_functions)) {
             if ($params[1] == "$add") {
-                if (isPOST()) {
+                if (isPostRequest()) {
                     include_once('scripts/add-order-scripts.php');
                 }
                 include_once('core/header.php');
@@ -152,10 +152,23 @@ if (in_array($params[0], $primary_pages)) {
 
                 include_once('core/header.php');
                 include_once('views/view-order.php');
+                include_once('modals/orders.php');
                 include_once('core/footer.php');
 
-            } else if ($params[1] == "$edit") {
+            } else if ($params[1] == "$edit" && $params[2]) {
 
+                include_once('scripts/edit-order-scripts.php');
+
+                //checks to see if order is found
+                if ($result->num_rows == 0) {
+                    $_SESSION['order_not_found'] = true;
+                    header('Location: '. $base_dir .'/orders/all');
+                }
+
+                include_once('core/header.php');
+                include_once('views/edit-order.php');
+                include_once('modals/orders.php');
+                include_once('core/footer.php');
             } else if ($params[1] == "$delete") {
 
             }

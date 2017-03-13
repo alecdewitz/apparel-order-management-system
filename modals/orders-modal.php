@@ -5,7 +5,7 @@
         <h1 class="modal-title">Delete Order</h1>
     </div>
     <div class="modal-body">
-        <p>You are removing this order from <?php echo $settings['company_name'] ?>. This cannot be reversed.</p>
+        <p>You are removing this order from <?php echo $saved_settings['company_name'] ?>. This cannot be reversed.</p>
 
     </div>
     <div class="modal-footer">

@@ -78,9 +78,9 @@ while ($order = mysqli_fetch_assoc($result)) {
                                                         </label>
                                                         <div class="col-sm-7">
                                                             <div class="input-group">
-                                                                <span class="input-group-addon"><?php echo $settings['order_prefix']; ?>-</span>
+                                                                <span class="input-group-addon"><?php echo $saved_settings['order_prefix']; ?>-</span>
                                                                 <!-- todo: fix substring to match order number -->
-                                                                <input pattern="[0-9]*" min="0" <?php if (!empty($order['order_number'])) echo 'value="' . substr($order['order_number'],strlen($settings['order_prefix'])+1) . '"' ?> required type="number" class="form-control" name="order_number" placeholder="">
+                                                                <input pattern="[0-9]*" min="0" <?php if (!empty($order['order_number'])) echo 'value="' . substr($order['order_number'],strlen($saved_settings['order_prefix'])+1) . '"' ?> required type="number" class="form-control" name="order_number" placeholder="">
                                                             </div>
 
                                                             <span class="help-block"> Ex: S17-01 </span>

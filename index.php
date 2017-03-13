@@ -22,7 +22,7 @@ $params = explode("/", $request);
 #comment if pages aren't changing headers
 //print_r($params);
 //shows all errors
-//require_once('errors.php');
+require_once('errors.php');
 
 
 ////////////////
@@ -129,6 +129,7 @@ if (in_array($params[0], $primary_pages)) {
             //gets order type (client, retail, all) from given parameters
             $getOrderType = $params[1];
             include_once('scripts/orders-scripts.php');
+            include_once('functions/orders-functions.php');
             include_once('core/header.php');
             include_once('orders.php');
             include_once('core/footer.php');
@@ -152,7 +153,7 @@ if (in_array($params[0], $primary_pages)) {
 
                 include_once('core/header.php');
                 include_once('views/view-order.php');
-                include_once('modals/orders.php');
+                include_once('modals/orders-modal.php');
                 include_once('core/footer.php');
 
             } else if ($params[1] == "$edit" && $params[2]) {
@@ -167,7 +168,7 @@ if (in_array($params[0], $primary_pages)) {
 
                 include_once('core/header.php');
                 include_once('views/edit-order.php');
-                include_once('modals/orders.php');
+                include_once('modals/orders-modal.php');
                 include_once('core/footer.php');
             } else if ($params[1] == "$delete") {
 
@@ -177,7 +178,36 @@ if (in_array($params[0], $primary_pages)) {
             header("location: " . $base_dir . "/orders/all");
         }
 
-        exit();
+        exit;
+    }
+
+
+    #Settings page
+    if ($params[0] == $settings) {
+        //check if in array
+
+        if ($params[1] == "general") {
+            if (isPostRequest()) {
+                include_once('scripts/settings-general-scripts.php');
+            }
+            include_once('functions/settings-functions.php');
+            include_once('core/header.php');
+            include_once('views/settings-general.php');
+            include_once('core/footer.php');
+        } else if ($params[1] == "password") {
+            include_once('scripts/settings-general-scripts.php');
+            include_once('core/header.php');
+            include_once('views/settings-general.php');
+            include_once('core/footer.php');
+        } else if ($params[1] == "accounts") {
+            include_once('scripts/settings-account-scripts.php');
+            include_once('core/header.php');
+            include_once('views/settings-general.php');
+            include_once('core/footer.php');
+        }
+
+
+        exit;
     }
 
 

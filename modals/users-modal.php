@@ -91,7 +91,7 @@
         <h1 class="modal-title">Edit User: <span class="edit_username" /></h1>
     </div>
     <div class="modal-body">
-        <p>You are removing this user from <?php echo $settings['company_name'] ?>. This cannot be reversed.
+        <p>You are removing this user from <?php echo $saved_settings['company_name'] ?>. This cannot be reversed.
             All associated data with user will still be preserved and can be viewed.</p>
         <input type="hidden" id="edit_account_id" />
         <input type="hidden" id="edit_username_input" />

@@ -54,7 +54,7 @@
                                                     </label>
                                                     <div class="col-sm-7">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon"><?php echo $settings['order_prefix']; ?>-</span>
+                                                            <span class="input-group-addon"><?php echo $saved_settings['order_prefix']; ?>-</span>
                                                             <input pattern="[0-9]*" min="0" required type="number" class="form-control" name="order_number" placeholder="">
                                                         </div>
 

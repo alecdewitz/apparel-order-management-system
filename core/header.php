@@ -99,7 +99,7 @@
                         <div class="page-logo">
                             <a class="company-name" href="<?php echo $base_dir; ?>/dashboard">
 <!--                                <img src="./assets/img/logo.png" alt="logo" class="logo-default">-->
-                                <h1><?php echo $settings['company_name']; ?></h1>
+                                <h1><?php echo $saved_settings['company_name']; ?></h1>
                             </a>
                         </div>
                         <a href="#" class="menu-toggler"><i class="fa fa-bars" aria-hidden="true"></i></a>
@@ -185,7 +185,7 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-default">
                                         <li>
-                                            <a href="#">
+                                            <a href="<?php echo $base_dir; ?>/accounts/profile">
                                                 <i class="icon-user"></i>
                                                 <span><?php echo $user['username']; ?></span>
                                             </a>
@@ -195,15 +195,15 @@
 
                                         <?php if ($user['account_type'] == 1) { ?>
                                         <li>
-                                            <a href="<?php echo $base_dir; ?>/settings/users">
+                                            <a href="<?php echo $base_dir; ?>/accounts/all">
                                                 <i class="fa fa-users"></i>
-                                                <span>Users</span>
+                                                <span>Accounts</span>
                                             </a>
                                         </li>
 
 
                                         <li>
-                                            <a href="<?php echo $base_dir; ?>/settings/password">
+                                            <a href="<?php echo $base_dir; ?>/accounts/password">
                                                 <i class="fa fa-cog" aria-hidden="true"></i> Change Password </a>
                                         </li>
                                         <li class="divider"></li>
@@ -211,11 +211,11 @@
 
 
                                         <li>
-                                            <a href="<?php echo $base_dir; ?>../index.php">
+                                            <a href="<?php echo $base_dir; ?>/lock">
                                                 <i class="icon-lock"></i> Lock Session </a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo $base_dir; ?>../index.php">
+                                            <a href="<?php echo $base_dir; ?>/logout">
                                                 <i class="icon-key"></i> Log Out </a>
                                         </li>
                                     </ul>

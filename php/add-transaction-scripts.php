@@ -32,7 +32,7 @@ if (isset($_GET['order_id'])) {
 //            $_SESSION['errors'] = true;
 //        } else {
 //            $order_type = $_POST['order_type'];
-//            $order_number = $settings['order_prefix'] . "-" . $_POST['order_number'];
+//            $order_number = $saved_settings['order_prefix'] . "-" . $_POST['order_number'];
 //            $date_order = $_POST['date_order'];
 //            $client_name = $_POST['client'];
 //            $client_email = $_POST['email'];

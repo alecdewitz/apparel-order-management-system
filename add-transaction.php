@@ -60,8 +60,8 @@ include('./php/header.php');
                                                     </label>
                                                     <div class="col-sm-7">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon"><?php echo $settings['order_prefix']; ?>-</span>
-                                                            <input disabled pattern="[0-9]*" min="0" <?php if (!empty($order['order_number'])) echo 'value="' . substr($order['order_number'], strlen($settings['order_prefix']) + 1) . '"' ?> required type="number" class="form-control" name="order_number" placeholder="">
+                                                            <span class="input-group-addon"><?php echo $saved_settings['order_prefix']; ?>-</span>
+                                                            <input disabled pattern="[0-9]*" min="0" <?php if (!empty($order['order_number'])) echo 'value="' . substr($order['order_number'], strlen($saved_settings['order_prefix']) + 1) . '"' ?> required type="number" class="form-control" name="order_number" placeholder="">
                                                         </div>
 
                                                     </div>

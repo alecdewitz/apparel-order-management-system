@@ -41,7 +41,7 @@ while ($order = mysqli_fetch_assoc($result)) {
 
                                         <ul class="dropdown-menu pull-right">
                                             <li>
-                                                <a href="edit-order.php?order_id=<?php echo $order['order_id'] ?>"> Edit </a>
+                                                <a href="<?php echo $base_dir; ?>/orders/edit/<?php echo $order['order_id'] ?>"> Edit </a>
                                             </li>
 
                                             <li>

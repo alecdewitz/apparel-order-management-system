@@ -25,6 +25,6 @@ if ($user['computer_session'] != $_SESSION['computer_session']) {
 //gets settings to output on page
 $settings_query_sql = "SELECT * FROM settings";
 $settings_query = mysqli_query($connection, $settings_query_sql);
-$settings = mysqli_fetch_assoc($settings_query);
+$saved_settings = mysqli_fetch_assoc($settings_query);
 
 //$connection->close();

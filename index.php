@@ -68,10 +68,17 @@ if (in_array($params[0], $primary_pages)) {
     #Login page
     if ($params[0] == $login) {
 
-        //if POST, then include
-        include_once('scripts/login-scripts.php');
+        //if user is logged in already, send to DASHBOARD TODO
+        if (isset($_SESSION['logged_user'])) {
+            //should change to dashboard when ready
+            header("location: " . $base_dir . "/orders/all");
+        }
 
 
+        //only includes if user is submitting login details
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            include_once('scripts/login-scripts.php');
+        }
         require_once('functions/login-functions.php');
         include_once('views/login.php');
         exit();

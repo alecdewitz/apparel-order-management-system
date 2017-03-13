@@ -1,14 +1,5 @@
 <?php
 
-
-//if user is logged in already, send to DASHBOARD TODO
-if (isset($_SESSION['logged_user'])) {
-    //should change to dashboard when ready
-    header("location: " . $base_dir . "/orders/all");
-}
-
-
-
 $error = ''; // Variable To Store Error Message
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
@@ -42,7 +33,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     } else {
         setcookie("invalid", "true", time() + (10), "/");
-        header("location: ./");
+//        header("location: ./");
     }
 }
 

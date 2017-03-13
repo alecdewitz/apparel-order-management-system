@@ -134,14 +134,14 @@
                                             }
                                         } ?>
                                         >
-                                            <td><a class="" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"> <?php echo $client_order['order_number'] ?></a></td>
+                                            <td><a class="" href="<?php echo $base_dir; ?>/orders/view/<?php echo $client_order['order_id'] ?>"> <?php echo $client_order['order_number'] ?></a></td>
                                             <td> <?php echo $client_order['date_order'] ?> </td>
                                             <td> <?php if ($client_order['order_type'] == 1) {
                                                     echo "Client";
                                                 } else {
                                                     echo "Retail";
                                                 } ?> </td>
-                                            <td><a class="" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"> <?php if (strlen($client_order['description']) > 20) {
+                                            <td><a class="" href="views/view-order.php?order_id=<?php echo $client_order['order_id'] ?>"> <?php if (strlen($client_order['description']) > 20) {
                                                         echo substr($client_order['description'], 0, 20) . "...";
                                                     } else echo $client_order['description']; ?></a></td>
                                             <?php if (empty($client_order['submitted_task'])) { ?>
@@ -158,7 +158,7 @@
                                             <td> <?php echo $client_order['s'] + $client_order['m'] + $client_order['l'] + $client_order['xl'] + $client_order['xxl'] + $client_order['xxxl'] ?> </td>
                                             <!-- <td> --><?php //echo $client_order['cost_total'] ?><!-- </td>-->
                                             <td> <?php echo toDollars($client_order['revenue']) ?> </td>
-                                            <td><a class="btn btn-xs btn-default" href="./view-order.php?order_id=<?php echo $client_order['order_id'] ?>"><i class="fa fa-search"></i> <span class="hidden-xs">View</span></a>
+                                            <td><a class="btn btn-xs btn-default" href="views/view-order.php?order_id=<?php echo $client_order['order_id'] ?>"><i class="fa fa-search"></i> <span class="hidden-xs">View</span></a>
                                                 <a class="btn btn-xs btn-default" href="./edit-order.php?order_id=<?php echo $client_order['order_id'] ?>"><i class="fa fa-edit"></i> <span class="hidden-xs">Edit</span></a></td>
                                         </tr>
                                         <?php

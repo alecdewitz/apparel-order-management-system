@@ -25,8 +25,6 @@ $params = explode("/", $request);
 //require_once('errors.php');
 
 
-
-
 ////////////////
 //primary pages
 ////////////////
@@ -49,7 +47,6 @@ $primary_pages = array(
     $settings,
     $accounts
 );
-
 
 
 //connection to database
@@ -94,9 +91,6 @@ if (in_array($params[0], $primary_pages)) {
     }
 
 
-
-
-
     #Dashboard page
     if ($params[0] == $dashboard) {
         include_once('dashboard.php');
@@ -111,8 +105,9 @@ if (in_array($params[0], $primary_pages)) {
     $client = 'client';
     $retail = 'retail';
     $add = 'add';
-        $edit = 'edit';
-            $delete = 'delete';
+    $view = 'view';
+    $edit = 'edit';
+    $delete = 'delete';
 
     $orders_history = array(
         $all,
@@ -122,6 +117,7 @@ if (in_array($params[0], $primary_pages)) {
 
     $orders_functions = array(
         $add,
+        $view,
         $edit,
         $delete
     );
@@ -145,7 +141,23 @@ if (in_array($params[0], $primary_pages)) {
                 include_once('core/header.php');
                 include_once('views/add-order.php');
                 include_once('core/footer.php');
-                exit;
+            } else if ($params[1] == "$view") {
+                include_once('scripts/view-order-scripts.php');
+
+                //checks to see if order is found
+                if ($result->num_rows == 0) {
+                    $_SESSION['order_not_found'] = true;
+                    header('Location: '. $base_dir .'/orders/all');
+                }
+
+                include_once('core/header.php');
+                include_once('views/view-order.php');
+                include_once('core/footer.php');
+
+            } else if ($params[1] == "$edit") {
+
+            } else if ($params[1] == "$delete") {
+
             }
 
         } else {
@@ -154,7 +166,6 @@ if (in_array($params[0], $primary_pages)) {
 
         exit();
     }
-
 
 
 } else if (!$params[0]) {
@@ -166,7 +177,6 @@ if (in_array($params[0], $primary_pages)) {
 
     require_once('functions/login-functions.php');
     require_once('views/login.php');
-
 
 
 } else {

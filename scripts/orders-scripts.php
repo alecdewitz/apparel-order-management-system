@@ -19,18 +19,6 @@ if ($getOrderType == "all") {
     $query = $query . " AND order_type = '" . $type_retail . "'";
 
 }
-//End orders page scripts
-
-
-
-//Checks if on view or edit order page
-if ((strpos($_SERVER['PHP_SELF'], 'view-order.php') || strpos($_SERVER['PHP_SELF'], 'edit-order.php')) && isset($_GET['order_id'])) {
-    $order_id = $_GET['order_id'];
-    $query = $query . " AND order_id = $order_id AND deleted != 1";
-
-}
-
-
 //End order page scripts
 
 //runs sql queries

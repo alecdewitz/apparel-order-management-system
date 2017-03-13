@@ -1,16 +1,4 @@
 <?php
-require('./php/session.php');
-include('./php/orders-scripts.php');
-
-if ($result->num_rows == 0) {
-    $_SESSION['order_not_found'] = true;
-    header('Location: ./orders?not_found=true');
-} else if (!isset($_GET['order_id'])) {
-    header('Location: ./orders?no_order_id=true');
-}
-
-
-include('./php/header.php');
 
 while ($order = mysqli_fetch_assoc($result)) {
 
@@ -20,7 +8,7 @@ while ($order = mysqli_fetch_assoc($result)) {
         <div class="container">
             <ul class="page-breadcrumb breadcrumb">
                 <li>
-                    <a href="./orders.php?type=all">Order History</a>
+                    <a href="../orders.php">Order History</a>
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
@@ -40,7 +28,7 @@ while ($order = mysqli_fetch_assoc($result)) {
                                 <div class="actions">
                                     <div class="btn-group">
                                         <?php /* Retail orders, show add button */ if ($order['order_type'] == "2") { ?>
-                                        <a class="btn blue btn-outline btn-circle" style="margin-right: 10px" href="add-transaction.php?order_id=<?php echo $order['order_id']; ?>">
+                                        <a class="btn blue btn-outline btn-circle" style="margin-right: 10px" href="../add-transaction.php">
                                             <i class="fa fa-plus"></i>
                                             <span class="hidden-xs"> Add Transaction </span>
                                         </a>
@@ -53,7 +41,7 @@ while ($order = mysqli_fetch_assoc($result)) {
 
                                         <ul class="dropdown-menu pull-right">
                                             <li>
-                                                <a href="./edit-order.php?order_id=<?php echo $order['order_id'] ?>"> Edit </a>
+                                                <a href="../edit-order.php?order_id=<?php echo $order['order_id'] ?>"> Edit </a>
                                             </li>
 
                                             <li>
@@ -199,7 +187,7 @@ while ($order = mysqli_fetch_assoc($result)) {
                                             <div class="portlet-body">
                                                 <div class="row static-info">
                                                     <div class="col-md-5 col-xs-6 name">Attachment 1: </div>
-                                                    <div class="col-md-7 col-xs-6 value"> <a href="file.jpg">file.jpg</a></div>
+                                                    <div class="col-md-7 col-xs-6 value"> <a href="../index.php">file.jpg</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -379,7 +367,7 @@ while ($order = mysqli_fetch_assoc($result)) {
 
 
 <?php }
-include('./php/footer.php');
+//include('./php/footer.php');
 include('modals/orders.php'); ?>
 
 <script>

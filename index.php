@@ -4,10 +4,10 @@ require_once('core/connection.php');
 //require_once('errors.php');
 
 #removes extra slashes
-$base_dir = preg_replace('/(\/+)/', '/', $_SERVER['REQUEST_URI']);
+$url = preg_replace('/(\/+)/', '/', $_SERVER['REQUEST_URI']);
 
 #remove the directory path we don't want
-$request = str_replace("/order-management-apparel/", "", $base_dir);
+$request = str_replace("/order-management-apparel/", "", $url);
 
 #split the path by '/'
 $params = explode("/", $request);
@@ -32,7 +32,9 @@ $primary_pages = array(
     $settings
 );
 
-echo dirname($base_dir);
+#gets base directory
+$base_dir = str_replace($_SERVER['DOCUMENT_ROOT'], '', dirname($_SERVER['PHP_SELF']));
+
 
 
 #COMMENT if pages aren't changing headers

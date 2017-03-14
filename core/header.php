@@ -123,7 +123,7 @@
 
 
                                                 <li>
-                                                    <a href="#">
+                                                    <a>
                                                         <span class="time">5 days</span>
                                                         <span class="details">
                                                                     <span class="label label-sm label-icon label-info">
@@ -132,7 +132,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript:;">
+                                                    <a>
                                                         <span class="time">9 days</span>
                                                         <span class="details">
                                                                     <span class="label label-sm label-icon label-danger">
@@ -159,7 +159,7 @@
                                         <li>
                                             <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
                                                 <li>
-                                                    <a href="javascript:;">
+                                                    <a>
                                                         <span class="task">
                                                             <span class="desc">New UI release</span>
                                                             <span class="percent">38%</span>
@@ -181,7 +181,7 @@
                                 </li>
 
                                 <li class="dropdown dropdown-user dropdown-dark">
-                                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                         <img alt="" class="img-circle" src="<?php echo $base_dir; ?>/assets/img/user.png">
                                         <span class="username "><?php echo $user['fullname']; ?></span>
                                     </a>
@@ -247,7 +247,7 @@
 
 
                                 <li class="menu-dropdown classic-menu-dropdown active">
-                                    <a href="#">
+                                    <a>
                                         <i class="fa fa-shirtsinbulk" aria-hidden="true"></i> Order History
                                         <span class="arrow"></span>
                                     </a>
@@ -272,7 +272,7 @@
 
 
                                 <li class="menu-dropdown classic-menu-dropdown">
-                                    <a href="javascript:;">
+                                    <a>
                                         <i class="fa fa-cog" aria-hidden="true"></i> Settings
                                         <span class="arrow"></span>
                                     </a>

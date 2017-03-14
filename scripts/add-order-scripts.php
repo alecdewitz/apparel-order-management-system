@@ -6,16 +6,16 @@ if (isset($_POST['date_order'])) {
         $_SESSION['errors'] = true;
     } else {
         $order_id = getUniqueID();
-        $order_number = $saved_settings['order_prefix'] . "-" . $_POST['order_number'];
-        $order_type = $_POST['order_type'];
-        $date_order = $_POST['date_order'];
+        $order_number = $saved_settings['order_prefix'] . "-" . sanitizeSQL($_POST['order_number']);
+        $order_type = sanitizeSQL($_POST['order_type']);
+        $date_order = sanitizeSQL($_POST['date_order']);
         $date_created = getCurrentTime();
-        $client_name = $_POST['client'];
-        $client_email = $_POST['email'];
-        $description = $_POST['description'];
-        $deadline = $_POST['deadline'];
-        $product = $_POST['product'];
-        $cost_per = $_POST['cost_per'];
+        $client_name = sanitizeSQL($_POST['client']);
+        $client_email = sanitizeSQL($_POST['email']);
+        $description = sanitizeSQL($_POST['description']);
+        $deadline = sanitizeSQL($_POST['deadline']);
+        $product = sanitizeSQL($_POST['product']);
+        $cost_per = sanitizeSQL($_POST['cost_per']);
 
         $date = date("n/j/Y");
 

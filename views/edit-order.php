@@ -11,8 +11,7 @@ if ($result->num_rows == 0) {
 
 include('./php/header.php');
 
-while ($order = mysqli_fetch_assoc($result)) {
-    ?>
+while ($order = mysqli_fetch_assoc($result)) { ?>
 
 
     <div class="page-content">
@@ -78,9 +77,9 @@ while ($order = mysqli_fetch_assoc($result)) {
                                                         </label>
                                                         <div class="col-sm-7">
                                                             <div class="input-group">
-                                                                <span class="input-group-addon"><?php echo $saved_settings['order_prefix']; ?>-</span>
+                                                                <span class="input-group-addon"><?php echo sanitizeHTML($saved_settings['order_prefix']); ?>-</span>
                                                                 <!-- todo: fix substring to match order number -->
-                                                                <input pattern="[0-9]*" min="0" <?php if (!empty($order['order_number'])) echo 'value="' . substr($order['order_number'],strlen($saved_settings['order_prefix'])+1) . '"' ?> required type="number" class="form-control" name="order_number" placeholder="">
+                                                                <input pattern="[0-9]*" min="0" <?php if (!empty($order['order_number'])) echo 'value="' . substr(sanitizeHTML($order['order_number']),strlen(sanitizeHTML($saved_settings['order_prefix']))+1) . '"' ?> required type="number" class="form-control" name="order_number" placeholder="">
                                                             </div>
 
                                                             <span class="help-block"> Ex: S17-01 </span>
@@ -93,7 +92,7 @@ while ($order = mysqli_fetch_assoc($result)) {
                                                         </label>
                                                         <div class="col-sm-7">
                                                             <div class="date-picker input-daterange" data-date="10/11/2012" data-date-format="MM d, yyyy">
-                                                                <input type="text" <?php if (!empty($order['date_order'])) echo 'value="' . $order['date_order'] . '"' ?> class="form-control" name="date_order">
+                                                                <input type="text" <?php if (!empty($order['date_order'])) echo 'value="' . sanitizeHTML($order['date_order']) . '"' ?> class="form-control" name="date_order">
                                                             </div>
                                                             <span class="help-block"> at start of ordering </span>
                                                         </div>
@@ -103,29 +102,29 @@ while ($order = mysqli_fetch_assoc($result)) {
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-sm-7">
-                                                            <input type="text" <?php if (!empty($order['client'])) echo 'value="' . $order['client'] . '"' ?> class="form-control" name="client" placeholder=""></div>
+                                                            <input type="text" <?php if (!empty($order['client'])) echo 'value="' . sanitizeHTML($order['client']) . '"' ?> class="form-control" name="client" placeholder=""></div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-sm-3 control-label">Client Email:
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-sm-7">
-                                                            <input type="text" <?php if (!empty($order['email'])) echo 'value="' . $order['email'] . '"' ?> class="form-control" name="email" placeholder=""></div>
+                                                            <input type="text" <?php if (!empty($order['email'])) echo 'value="' . sanitizeHTML($order['email']) . '"' ?> class="form-control" name="email" placeholder=""></div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-sm-3 control-label">Description:
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-sm-7">
-                                                            <input type="text" <?php if (!empty($order['description'])) echo 'value="' . $order['description'] . '"' ?> class="form-control" name="description" placeholder="">
+                                                            <input type="text" <?php if (!empty($order['description'])) echo 'value="' . sanitizeHTML($order['description']) . '"' ?> class="form-control" name="description" placeholder="">
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label class="col-sm-3 control-label">Deadline:</label>
                                                         <div class="col-sm-7">
-                                                            <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="DD, M d, yyyy">
-                                                                <input type="text" <?php if (!empty($order['deadline'])) echo 'value="' . $order['deadline'] . '"' ?> class="form-control" name="deadline"></div>
+                                                            <div class="date-picker input-daterange" data-date="10/11/2012" data-date-format="DD, M d, yyyy">
+                                                                <input type="text" <?php if (!empty($order['deadline'])) echo 'value="' . sanitizeHTML($order['deadline']) . '"' ?> class="form-control" name="deadline"></div>
                                                         </div>
                                                     </div>
 
@@ -147,7 +146,7 @@ while ($order = mysqli_fetch_assoc($result)) {
                                                                 <input type="hidden" name="product[<?php echo $i ?>][product_id]" value="<?php echo $product['product_id']; ?>">
                                                                 <button class="remove-item btn red btn-outline pull-right delete-product-btn"><span class="glyphicon glyphicon-remove"></span></button>
                                                                 <div class="form-group"><label class="col-sm-3 control-label">Product <?php echo $i ?>: <span class="required"> * </span> </label>
-                                                                    <div class="col-sm-7"><input type="text" class="form-control" value="<?php echo $product['name']; ?>" name="product[<?php echo $i ?>][name]" placeholder=""></div>
+                                                                    <div class="col-sm-7"><input type="text" class="form-control" value="<?php echo sanitizeHTML($product['name']); ?>" name="product[<?php echo $i ?>][name]" placeholder=""></div>
                                                                 </div>
                                                                 <div class="form-group"><label class="col-sm-3 control-label">Sizes: <span class="required"> * </span> </label>
                                                                     <div class="col-sm-7"><label class="col-md-3 control-label">Small: <input min="0" value="<?php echo $product['small']; ?>" type="number" class="form-control" name="product[<?php echo $i ?>][s]" placeholder=""> </label> <label class="col-md-3 control-label">Medium: <input min="0" value="<?php echo $product['medium']; ?>" type="number" class="form-control" name="product[<?php echo $i ?>][m]" placeholder=""> </label> <label class="col-md-3 control-label">Large: <input min="0" value="<?php echo $product['large']; ?>" type="number" class="form-control" name="product[<?php echo $i ?>][l]"
@@ -240,8 +239,7 @@ while ($order = mysqli_fetch_assoc($result)) {
         </div>
     </div>
 
-<?php }
-include('./php/footer.php'); ?>
+<?php } ?>
 
 <style>
     .products-added {
@@ -266,61 +264,5 @@ include('./php/footer.php'); ?>
     }
 </style>
 
-<script>
-    var numberProduct = 0;
-    var addProductHelp = $('.products-added span.add-new-product-help');
-    $('form').on("click", ".add-new-product", function (e) {
-        e.preventDefault();
-        createProduct();
-    });
 
-    if ($(".product-list").length != 0) {
-        numberProduct = $(".product-list").length;
-        addProductHelp.hide();
-    }
-
-    //delete done task from "already done"
-    $('.products-added').on('click', '.remove-item', function (e) {
-        e.preventDefault();
-        var confirmDelete = confirm("Are you sure you want to remove this product?");
-        if (confirmDelete) {
-            removeItem(this);
-            if ($(".product-list").length == 0) {
-                numberProduct = 0;
-                addProductHelp.show();
-            }
-        }
-    });
-
-    //todo use array to find unused product and place there
-
-    //create task
-    function createProduct() {
-        numberProduct++;
-        addProductHelp.hide();
-        var markup = '<div class="product-list"><button class="remove-item btn red btn-outline pull-right delete-product-btn"><span class="glyphicon glyphicon-remove"></span></button> <div class="form-group"> <label class="col-sm-3 control-label">Product ' + numberProduct + ': <span class="required"> * </span> </label> ' +
-            '<div class="col-sm-7"> <input type="text" class="form-control" name="product[' + numberProduct + '][name]" placeholder=""> </div> </div> ' +
-            '<div class="form-group"> <label class="col-sm-3 control-label">Sizes: <span class="required"> * </span> </label> ' +
-            '<div class="col-sm-7"> <label class="col-md-3 control-label">Small: <input min="0" type="number" class="form-control" name="product[' + numberProduct + '][s]" placeholder=""> </label> ' +
-            '<label class="col-md-3 control-label">Medium: <input min="0" type="number" class="form-control" name="product[' + numberProduct + '][m]" placeholder=""> </label> <label class="col-md-3 control-label">Large: ' +
-            '<input min="0" type="number" class="form-control" name="product[' + numberProduct + '][l]" placeholder=""> </label> <label class="col-md-3 control-label">X Large: ' +
-            '<input min="0" type="number" class="form-control" name="product[' + numberProduct + '][xl]" placeholder=""> </label> <label class="col-md-3 control-label">XX Large (+$1.50): ' +
-            '<input min="0" type="number" class="form-control" name="product[' + numberProduct + '][xxl]" placeholder=""> </label> <label class="col-md-3 control-label">XXX Large (+$3): ' +
-            '<input min="0" type="number" class="form-control" name="product[' + numberProduct + '][xxxl]" placeholder=""> </label> <label class="col-md-3 control-label">One Size (Hats): ' +
-            '<input min="0" type="number" class="form-control" name="product[' + numberProduct + '][onesize]" placeholder=""> </label> </div> </div> <div class="form-group"> ' +
-            '<label class="col-sm-3 control-label">Revenue (Sales): <span class="required"> * </span> </label> <div class="col-sm-7"> <div class="input-group"> ' +
-            '<span class="input-group-addon">$</span> <input min="0" step="0.01" required type="number" class="form-control" name="product[' + numberProduct + '][revenue]" placeholder=""> </div> </div> </div> ' +
-            '<div class="form-group"> <label class="col-sm-3 control-label">Cost (Expense): <span class="required"> * </span> </label> <div class="col-sm-7"> <div class="input-group"> ' +
-            '<span class="input-group-addon">$</span> <input min="0" step="0.01" required type="number" class="form-control" name="product[' + numberProduct + '][expense]" placeholder=""> </div> </div> </div> </div>';
-
-        $('div.products-added').append(markup);
-    }
-
-    //remove done task from list
-    function removeItem(element) {
-        $(element).parent().remove();
-    }
-
-
-</script>
 

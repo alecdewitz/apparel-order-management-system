@@ -242,7 +242,7 @@
 
 </script>
 
-<!--Orders page scripts-->
+<!--Create/edit order page scripts-->
 <script>
     var numberProduct = 0;
     var addProductHelp = $('.products-added span.add-new-product-help');
@@ -250,6 +250,11 @@
         e.preventDefault();
         createProduct();
     });
+
+    if ($(".product-list").length != 0) {
+        numberProduct = $(".product-list").length;
+        addProductHelp.hide();
+    }
 
     //delete done task from "already done"
     $('.products-added').on('click', '.remove-item', function () {

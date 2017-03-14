@@ -56,9 +56,9 @@ function sanitizeHTML($html){
 function sanitizeSQL($sql){
     global $connection;
     $sql = stripslashes($sql);
-    return mysqli_real_escape_string($connection, $sql);
+    $sql = mysqli_real_escape_string($connection, $sql);
+    return $sql;
 }
-
 
 //gets order information, even deleted?
 function getOrderByID($order_id) {

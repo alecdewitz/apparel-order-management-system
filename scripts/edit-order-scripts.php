@@ -3,7 +3,7 @@
 //todo verify user is authorized to see orders
 //todo cleanup code
 
-$order_id = $params[2];
+$order_id = sanitizeSQL($params[2]);
 $query = "SELECT * FROM orders WHERE order_id = '$order_id' AND deleted != 1";
 
 //runs sql queries
@@ -63,20 +63,22 @@ if (isset($_POST['date_order'])) {
         $_SESSION['errors'] = true;
     } else {
         $order_number = $saved_settings['order_prefix'] . "-" . $_POST['order_number'];
-        $date_order = $_POST['date_order'];
-        $client_name = $_POST['client'];
-        $client_email = $_POST['email'];
-        $description = $_POST['description'];
-        $deadline = $_POST['deadline'];
+        $date_order = sanitizeSQL($_POST['date_order']);
+        $client_name = sanitizeSQL($_POST['client']);
+        $client_email = sanitizeSQL($_POST['email']);
+        $description = sanitizeSQL($_POST['description']);
+        $deadline = sanitizeSQL($_POST['deadline']);
 
         $date = date("n/j/Y");
         $values = [];
 
         if ( isset( $_POST['product'] ) ) {
 
-            foreach ( $_POST['product'] as $product ) {
+            $products_clean = $_POST['product'];
 
-                $product_name = $product['name'];
+            foreach ( $products_clean as $product ) {
+
+                $product_name = sanitizeSQL($product['name']);
                 $small = (int)$product['s'];
                 $medium = (int)$product['m'];
                 $large = (int)$product['l'];
@@ -109,16 +111,15 @@ if (isset($_POST['date_order'])) {
         }
 
 
-        //encode to json
+        //json object for database
         $products = json_encode($values);
 
+        //CHANGE THESE YUCK
         $submitted_task = $_POST['submitted_task'];
         $paid_invoice_task = $_POST['paid_invoice_task'];
         $sent_invoice_task = $_POST['sent_invoice_task'];
         $received_task = $_POST['received_task'];
 
-        //gets id from browser
-        $order_id = $params[2];
 
         if ($connection->connect_error) {
             die('Connection failed: ' . $connection->connect_error);

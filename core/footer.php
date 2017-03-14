@@ -30,7 +30,13 @@
     });
 
     $('.date-picker').datepicker({
-        autoclose: true
+        autoclose: true,
+        format: "MM d, yyyy",
+        todayBtn: true
+    });
+    //adjusts date-picker in place on scroll
+    $( document ).scroll(function(){
+        $('.date-picker').datepicker('place');
     });
 
     $('.page-header').on('click', '.search-form', function (e) {

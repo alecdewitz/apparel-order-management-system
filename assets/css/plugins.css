@@ -545,3 +545,27 @@ Fullcalendar
 .portlet.calendar .mobile .fc-content {
     margin-top: 53px;
 }
+
+
+
+
+/***
+jQuery Slimscroll
+***/
+.scroller {
+    padding: 0px;
+    margin: 0px;
+    padding-right: 12px;
+    overflow: hidden; }
+
+.scroller-footer {
+    margin-top: 10px; }
+.scroller-footer:before, .scroller-footer:after {
+    content: " ";
+    display: table; }
+.scroller-footer:after {
+    clear: both; }
+
+.portlet-body .slimScrollBar {
+    margin-right: 0px; }
+

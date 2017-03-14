@@ -93,7 +93,9 @@ if (in_array($params[0], $primary_pages)) {
 
     #Dashboard page
     if ($params[0] == $dashboard) {
-        include_once('dashboard.php');
+        include_once('core/header.php');
+        include_once('views/dashboard.php');
+        include_once('core/footer.php');
         exit();
     }
 

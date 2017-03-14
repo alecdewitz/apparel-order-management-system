@@ -68,10 +68,14 @@
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-sm-7">
-                                                        <div class="date-picker input-daterange" data-date="10/11/2012" data-date-format="MM d, yyyy">
-                                                            <input type="text" class="form-control" value="<?php echo date('F j, Y'); ?>" name="date_order">
+                                                        <div class="input-group date form_datetime date-picker" data-date-viewmode="years">
+                                                            <input name="date_order" type="text" value="<?php echo date('F j, Y'); ?>" class="form-control" readonly="">
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
                                                         </div>
-                                                        <span class="help-block"> at start of ordering </span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -138,8 +142,13 @@
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-sm-7">
-                                                        <div class="date-picker input-daterange" data-date="10/11/2012" data-date-format="m/d/yyyy">
-                                                            <input type="text" class="form-control" name="submitted_task">
+                                                        <div class="input-group date form_datetime date-picker" data-date-viewmode="years">
+                                                            <input name="submitted_task" type="text" class="form-control" readonly="">
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -149,8 +158,13 @@
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-sm-7">
-                                                        <div class="date-picker input-daterange" data-date="10/11/2012" data-date-format="m/d/yyyy">
-                                                            <input type="text" class="form-control" name="paid_invoice_task">
+                                                        <div class="input-group date form_datetime date-picker" data-date-viewmode="years">
+                                                            <input name="paid_invoice_task" type="text" class="form-control" readonly="">
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -160,8 +174,13 @@
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-sm-7">
-                                                        <div class="date-picker input-daterange" data-date="10/11/2012" data-date-format="m/d/yyyy">
-                                                            <input type="text" class="form-control" name="sent_invoice_task">
+                                                        <div class="input-group date form_datetime date-picker" data-date-viewmode="years">
+                                                            <input name="sent_invoice_task" type="text" class="form-control" readonly="">
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -170,8 +189,13 @@
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-sm-7">
-                                                        <div class="date-picker input-daterange" data-date="10/11/2012" data-date-format="m/d/yyyy">
-                                                            <input type="text" class="form-control" name="received_task">
+                                                        <div class="input-group date form_datetime date-picker" data-date-viewmode="years">
+                                                            <input name="received_task" type="text" class="form-control" readonly="">
+                                                            <span class="input-group-btn">
+                                                                <button class="btn default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -198,14 +222,17 @@
         margin-bottom: 20px;
         text-align: center;
     }
+
     .product-list {
         margin-bottom: 10px;
         padding: 20px 0 10px 0;
         border-bottom: 2px solid #ddd;
     }
+
     .product-list:last-child {
         border: none;
     }
+
     .delete-product-btn {
 
     }

@@ -88,7 +88,7 @@
     });
 
     $(".clickable-row").click(function () {
-        window.location = $(this).data("href");
+//        window.location = $(this).data("href");
     });
 
 
@@ -205,7 +205,7 @@
         });
 
 
-        $('#edit-user').on("click", "#edit-user-confirm", function () {
+        $('#edit-user').on("click", "#edit-user-confirm", function (e) {
             $.post("<?php echo $base_dir; ?>/settings/users/edit", {
                 account_id: $('#edit_account_id').val(),
                 account_fullname: $('#fullname_edit').val(),

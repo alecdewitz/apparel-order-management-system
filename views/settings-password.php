@@ -1,8 +1,3 @@
-<?php
-require('./php/session.php');
-include('./php/settings-scripts.php');
-include('./php/header.php');
-?>
 <style>
     .progresslist {
         background-color: #FFF;
@@ -76,7 +71,7 @@ include('./php/header.php');
             </ul>
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-horizontal form-row-seperated" method="post" action="">
+                    <form class="form-horizontal form-row-seperated" method="post" action="<?php echo $base_dir; ?>/settings/password">
                         <div class="portlet">
                             <div class="portlet-title">
                                 <div class="caption">
@@ -102,6 +97,9 @@ include('./php/header.php');
                                                     <h1>New Password</h1>
                                                 </div>
 
+                                                <?php getPasswordAlert(); ?>
+
+                                                <input type="hidden" name="account_id" value="<?php echo getUserID($user); ?>">
                                                 <div class="form-group">
                                                     <label class="col-md-2 control-label">Old Password:
                                                         <span class="required"> * </span>
@@ -121,11 +119,11 @@ include('./php/header.php');
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="col-md-2 control-label">Retype Password:
+                                                    <label class="col-md-2 control-label">Verify Password:
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-10">
-                                                        <input type="password" class="form-control" name="retype_password" placeholder="">
+                                                        <input type="password" class="form-control" name="verify_password" placeholder="">
                                                     </div>
                                                 </div>
 
@@ -146,8 +144,4 @@ include('./php/header.php');
         </div>
     </div>
 </div>
-
-
-<?php include('./php/footer.php'); ?>
-
 

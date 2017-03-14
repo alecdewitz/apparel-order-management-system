@@ -130,7 +130,7 @@ if (in_array($params[0], $primary_pages)) {
             $getOrderType = $params[1];
             include_once('scripts/orders-scripts.php');
             include_once('functions/orders-functions.php');
-            include_once('core/header.php');
+            include_once(getHeaderLocation());
             include_once('orders.php');
             include_once('core/footer.php');
 
@@ -139,7 +139,7 @@ if (in_array($params[0], $primary_pages)) {
                 if (isPostRequest()) {
                     include_once('scripts/add-order-scripts.php');
                 }
-                include_once('core/header.php');
+                include_once(getHeaderLocation());
                 include_once('views/add-order.php');
                 include_once('core/footer.php');
             } else if ($params[1] == "$view") {
@@ -151,7 +151,7 @@ if (in_array($params[0], $primary_pages)) {
                     header('Location: '. $base_dir .'/orders/all');
                 }
 
-                include_once('core/header.php');
+                include_once(getHeaderLocation());
                 include_once('views/view-order.php');
                 include_once('modals/orders-modal.php');
                 include_once('core/footer.php');
@@ -166,7 +166,7 @@ if (in_array($params[0], $primary_pages)) {
                     header('Location: '. $base_dir .'/orders/all');
                 }
 
-                include_once('core/header.php');
+                include_once(getHeaderLocation());
                 include_once('views/edit-order.php');
                 include_once('modals/orders-modal.php');
                 include_once('core/footer.php');
@@ -190,14 +190,18 @@ if (in_array($params[0], $primary_pages)) {
             if (isPostRequest()) {
                 include_once('scripts/settings-general-scripts.php');
             }
-            include_once('functions/settings-functions.php');
+            include_once('functions/settings/general-functions.php');
             include_once('core/header.php');
             include_once('views/settings-general.php');
             include_once('core/footer.php');
         } else if ($params[1] == "password") {
-            include_once('scripts/settings-general-scripts.php');
+            if (isPostRequest()) {
+                include_once('scripts/settings/password-scripts.php');
+                exit;
+            }
+            include_once('functions/settings/password-functions.php');
             include_once('core/header.php');
-            include_once('views/settings-general.php');
+            include_once('views/settings-password.php');
             include_once('core/footer.php');
         } else if ($params[1] == "users") {
             if ($params[2] == "create") {
@@ -216,7 +220,7 @@ if (in_array($params[0], $primary_pages)) {
                 include_once('scripts/settings/users-get-scripts.php');
                 exit;
             }
-            include_once('functions/users-functions.php');
+            include_once('functions/settings/users-functions.php');
             include_once('scripts/settings-users-scripts.php');
             include_once('core/header.php');
             include_once('views/settings-users.php');

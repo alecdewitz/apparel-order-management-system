@@ -19,3 +19,7 @@ function getUserID($user) {
 function getUserIDNumber($user) {
     return $user['id'];
 }
+
+function getHeaderLocation(){
+    return 'core/header.php';
+}

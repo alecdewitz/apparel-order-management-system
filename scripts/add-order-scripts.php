@@ -5,7 +5,7 @@ if (isset($_POST['date_order'])) {
     if (empty($_POST['date_order'])) {
         $_SESSION['errors'] = true;
     } else {
-        $order_id = uniqid();
+        $order_id = getUniqueID();
         $order_number = $saved_settings['order_prefix'] . "-" . $_POST['order_number'];
         $order_type = $_POST['order_type'];
         $date_order = $_POST['date_order'];
@@ -35,7 +35,7 @@ if (isset($_POST['date_order'])) {
                 $onesize = (int)$product['onesize'];
                 $revenue = (float)$product['revenue'];
                 $expense = (float)$product['expense'];
-                $product_id = uniqid();
+                $product_id = getUniqueID();
 
                 $values[] = array(
                     'name' => $product_name,

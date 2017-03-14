@@ -25,7 +25,7 @@ if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['full
     $password = $connection->real_escape_string($password);
     $hash = password_hash($password, PASSWORD_DEFAULT);
     $date = $date = date("m-d-Y g:i:s A");
-    $account_id = uniqid();
+    $account_id = getUniqueID();
 
     $sql = "INSERT INTO accounts (account_id, account_type, username, password, email, fullname, account_date_created)
                         VALUES ('$account_id', '$type', '$username', '$hash', '$email', '$fullname', '$date')";

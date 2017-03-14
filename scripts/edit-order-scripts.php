@@ -87,7 +87,7 @@ if (isset($_POST['date_order'])) {
                 $revenue = (float)$product['revenue'];
                 $expense = (float)$product['expense'];
                 $product_id = $product['product_id'];
-                if (!$product_id) $product_id = uniqid();
+                if (!$product_id) $product_id = getUniqueID();
 
                 $values[] = array(
                     'name' => $product_name,
@@ -127,13 +127,18 @@ if (isset($_POST['date_order'])) {
         $sql = "UPDATE orders SET order_number = '$order_number', date_order = '$date_order', client = '$client_name',
             email = '$client_email', description = '$description', deadline = '$deadline', products = '$products', submitted_task = '$submitted_task', 
             paid_invoice_task = '$paid_invoice_task', sent_invoice_task = '$sent_invoice_task', received_task = '$received_task' 
-            WHERE order_id = " . $order_id;
+            WHERE order_id = '$order_id'";
         if (mysqli_query($connection, $sql)) {
+
+            orderActivity("Order " . $order_id . " edited.", $order_id);
+
             $_SESSION['order_id_updated'] = $order_id;
             // mysqli_close($connection);
             header('location: '.$base_dir.'/orders/all');
+            exit;
+
         } else {
-            echo 'failed';
+            echo 'failed to save';
         }
 //        $connection->close();
     }

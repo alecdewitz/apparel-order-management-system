@@ -21,6 +21,12 @@ function getOrderAlert()
             <strong>Success!</strong> Order has been deleted.
         </div>
         <?php
+    } elseif (isset($_SESSION['order_id_updated'])) {
+        unset($_SESSION['order_id_updated']); ?>
+        <div class="alert alert-success">
+            <strong>Success!</strong> Order has been updated.
+        </div>
+        <?php
     }
 
 }

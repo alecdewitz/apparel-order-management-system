@@ -70,12 +70,15 @@
             color: green;
             font-size: 20px;
         }
+
         div.tab-pane div.table-responsive {
             -webkit-overflow-scrolling: touch;
         }
+
         a.company-name {
             text-decoration: none;
         }
+
         .center-button {
             margin: 0 auto;
             display: block;
@@ -98,7 +101,7 @@
                         <!-- BEGIN LOGO -->
                         <div class="page-logo">
                             <a class="company-name" href="<?php echo $base_dir; ?>/dashboard">
-<!--                                <img src="./assets/img/logo.png" alt="logo" class="logo-default">-->
+                                <!--                                <img src="./assets/img/logo.png" alt="logo" class="logo-default">-->
                                 <h1><?php echo $saved_settings['company_name']; ?></h1>
                             </a>
                         </div>
@@ -107,21 +110,20 @@
                             <ul class="nav navbar-nav pull-right">
                                 <li class="dropdown dropdown-extended dropdown-notification dropdown-dark" id="header_notification_bar">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                        <i class="fa fa-bell" aria-hidden="true"></i>
-                                        <span class="badge badge-default">7</span>
+                                        <i class="fa fa-bolt" aria-hidden="true"></i>
+                                        <span class="badge badge-default">10+</span>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li class="external">
-                                            <h3>You have
-                                                <strong>12 pending</strong> tasks</h3>
-                                            <a href="../index.php">view all</a>
+                                            <h3><strong>12 unread</strong> activity items</h3>
+                                            <a href="<?php echo $base_dir; ?>/accounts/activity">view all</a>
                                         </li>
                                         <li>
                                             <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
 
 
                                                 <li>
-                                                    <a href="javascript:;">
+                                                    <a href="#">
                                                         <span class="time">5 days</span>
                                                         <span class="details">
                                                                     <span class="label label-sm label-icon label-info">
@@ -144,15 +146,15 @@
                                 </li>
 
                                 <li class="dropdown dropdown-extended dropdown-tasks dropdown-dark" id="header_task_bar">
-                                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                        <i class="fa fa-bell" aria-hidden="true"></i>
                                         <span class="badge badge-default">3</span>
                                     </a>
                                     <ul class="dropdown-menu extended tasks">
                                         <li class="external">
                                             <h3>You have
                                                 <strong>12 pending</strong> tasks</h3>
-                                            <a href="../index.php">view all</a>
+                                            <a href="<?php echo $base_dir; ?>/accounts/activity">view all</a>
                                         </li>
                                         <li>
                                             <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
@@ -192,21 +194,20 @@
                                         </li>
 
 
-
                                         <?php if ($user['account_type'] == 1) { ?>
-                                        <li>
-                                            <a href="<?php echo $base_dir; ?>/accounts/all">
-                                                <i class="fa fa-users"></i>
-                                                <span>Accounts</span>
-                                            </a>
-                                        </li>
+                                            <li>
+                                                <a href="<?php echo $base_dir; ?>/accounts/all">
+                                                    <i class="fa fa-users"></i>
+                                                    <span>Accounts</span>
+                                                </a>
+                                            </li>
 
 
-                                        <li>
-                                            <a href="<?php echo $base_dir; ?>/accounts/password">
-                                                <i class="fa fa-cog" aria-hidden="true"></i> Change Password </a>
-                                        </li>
-                                        <li class="divider"></li>
+                                            <li>
+                                                <a href="<?php echo $base_dir; ?>/accounts/password">
+                                                    <i class="fa fa-cog" aria-hidden="true"></i> Change Password </a>
+                                            </li>
+                                            <li class="divider"></li>
                                         <?php } ?>
 
 
@@ -239,14 +240,14 @@
                         <div class="hor-menu hor-menu-light">
                             <ul class="nav navbar-nav">
                                 <li class="menu-dropdown classic-menu-dropdown ">
-                                    <a href="<?php echo $base_dir; ?>../index.php">
+                                    <a href="<?php echo $base_dir; ?>/dashboard">
                                         <i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard
                                     </a>
                                 </li>
 
 
                                 <li class="menu-dropdown classic-menu-dropdown active">
-                                    <a href="javascript:;">
+                                    <a href="#">
                                         <i class="fa fa-shirtsinbulk" aria-hidden="true"></i> Order History
                                         <span class="arrow"></span>
                                     </a>
@@ -299,9 +300,8 @@
                                 </li>
 
 
-
                                 <li class="menu-dropdown classic-menu-dropdown ">
-                                    <a href="<?php echo $base_dir; ?>../index.php">
+                                    <a href="<?php echo $base_dir; ?>/logout">
                                         <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
                                     </a>
                                 </li>
@@ -335,7 +335,7 @@
                                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                                         <ul class="theme-colors">
                                                             <li class="theme-color theme-color-default" data-theme="default">
-                                                                <a href="<?php echo $base_dir; ?>../index.php"><span class="theme-color-name"><i class="fa fa-sign-out"></i> Logout</span></a>
+                                                                <a href="<?php echo $base_dir; ?>/logout"><span class="theme-color-name"><i class="fa fa-sign-out"></i> Logout</span></a>
                                                             </li>
 
                                                         </ul>

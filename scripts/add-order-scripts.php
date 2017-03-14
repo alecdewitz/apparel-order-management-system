@@ -75,6 +75,10 @@ if (isset($_POST['date_order'])) {
                         VALUES (null, '$order_id', '$order_number', '$order_type', '$date_created', '$date_order', '$client_name', '$client_email', '$description', '$deadline',
                            '$products', '$submitted_task', '$paid_invoice_task', '$sent_invoice_task', '$received_task')";
         if (mysqli_query($connection, $sql)) {
+
+            //stores log of activity
+            orderActivity($order_id, $order_number, 4);
+
             $_SESSION['created_order'] = true;
             header('location: ' . $base_dir . '/orders/all');
             exit;

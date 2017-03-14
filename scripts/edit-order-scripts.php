@@ -130,7 +130,11 @@ if (isset($_POST['date_order'])) {
             WHERE order_id = '$order_id'";
         if (mysqli_query($connection, $sql)) {
 
-            orderActivity("Order " . $order_id . " edited.", $order_id);
+
+
+            //stores log of activity
+            orderActivity($order_id, $order_number, 2);
+
 
             $_SESSION['order_id_updated'] = $order_id;
             // mysqli_close($connection);

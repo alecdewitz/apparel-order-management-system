@@ -53,7 +53,6 @@ $primary_pages = array(
 require('core/connection.php');
 require_once('functions/backend-functions.php');
 
-
 ////////////////
 //URL forwarding
 ////////////////

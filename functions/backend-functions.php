@@ -27,3 +27,7 @@ function getHeaderPath(){
 function getFooterPath(){
     return 'core/footer.php';
 }
+
+function getCurrentTime() {
+    return (int) round(microtime(true) * 1000);
+}

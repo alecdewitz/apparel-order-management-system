@@ -135,14 +135,14 @@ if (in_array($params[0], $primary_pages)) {
             include_once(getFooterPath());
 
         } else if (in_array($params[1], $orders_functions)) {
-            if ($params[1] == "$add") {
+            if ($params[1] == $add) {
                 if (isPostRequest()) {
                     include_once('scripts/add-order-scripts.php');
                 }
                 include_once(getHeaderPath());
                 include_once('views/add-order.php');
                 include_once(getFooterPath());
-            } else if ($params[1] == "$view") {
+            } else if ($params[1] == $view) {
                 include_once('scripts/view-order-scripts.php');
 
                 //checks to see if order is found
@@ -156,7 +156,7 @@ if (in_array($params[0], $primary_pages)) {
                 include_once('modals/orders-modal.php');
                 include_once(getFooterPath());
 
-            } else if ($params[1] == "$edit" && $params[2]) {
+            } else if ($params[1] == $edit && $params[2]) {
 
                 include_once('scripts/edit-order-scripts.php');
 
@@ -170,7 +170,7 @@ if (in_array($params[0], $primary_pages)) {
                 include_once('views/edit-order.php');
                 include_once('modals/orders-modal.php');
                 include_once(getFooterPath());
-            } else if ($params[1] == "$delete") {
+            } else if ($params[1] == $delete) {
                 if (!isPostRequest()) {
                     include_once('scripts/delete-order-scripts.php');
                 }

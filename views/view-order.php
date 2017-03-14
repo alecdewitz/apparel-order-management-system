@@ -27,12 +27,16 @@ while ($order = mysqli_fetch_assoc($result)) {
                                 </div>
                                 <div class="actions">
                                     <div class="btn-group">
+
+
                                         <?php /* Retail orders, show add button */ if ($order['order_type'] == "2") { ?>
                                         <a class="btn blue btn-outline btn-circle" style="margin-right: 10px" href="../add-transaction.php">
                                             <i class="fa fa-plus"></i>
                                             <span class="hidden-xs"> Add Transaction </span>
                                         </a>
                                         <?php } ?>
+
+
                                         <a class="btn red btn-outline btn-circle" href="#" data-toggle="dropdown">
                                             <i class="fa fa-pencil"></i>
                                             <span class="hidden-xs"> Options </span>
@@ -45,7 +49,7 @@ while ($order = mysqli_fetch_assoc($result)) {
                                             </li>
 
                                             <li>
-                                                <a class="delete-order-modal" data-target="#delete-order" data-toggle="modal" data-href="./edit-order.php?order_id=<?php echo $order['order_id'] ?>&delete=true"> Delete </a>
+                                                <a class="delete-order-modal" data-target="#delete-order" data-toggle="modal" data-href="<?php echo $base_dir; ?>/orders/delete/<?php echo $order['order_id'] ?>"> Delete </a>
                                             </li>
                                         </ul>
                                     </div>

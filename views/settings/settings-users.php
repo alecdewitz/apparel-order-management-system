@@ -4,7 +4,7 @@
             <ul class="page-breadcrumb breadcrumb">
                 <ul class="page-breadcrumb breadcrumb">
                     <li>
-                        <a href="./settings-general.php">General</a>
+                        <a href="settings-general.php">General</a>
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
@@ -12,11 +12,11 @@
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <a href="./settings-password.php">Change Password</a>
+                        <a href="settings-password.php">Change Password</a>
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <a href="./settings-progress.php">Order Progress</a>
+                        <a href="settings-advanced.php">Order Progress</a>
                     </li>
                 </ul>
             </ul>
@@ -76,7 +76,7 @@
                                                             <td> <?php echo $users['username'] ?> </td>
                                                             <td> <?php echo $users['fullname'] ?> </td>
                                                             <td> <?php echo $users['last_login'] ?> </td>
-                                                            <td><a class="btn btn-xs btn-default" href="../index.php"><i class="fa fa-search"></i></a>
+                                                            <td><a class="btn btn-xs btn-default" href="../../index.php"><i class="fa fa-search"></i></a>
                                                                 <a class="btn btn-xs btn-default" data-account-id="<?php echo $users['account_id'] ?>" data-account-username="<?php echo $users['username'] ?>" data-target="#edit-user" data-type="edit" data-toggle="modal"><i class="fa fa-edit"></i></a>
                                                                 <?php if ($users['account_type'] != 1) { ?><a class="btn btn-xs btn-default" data-account-id="<?php echo $users['account_id'] ?>" data-account-username="<?php echo $users['username'] ?>" data-target="#delete-user" data-type="edit" data-toggle="modal"><i class="fa fa-trash"></i></a></td><?php } ?>
                                                         </tr>

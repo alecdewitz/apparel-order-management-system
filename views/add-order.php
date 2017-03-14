@@ -190,7 +190,6 @@
         </div>
     </div>
 </div>
-<?php include('./php/footer.php'); ?>
 
 <style>
     .products-added {
@@ -212,54 +211,4 @@
     }
 </style>
 
-<script>
-    var numberProduct = 0;
-    var addProductHelp = $('.products-added span.add-new-product-help');
-    $('form').on("click", ".add-new-product", function (e) {
-        e.preventDefault();
-        createProduct();
-    });
 
-    //delete done task from "already done"
-    $('.products-added').on('click', '.remove-item', function () {
-        var confirmDelete = confirm("Are you sure you want to remove this product?");
-        if (confirmDelete) {
-            removeItem(this);
-            if ($(".product-list").length == 0) {
-                numberProduct = 0;
-                addProductHelp.show();
-            }
-        }
-    });
-
-    //todo use array to find unused product and place there
-
-    //create task
-    function createProduct() {
-        numberProduct++;
-        addProductHelp.hide();
-        var markup = '<div class="product-list"><button class="remove-item btn red btn-outline pull-right delete-product-btn"><span class="glyphicon glyphicon-remove"></span></button> <div class="form-group"> <label class="col-sm-3 control-label">Product ' + numberProduct + ': <span class="required"> * </span> </label> ' +
-            '<div class="col-sm-7"> <input type="text" class="form-control" name="product['+ numberProduct +'][name]" placeholder=""> </div> </div> ' +
-            '<div class="form-group"> <label class="col-sm-3 control-label">Sizes: <span class="required"> * </span> </label> ' +
-            '<div class="col-sm-7"> <label class="col-md-3 control-label">Small: <input min="0" type="number" class="form-control" name="product['+ numberProduct +'][s]" placeholder=""> </label> ' +
-            '<label class="col-md-3 control-label">Medium: <input min="0" type="number" class="form-control" name="product['+ numberProduct +'][m]" placeholder=""> </label> <label class="col-md-3 control-label">Large: ' +
-            '<input min="0" type="number" class="form-control" name="product['+ numberProduct +'][l]" placeholder=""> </label> <label class="col-md-3 control-label">X Large: ' +
-            '<input min="0" type="number" class="form-control" name="product['+ numberProduct +'][xl]" placeholder=""> </label> <label class="col-md-3 control-label">XX Large (+$1.50): ' +
-            '<input min="0" type="number" class="form-control" name="product['+ numberProduct +'][xxl]" placeholder=""> </label> <label class="col-md-3 control-label">XXX Large (+$3): ' +
-            '<input min="0" type="number" class="form-control" name="product['+ numberProduct +'][xxxl]" placeholder=""> </label> <label class="col-md-3 control-label">One Size (Hats): ' +
-            '<input min="0" type="number" class="form-control" name="product['+ numberProduct +'][onesize]" placeholder=""> </label> </div> </div> <div class="form-group"> ' +
-            '<label class="col-sm-3 control-label">Revenue (Sales): <span class="required"> * </span> </label> <div class="col-sm-7"> <div class="input-group"> ' +
-            '<span class="input-group-addon">$</span> <input min="0" step="0.01" required type="number" class="form-control" name="product['+ numberProduct +'][revenue]" placeholder=""> </div> </div> </div> ' +
-            '<div class="form-group"> <label class="col-sm-3 control-label">Cost (Expense): <span class="required"> * </span> </label> <div class="col-sm-7"> <div class="input-group"> ' +
-            '<span class="input-group-addon">$</span> <input min="0" step="0.01" required type="number" class="form-control" name="product['+ numberProduct +'][expense]" placeholder=""> </div> </div> </div> </div>';
-
-        $('div.products-added').append(markup);
-    }
-
-    //remove done task from list
-    function removeItem(element) {
-        $(element).parent().remove();
-    }
-
-
-</script>

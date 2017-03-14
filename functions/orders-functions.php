@@ -15,10 +15,10 @@ function getOrderAlert()
             Order number not found.
         </div>
         <?php
-    } elseif (isset($_SESSION['order_id_updated'])) {
-        ?>
-        <div class="alert alert-info">
-            <strong>Success!</strong> The order has been edited.
+    } elseif (isset($_SESSION['order_deleted'])) {
+        unset($_SESSION['order_deleted']); ?>
+        <div class="alert alert-danger">
+            <strong>Success!</strong> Order has been deleted.
         </div>
         <?php
     }

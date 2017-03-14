@@ -20,6 +20,10 @@ function getUserIDNumber($user) {
     return $user['id'];
 }
 
-function getHeaderLocation(){
+function getHeaderPath(){
     return 'core/header.php';
+}
+
+function getFooterPath(){
+    return 'core/footer.php';
 }
